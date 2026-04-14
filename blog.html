@@ -196,15 +196,7 @@
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a href="index.html" class="logo"><span class="logo-name">Сергей Прусс</span><span class="logo-sub">CEO · Serenity Agency · 20 лет</span></a>
-    <div style="display:flex;gap:24px;align-items:center;">
-      <a href="blog.html" class="tg" style="color:var(--accent);border-color:var(--accent);">Блог</a>
-      <a href="https://t.me/sergeypruss" class="tg" target="_blank">Telegram</a>
-    </div>
-  </div>
-</nav>
+<div id="site-header"></div>
 
 <div class="wrap">
   <div class="blog-header">
@@ -215,16 +207,7 @@
   <div class="post-list" id="postList"></div>
 </div>
 
-<footer>
-  <div class="wrap">
-    <span class="footer-name">Сергей Прусс</span>
-    <div class="footer-links">
-      <a href="https://t.me/sergeypruss" target="_blank">Канал</a>
-      <a href="https://serenity.agency" target="_blank">Агентство</a>
-      <a href="https://t.me/sergeyprus" target="_blank">Написать</a>
-    </div>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
 <script>
 const POSTS = [
@@ -943,5 +926,6 @@ POSTS.forEach(p => {
   list.appendChild(entry);
 });
 </script>
+<script src="components.js"></script>
 </body>
 </html>
