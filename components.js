@@ -12,4 +12,14 @@
   }
   await load('#site-header', 'header.html');
   await load('#site-footer', 'footer.html');
+
+  // Highlight active nav link
+  const page = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('nav a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && href === page) {
+      a.style.color = 'var(--accent)';
+      a.style.borderColor = 'var(--accent)';
+    }
+  });
 })();
