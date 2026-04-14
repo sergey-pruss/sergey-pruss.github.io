@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Блог — Сергей Прусс</title>
-<meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса, CEO маркетингового агентства Serenity">
+<title>В самоорганизованных организациях у гайдов важная роль, потому что все… — Сергей Прусс</title>
+<meta name="description" content="Так как самоорганизация основана на самостоятельности, в том числе и в обучении, то гайды и инструкции должны быть крутыми, чтобы ими было приятно пользоваться.">
+<meta property="og:title" content="В самоорганизованных организациях у гайдов важная роль, потому что все…">
+<meta property="og:description" content="Так как самоорганизация основана на самостоятельности, в том числе и в обучении, то гайды и инструкции должны быть крутыми, чтобы ими было приятно пользоваться.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sergeypruss.ru/posts/v-samoorganizovannykh-organizatsiyakh-u-gaydov-vaz.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -189,83 +193,33 @@
   }
 
 
-  /* BLOG PAGE */
-  .blog-header { padding: 52px 0 36px; }
-  .blog-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,6vw,3rem); font-weight: 400; line-height: 1.1; margin-bottom: 8px; }
-  .blog-header .sub { font-size: .87rem; color: var(--ink-soft); }
-
-  .post-card { padding: 28px 0; border-bottom: 1px solid var(--line); text-decoration: none; display: block; transition: opacity .15s; }
-  .post-card:first-child { border-top: 1px solid var(--line); }
-  .post-card:hover { opacity: .75; }
-  .post-card-date { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
-  .post-card-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 400; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
-  .post-card-desc { font-size: .88rem; line-height: 1.65; color: var(--ink-soft); }
-
-  .pagination { display: flex; gap: 8px; align-items: center; padding: 40px 0 80px; }
-  .page-btn { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); background: none; border: 1px solid var(--line); padding: 8px 16px; cursor: pointer; font-family: 'Spectral', serif; transition: color .2s, border-color .2s; }
-  .page-btn:hover, .page-btn.active { color: var(--accent); border-color: var(--accent); }
-  .page-btn:disabled { opacity: .3; cursor: default; }
+  .post-header { padding: 52px 0 36px; }
+  .post-date { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
+  .post-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 5vw, 2.6rem); font-weight: 400; line-height: 1.15; letter-spacing: -.01em; margin-bottom: 0; }
+  .post-body { padding-bottom: 80px; }
+  .post-body p { font-size: 1rem; line-height: 1.82; margin-bottom: 1.4em; color: var(--ink); }
+  .post-body p:last-child { margin-bottom: 0; }
+  .back-link { display: inline-block; margin-top: 48px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color .2s, border-color .2s; }
+  .back-link:hover { color: var(--accent); border-color: var(--accent); }
 </style>
 </head>
 <body>
 <div id="site-header"></div>
 <div class="wrap">
-  <div class="blog-header">
-    <h1>Блог</h1>
-    <p class="sub">Заметки о культуре, управлении и бизнесе</p>
+  <div class="post-header">
+    <p class="post-date">26 May 2021</p>
+    <h1 class="post-title">В самоорганизованных организациях у гайдов важная роль, потому что все…</h1>
   </div>
   <hr>
-  <div id="postList"></div>
-  <div class="pagination" id="pagination"></div>
+  <div class="post-body">
+    <p>В самоорганизованных организациях у гайдов важная роль, потому что все полагаются на самостоятельность в получении знаний.</p>
+<p>Так как самоорганизация основана на самостоятельности, в том числе и в обучении, то гайды и инструкции должны быть крутыми, чтобы ими было приятно пользоваться. Мы пересмотрели много сервисов, которые структурируют базу знаний, но на рынке ничего подходящего не нашли, поэтому решили создать свой сервис — Pulse, о котором я упоминал в заметке про большие цели.</p>
+<p>Какой, на наш взгляд, должна быть хорошая база знаний?<br>— Красивый дизайн. Обычно инструкции большие, в редакторе есть много лишних функций, нет единого, простого и лаконичного оформления, и, как правило, это некрасиво. Со временем база знаний разрастается, становится неудобной и нефункциональной. Красиво и просто оформленные гайды приятнее читать, и информация запоминается лучше. У людей не возникает желания “забить” на изучение. <br>— Отображение только для вашей роли. В обычных базах знаний человек видит весь список гайдов, в которых можно запутаться. Намного легче искать информацию, когда ты видишь только ту информацию, которая нужна конкретно для твоей должности. <br>— Простая навигация. Важно структурировать информацию, но иногда из-за большой вложенности трудно найти то, что тебе нужно. Категоризаций гайдов должна быть простой и понятной.</p>
+<p>Немного подробнее о нашем сервисе на картинках ниже.</p>
+    <a href="../blog.html" class="back-link">← Все записи</a>
+  </div>
 </div>
 <div id="site-footer"></div>
-<script src="posts.js"></script>
-<script>
-const PER_PAGE = 10;
-let page = 0;
-
-function render() {
-  const list = document.getElementById('postList');
-  const pag = document.getElementById('pagination');
-  const total = Math.ceil(POSTS.length / PER_PAGE);
-  const slice = POSTS.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
-
-  list.innerHTML = slice.map(p => `
-    <a class="post-card" href="posts/${p.slug}.html">
-      <div class="post-card-date">${p.date}</div>
-      <div class="post-card-title">${p.title}</div>
-      <div class="post-card-desc">${p.description}</div>
-    </a>
-  `).join('');
-
-  pag.innerHTML = '';
-  if (total <= 1) return;
-
-  const prev = document.createElement('button');
-  prev.className = 'page-btn';
-  prev.textContent = '← Назад';
-  prev.disabled = page === 0;
-  prev.onclick = () => { page--; render(); window.scrollTo(0,0); };
-  pag.appendChild(prev);
-
-  for (let i = 0; i < total; i++) {
-    const btn = document.createElement('button');
-    btn.className = 'page-btn' + (i === page ? ' active' : '');
-    btn.textContent = i + 1;
-    btn.onclick = (i => () => { page = i; render(); window.scrollTo(0,0); })(i);
-    pag.appendChild(btn);
-  }
-
-  const next = document.createElement('button');
-  next.className = 'page-btn';
-  next.textContent = 'Вперёд →';
-  next.disabled = page === total - 1;
-  next.onclick = () => { page++; render(); window.scrollTo(0,0); };
-  pag.appendChild(next);
-}
-
-render();
-</script>
 <script>
 (async function() {
   async function load(selector, file) {
@@ -273,8 +227,9 @@ render();
     if (!el) return;
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
-  await load('#site-header', 'header.html');
-  await load('#site-footer', 'footer.html');
+  await load('#site-header', '../header.html');
+  await load('#site-footer', '../footer.html');
+  const page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav a.nav-link').forEach(a => {
     if ((a.getAttribute('href')||'').includes('blog')) {
       a.style.color = 'var(--accent)';
