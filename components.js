@@ -15,11 +15,14 @@
 
   // Highlight active nav link
   const page = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav a').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && href === page) {
+  document.querySelectorAll('nav a.nav-link').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href && (href === page || (page === '' && href === 'index.html'))) {
       a.style.color = 'var(--accent)';
-      a.style.borderColor = 'var(--accent)';
+      a.style.borderBottomColor = 'var(--accent)';
+      a.style.borderBottomWidth = '1px';
+      a.style.borderBottomStyle = 'solid';
+      a.style.paddingBottom = '2px';
     }
   });
 })();
