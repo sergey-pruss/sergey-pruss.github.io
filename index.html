@@ -6,7 +6,7 @@
 <title>Сергей Прусс — консалтинг для предпринимателей</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #141210;
@@ -34,7 +34,10 @@
   /* NAV */
   nav { padding: 28px 0 0; opacity: 0; animation: fadeUp .6s ease .1s forwards; }
   nav .wrap { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .04em; text-decoration: none; color: var(--ink); transition: color .2s; }
+  .logo { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
+  .logo-name { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; letter-spacing: -.01em; color: var(--ink); line-height: 1; transition: color .2s; }
+  .logo:hover .logo-name { color: var(--accent); }
+  .logo-sub { font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); font-family: 'Spectral', serif; font-weight: 300; }
   nav a.tg { font-size: .75rem; color: var(--ink-soft); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
   nav a.tg:hover { color: var(--accent); border-color: var(--accent); }
 
@@ -148,7 +151,7 @@
   /* FOOTER */
   footer { padding: 26px 0 40px; border-top: 1px solid var(--line); }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: .04em; color: var(--ink-soft); }
+  .footer-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: -.01em; color: var(--ink-soft); }
   .footer-links { display: flex; gap: 20px; }
   .footer-links a { font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
   .footer-links a:hover { color: var(--accent); }
@@ -188,7 +191,7 @@
 
 <nav>
   <div class="wrap">
-    <a href="/" class="logo">Сергей Прусс</a>
+    <a href="index.html" class="logo"><span class="logo-name">Сергей Прусс</span><span class="logo-sub">CEO · Serenity Agency · 20 лет</span></a>
     <div class="nav-right"><a href="blog.html" class="nav-link">Блог</a><a href="https://t.me/sergeypruss" class="tg" target="_blank">Telegram</a></div>
   </div>
 </nav>
