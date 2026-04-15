@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Антихрупкость. Как извлекать выгоду из хаоса — Сергей Прусс</title>
 <meta name="description" content="Каждый раз, когда прилетает «черный лебедь» (привет, ключевая ставка 21%), я вспоминаю Нассима Талеб…">
-<meta property="og:title" content="Антихрупкость. Как извлекать выгоду из хаоса">
-<meta property="og:description" content="Каждый раз, когда прилетает «черный лебедь» (привет, ключевая ставка 21%), я вспоминаю Нассима Талеб…">
+<meta property="og:title" content="Антихрупкость. Как извлекать выгоду из хаоса"><meta property="og:description" content="Каждый раз, когда прилетает «черный лебедь» (привет, ключевая ставка 21%), я вспоминаю Нассима Талеб…">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sergeypruss.ru/posts/antikhrupkost-kak-izvlekat-vygodu-iz-khaosa.html">
 <style>
-
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl.otf'); font-weight: 100; font-display: swap; }
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_0.otf'); font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_1.otf'); font-weight: 500; font-display: swap; }
@@ -201,49 +198,33 @@
     html { font-size: 15px; }
   }
 
-  .post-header { padding: 52px 0 28px; }
-  .post-date { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
-  .post-title { font-family: 'Museo Sans', sans-serif; font-size: clamp(1.6rem,5vw,2.4rem); font-weight: 700; line-height: 1.2; margin-bottom: 0; }
-  .post-body { padding-bottom: 0; }
-  .post-body p { font-size: 1rem; line-height: 1.82; margin-bottom: 1.4em; color: var(--ink); }
-  .post-body p:last-child { margin-bottom: 0; }
-  .post-cta { margin-top: 52px; padding-top: 32px; border-top: 1px solid var(--line); font-size: .97rem; color: var(--ink-soft); line-height: 1.7; }
-  .post-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); transition: opacity .2s; }
-  .post-cta a:hover { opacity: .7; }
-  .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; padding: 40px 0 80px; border-top: 1px solid var(--line); }
-  .post-nav-item { text-decoration: none; display: block; }
-  .post-nav-label { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
-  .post-nav-title { font-size: .92rem; line-height: 1.4; color: var(--ink); font-weight: 500; transition: color .2s; }
-  .post-nav-item:hover .post-nav-title { color: var(--accent); }
-  .post-nav-item.next { text-align: right; }
-  @media (max-width: 600px) { .post-nav { grid-template-columns: 1fr; } .post-nav-item.next { text-align: left; } }
-</style>
-</head>
-<body>
+  .post-header{padding:52px 0 28px}.post-date{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}.post-title{font-family:'Museo Sans',sans-serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;line-height:1.2}
+  .post-body{padding-bottom:0}.post-body p{font-size:1rem;line-height:1.82;margin-bottom:1.4em;color:var(--ink)}.post-body p:last-child{margin-bottom:0}
+  .post-photos img{width:100%;border-radius:8px;display:block}
+  .post-cta{margin-top:52px;padding-top:32px;border-top:1px solid var(--line);font-size:.97rem;color:var(--ink-soft);line-height:1.7}.post-cta a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);transition:opacity .2s}.post-cta a:hover{opacity:.7}
+  .post-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;padding:40px 0 80px;border-top:1px solid var(--line)}.post-nav-item{text-decoration:none;display:block}.post-nav-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}.post-nav-title{font-size:.92rem;line-height:1.4;color:var(--ink);font-weight:500;transition:color .2s}.post-nav-item:hover .post-nav-title{color:var(--accent)}.post-nav-item.next{text-align:right}
+  @media(max-width:600px){.post-nav{grid-template-columns:1fr}.post-nav-item.next{text-align:left}}
+</style></head><body>
 <div id="site-header"></div>
 <div class="wrap">
-  <div class="post-header">
-    <p class="post-date">26 мая 2025</p>
-    <h1 class="post-title">Антихрупкость. Как извлекать выгоду из хаоса</h1>
-  </div>
-  <div class="post-body">
-    <p>Каждый раз, когда прилетает «черный лебедь» (привет, ключевая ставка 21%), я вспоминаю Нассима Талеба. Его книга «Антихрупкость» напоминает о том, что кризисы — не аномалия и не сбой системы, а естественная часть пути. Важно то, как мы к ним относимся: как к неожиданной катастрофе, которой «не должно было быть», или как к неизбежному этапу, который можно использовать для адаптации и роста.</p>
+  <div class="post-header"><p class="post-date">26 мая 2025</p><h1 class="post-title">Антихрупкость. Как извлекать выгоду из хаоса</h1></div>
+  <div class="post-body"><p>Каждый раз, когда прилетает «черный лебедь» (привет, ключевая ставка 21%), я вспоминаю Нассима Талеба. Его книга «Антихрупкость» напоминает о том, что кризисы — не аномалия и не сбой системы, а естественная часть пути. Важно то, как мы к ним относимся: как к неожиданной катастрофе, которой «не должно было быть», или как к неизбежному этапу, который можно использовать для адаптации и роста.</p>
 <p>Книга о том, почему хаос и давление развивают систему. Если принять это, то можно не бояться кризисов, а использовать их, чтобы расти в нестабильности.</p>
 <p>Антихрупкость важно формировать в стабильные периоды — именно тогда стоит готовиться к следующему кризису, чтобы встретить его во всеоружии.</p>
 <p>Напоминание себе до следующего кризиса:<br>— не стремиться тратить все на рост и приличную часть прибыли откладывать в резервы;<br>— продолжать строить культуру сильных и устойчивых к вызовам людей.</p>
 <p>В карточках собрал ключевые идеи книги.</p>
-<p>#книги</p>
-    <div class="post-photos" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:8px;"><img src="../img/posts/photo_52@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_53@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_54@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_55@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_56@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_57@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_58@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_59@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_60@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_53@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_54@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_55@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_56@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_57@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_58@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_59@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_60@26-05-2025_19-46-18.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_61@18-06-2025_16-41-59.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"><img src="../img/posts/photo_62@20-06-2025_15-21-04.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:8px;"></div>
-  </div>
-  <div class="post-cta">
-    Если то, о чём написано в посте, вам откликается — <a href="../index.html">я могу вам помочь с этим</a>.
-  </div>
-  <div class="post-nav">
-    <a href="v-poslednie-mesyatsy-ya-vsyo-chasche-vozvrasc.html" class="post-nav-item prev"><div class="post-nav-label">← Предыдущий пост</div><div class="post-nav-title">В последние месяцы я всё чаще возвращаюсь к вопросу стратегии агентства. Стратег…</div></a>
-    <a href="istoriya-pro-moi-tsennosti.html" class="post-nav-item next"><div class="post-nav-label">Следующий пост →</div><div class="post-nav-title">История про мои ценности</div></a>
-  </div>
+<p>#книги</p><div class="post-photos" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:8px;"><img src="../img/posts/photo_52@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_53@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_54@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_55@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_56@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_57@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_58@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_59@26-05-2025_19-46-18.jpg" alt="" loading="lazy">
+<img src="../img/posts/photo_60@26-05-2025_19-46-18.jpg" alt="" loading="lazy"></div></div>
+  <div class="post-cta">Если то, о чём написано в посте, вам откликается — <a href="../index.html">я могу вам помочь с этим</a>.</div>
+  <div class="post-nav"><a href="v-poslednie-mesyatsy-ya-vsyo-chasche-vozvrasc.html" class="post-nav-item prev"><div class="post-nav-label">← Предыдущий пост</div><div class="post-nav-title">В последние месяцы я всё чаще возвращаюсь к вопросу стратегии агентства. Стратег…</div></a><a href="istoriya-pro-moi-tsennosti.html" class="post-nav-item next"><div class="post-nav-label">Следующий пост →</div><div class="post-nav-title">История про мои ценности</div></a></div>
 </div>
 <div id="site-footer"></div>
 <script src="../components.js"></script>
-</body>
-</html>
+</body></html>
