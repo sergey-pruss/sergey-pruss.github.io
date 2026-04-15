@@ -147,3 +147,49 @@ def build_blog_pages():
 if __name__ == '__main__':
     build_blog_pages()
     print("Done. Run: python3 typograph.py")
+
+
+def build_sitemap():
+    """Генерирует sitemap.xml из текущего posts.js"""
+    from datetime import datetime
+
+    entries = get_entries()
+    BASE = 'https://sergeypruss.ru'
+    today = datetime.now().strftime('%Y-%m-%d')
+
+    MONTHS_EN = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
+                 'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
+
+    def iso_date(d):
+        import re
+        m = re.match(r'(\d+) (\w+) (\d+)', d)
+        if m:
+            return f"{m.group(3)}-{MONTHS_EN.get(m.group(2),'01')}-{m.group(1).zfill(2)}"
+        return today
+
+    total = len(entries)
+    total_pages = (total + PER_PAGE - 1) // PER_PAGE
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+
+    for url, lastmod, priority in [('', today, '1.0'), ('blog.html', today, '0.9')]:
+        lines.append(f'  <url>\n    <loc>{BASE}/{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <priority>{priority}</priority>\n  </url>')
+
+    for i in range(2, total_pages + 1):
+        lines.append(f'  <url>\n    <loc>{BASE}/blog/page-{i}.html</loc>\n    <lastmod>{today}</lastmod>\n    <priority>0.7</priority>\n  </url>')
+
+    for slug, date, *_ in entries:
+        lines.append(f'  <url>\n    <loc>{BASE}/posts/{slug}.html</loc>\n    <lastmod>{iso_date(date)}</lastmod>\n    <priority>0.8</priority>\n  </url>')
+
+    lines.append('</urlset>')
+    with open('sitemap.xml', 'w') as f:
+        f.write('\n'.join(lines))
+
+    print(f"sitemap.xml: {total + 1 + total_pages} URLs")
+
+
+if __name__ == '__main__':
+    build_blog_pages()
+    build_sitemap()
+    print("Done. Run: python3 typograph.py")
