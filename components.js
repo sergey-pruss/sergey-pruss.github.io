@@ -10,7 +10,7 @@
       console.warn('Could not load', file, e);
     }
   }
-  await load('#site-header', 'header.html');
+  await load('#site-header', 'header.html?v=2');
   await load('#site-footer', 'footer.html');
 
   // Highlight active nav link
