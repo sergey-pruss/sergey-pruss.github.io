@@ -192,11 +192,24 @@
   .post-header { padding: 52px 0 28px; }
   .post-date { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
   .post-title { font-family: 'Museo Sans', sans-serif; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; line-height: 1.2; margin-bottom: 0; }
-  .post-body { padding-bottom: 80px; }
+  .post-body { padding-bottom: 0; }
   .post-body p { font-size: 1rem; line-height: 1.82; margin-bottom: 1.4em; color: var(--ink); }
   .post-body p:last-child { margin-bottom: 0; }
-  .back-link { display: inline-block; margin-top: 48px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color .2s, border-color .2s; }
-  .back-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .post-cta { margin-top: 52px; padding-top: 32px; border-top: 1px solid var(--line); font-size: .97rem; color: var(--ink-soft); line-height: 1.7; }
+  .post-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); transition: opacity .2s; }
+  .post-cta a:hover { opacity: .7; }
+
+  .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; padding: 40px 0 80px; border-top: 1px solid var(--line); }
+  .post-nav-item { text-decoration: none; display: block; }
+  .post-nav-label { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .post-nav-title { font-size: .92rem; line-height: 1.4; color: var(--ink); font-weight: 500; transition: color .2s; }
+  .post-nav-item:hover .post-nav-title { color: var(--accent); }
+  .post-nav-item.next { text-align: right; }
+  @media (max-width: 600px) {
+    .post-nav { grid-template-columns: 1fr; }
+    .post-nav-item.next { text-align: left; }
+  }
 </style>
 </head>
 <body>
@@ -215,7 +228,19 @@
 <p>Люди не будут уходить из среды, где ценится их личность, где не подавляется их воля, где не нужно постоянно находиться в защите и можно расслабиться. В стрессе можно показывать высокий результат в краткосрочной перспективе, но в долгосрочной перспективе люди перегорают. Да и в стрессе творчество отключается, что ограничивает развитие.</p>
 <p>При этом здесь тоже вопрос выбора. Достигаторам, которым подходит жесткая среда, возможно, и нужно искать таких лидеров, как Стив Джобс. А тем, кто ценит спокойствие, уважение и устойчивую атмосферу, — искать компании, где экологичность является важной ценностью.</p>
 <p>#ценности</p>
-    <a href="../blog.html" class="back-link">← Все записи</a>
+  </div>
+  <div class="post-cta">
+    Если то, о чём написано в посте, вам откликается — <a href="../index.html">я могу вам помочь с этим</a>.
+  </div>
+  <div class="post-nav">
+    <a href="professionalizm.html" class="post-nav-item prev">
+      <div class="post-nav-label">← Предыдущий пост</div>
+      <div class="post-nav-title">Профессионализм</div>
+    </a>
+    <a href="postoyannoe-razvitie.html" class="post-nav-item next">
+      <div class="post-nav-label">Следующий пост →</div>
+      <div class="post-nav-title">Постоянное развитие</div>
+    </a>
   </div>
 </div>
 <div id="site-footer"></div>
