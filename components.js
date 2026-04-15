@@ -1,21 +1,35 @@
 (async function() {
-  // Determine prefix based on path depth
   const depth = location.pathname.split('/').filter(Boolean).length;
   const prefix = depth >= 2 ? '../' : '';
 
-  async function load(selector, file) {
+  async function loadInto(selector, file) {
     const el = document.querySelector(selector);
     if (!el) return;
     try {
       const r = await fetch(prefix + file);
-      el.outerHTML = await r.text();
+      const html = await r.text();
+
+      // Insert HTML
+      el.innerHTML = html;
+
+      // Execute any <script> tags manually (innerHTML doesn't run them)
+      el.querySelectorAll('script').forEach(old => {
+        const s = document.createElement('script');
+        if (old.src) {
+          s.src = old.src;
+          s.async = old.async;
+        } else {
+          s.textContent = old.textContent;
+        }
+        old.parentNode.replaceChild(s, old);
+      });
     } catch(e) {}
   }
 
-  await load('#site-header', 'header.html?v=2');
-  await load('#site-footer', 'footer.html');
+  await loadInto('#site-header', 'header.html?v=2');
+  await loadInto('#site-footer', 'footer.html');
 
-  // Fix all relative links in header to use correct prefix
+  // Fix header links for subdirectory pages
   document.querySelectorAll('nav a').forEach(a => {
     const href = a.getAttribute('href') || '';
     if (href && !href.startsWith('http') && !href.startsWith('#') && prefix) {
@@ -35,12 +49,3 @@
     }
   });
 })();
-
-// Yandex Metrika
-(function(m,e,t,r,i,k,a){
-  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();
-  for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
-  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=108558511','ym');
-ym(108558511,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true});
