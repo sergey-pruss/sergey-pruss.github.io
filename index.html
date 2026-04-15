@@ -145,7 +145,7 @@
   .blog-card-date { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
   .blog-card-title { font-size: .88rem; font-weight: 500; line-height: 1.45; color: var(--ink); }
   .blog-card-desc { font-size: .8rem; line-height: 1.55; color: var(--ink-soft); margin-top: 4px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity .25s, max-height .25s; }
-  .blog-card:hover .blog-card-desc { opacity: 1; max-height: 60px; }
+  .blog-card:hover .blog-card-desc { opacity: 1; max-height: 80px; }
   @media (max-width: 600px) { .blog-card-desc { display: none; } }
   @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr 1fr; } .blog-card-desc { display: none; } }
 
@@ -375,13 +375,12 @@
     var a = document.createElement('a');
     a.href = 'posts/' + p.slug + '.html';
     a.className = 'blog-card';
-    var desc = p.description ? '<div class="blog-card-desc">' + p.description + '</div>' : '';
     var title = p.title.length > 60 ? p.title.substring(0, 60).trimEnd() + '…' : p.title;
     var descText = p.description || '';
-    var desc2 = descText.length > 90 ? descText.substring(0, 90).trimEnd() + '…' : descText;
+    var desc = descText.length > 90 ? descText.substring(0, 90).trimEnd() + '…' : descText;
     a.innerHTML = '<div class="blog-card-date">' + ruDate(p.date) + '</div>' +
                   '<div class="blog-card-title">' + title + '</div>' +
-                  (desc2 ? '<div class="blog-card-desc">' + desc2 + '</div>' : '');
+                  (desc ? '<div class="blog-card-desc">' + desc + '</div>' : '');
     grid.appendChild(a);
   });
 })();
