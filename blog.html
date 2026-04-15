@@ -235,6 +235,8 @@
 const PER_PAGE = 10;
 let page = 0;
 
+const months={'January':'января','February':'февраля','March':'марта','April':'апреля','May':'мая','June':'июня','July':'июля','August':'августа','September':'сентября','October':'октября','November':'ноября','December':'декабря'};
+function ruDate(d){for(var e in months)d=d.replace(e,months[e]);return d;}
 function render() {
   const list = document.getElementById('postList');
   const pag = document.getElementById('pagination');
@@ -243,7 +245,7 @@ function render() {
 
   list.innerHTML = slice.map(p => `
     <a class="post-card" href="posts/${p.slug}.html">
-      <div class="post-card-date">${p.date}</div>
+      <div class="post-card-date">${ruDate(p.date)}</div>
       <div class="post-card-title">${p.title}</div>
       <div class="post-card-desc">${p.description}</div>
     </a>
