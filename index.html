@@ -37,20 +37,20 @@
 
   /* LOGO SVG */
   .logo-svg { text-decoration: none; display: block; }
-  .logo-svg-img { width: 200px; height: auto; display: block; transition: opacity .2s; }
+  .logo-svg-img { width: 210px; height: auto; display: block; transition: opacity .2s; }
   .logo-svg:hover .logo-svg-img { opacity: .75; }
   @media (max-width: 600px) {
-    .logo-svg-img { width: 170px; }
-    nav .wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .nav-right { display: flex; gap: 20px; align-items: center; }
+    .logo-svg-img { width: 175px; }
+    nav .wrap { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .nav-right { display: flex; gap: 24px; align-items: center; width: 100%; justify-content: flex-start; }
   }
-  @media (max-width: 380px) { .logo-svg-img { width: 145px; } }
+  @media (max-width: 380px) { .logo-svg-img { width: 148px; } }
   @media (max-width: 380px) { .logo-svg-img { width: 160px; } }
 
   /* NAV */
   nav { padding: 32px 0 0; opacity: 0; animation: fadeUp .6s ease .1s forwards; }
   nav .wrap { display: flex; justify-content: space-between; align-items: center; }
-  nav a.tg { font-size: .75rem; color: var(--ink-soft); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+  nav a.tg { font-size: .72rem; color: var(--ink-soft); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
   nav a.tg:hover { color: var(--accent); border-color: var(--accent); }
 
   /* HERO */
@@ -134,7 +134,7 @@
   @media (max-width: 600px) { .cases-grid { grid-template-columns: 1fr 1fr; } .case-item { aspect-ratio: 2/3; } }
 
   .nav-right { display: flex; gap: 24px; align-items: center; }
-  nav a.nav-link { font-size: .72rem; color: var(--ink-soft); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+  nav a.nav-link { font-size: .72rem; color: var(--accent); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
   nav a.nav-link:hover { color: var(--accent); border-color: var(--accent); }
 
   /* CTA */
