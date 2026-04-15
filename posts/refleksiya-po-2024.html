@@ -222,27 +222,6 @@
   </div>
 </div>
 <div id="site-footer"></div>
-<script>
-(async function() {
-  async function load(selector, file) {
-    const el = document.querySelector(selector);
-    if (!el) return;
-    try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
-  }
-  await load('#site-header', '../header.html?v=2');
-  // Fix logo link for posts subdirectory
-  const logo = document.querySelector('.logo-svg');
-  if (logo) logo.setAttribute('href', '../index.html');
-  await load('#site-footer', '../footer.html');
-  // Mark blog link as active
-  document.querySelectorAll('nav a.nav-link').forEach(a => {
-    if ((a.getAttribute('href') || '').includes('blog')) {
-      a.style.borderBottomColor = 'var(--accent)';
-      a.style.borderBottomWidth = '1px';
-      a.style.borderBottomStyle = 'solid';
-    }
-  });
-})();
-</script>
+<script src="../components.js"></script>
 </body>
 </html>
