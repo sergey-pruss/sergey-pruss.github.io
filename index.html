@@ -376,8 +376,12 @@
     a.href = 'posts/' + p.slug + '.html';
     a.className = 'blog-card';
     var desc = p.description ? '<div class="blog-card-desc">' + p.description + '</div>' : '';
+    var title = p.title.length > 60 ? p.title.substring(0, 60).trimEnd() + '…' : p.title;
+    var descText = p.description || '';
+    var desc2 = descText.length > 90 ? descText.substring(0, 90).trimEnd() + '…' : descText;
     a.innerHTML = '<div class="blog-card-date">' + ruDate(p.date) + '</div>' +
-                  '<div class="blog-card-title">' + p.title + '</div>' + desc;
+                  '<div class="blog-card-title">' + title + '</div>' +
+                  (desc2 ? '<div class="blog-card-desc">' + desc2 + '</div>' : '');
     grid.appendChild(a);
   });
 })();
