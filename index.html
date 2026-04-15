@@ -2,16 +2,16 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<link rel="preload" href="fonts/MuseoSansCyrl_0.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="fonts/MuseoSansCyrl_2.otf" as="font" type="font/otf" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Сергей Прусс — консалтинг для предпринимателей</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl.otf'); font-weight: 100; font-display: swap; }
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_0.otf'); font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_1.otf'); font-weight: 500; font-display: swap; }
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_2.otf'); font-weight: 700; font-display: swap; }
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_3.otf'); font-weight: 900; font-display: swap; }
   :root {
     --bg: #141210;
     --ink: #e8e4de;
@@ -420,7 +420,7 @@
 <div id="site-footer"></div>
 
 <script src="components.js"></script>
-<script src="posts.js"></script>
+<script src="posts.js" defer></script>
 <script>
 (function() {
   var grid = document.getElementById('homeBlogGrid');
