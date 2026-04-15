@@ -375,7 +375,7 @@
     var a = document.createElement('a');
     a.href = 'posts/' + p.slug + '.html';
     a.className = 'blog-card';
-    var desc = p.description ? '<div class="blog-card-desc">' + p.description.substring(0, 90) + (p.description.length > 90 ? '…' : '') + '</div>' : '';
+    var desc = p.description ? '<div class="blog-card-desc">' + p.description + '</div>' : '';
     a.innerHTML = '<div class="blog-card-date">' + ruDate(p.date) + '</div>' +
                   '<div class="blog-card-title">' + p.title + '</div>' + desc;
     grid.appendChild(a);
