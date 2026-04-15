@@ -137,16 +137,17 @@
 
   /* BLOG SECTION */
   .blog-section { padding: 50px 0; }
-  .blog-section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; }
+  .blog-section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; padding: 0 12px; }
   .blog-section-header .section-label { margin-bottom: 0; }
   .blog-section-link { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color .2s, border-color .2s; }
   .blog-section-link:hover { color: var(--accent); border-color: var(--accent); }
-  .blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-  .blog-card { text-decoration: none; display: block; padding: 20px; background: rgba(255,255,255,.04); border-radius: 10px; transition: background .2s; }
+  .blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 0 12px; }
+  .blog-card { text-decoration: none; display: flex; flex-direction: column; gap: 10px; padding: 20px; background: rgba(255,255,255,.04); border-radius: 10px; transition: background .2s; min-height: 140px; }
   .blog-card:hover { background: rgba(255,255,255,.08); }
-  .blog-card-date { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 10px; }
-  .blog-card-title { font-size: .9rem; font-weight: 500; line-height: 1.45; color: var(--ink); }
-  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  .blog-card-date { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+  .blog-card-title { font-size: .88rem; font-weight: 500; line-height: 1.45; color: var(--ink); }
+  .blog-card-desc { font-size: .8rem; line-height: 1.55; color: var(--ink-soft); margin-top: auto; }
+  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr 1fr; } .blog-section-header { padding: 0; } .blog-grid { padding: 0; } }
 
   /* CTA */
   .cta-section { padding: 50px 0 68px; }
@@ -347,7 +348,7 @@
   <section class="blog-section">
     <div class="blog-section-header">
       <p class="section-label">Блог</p>
-      <a href="blog.html" class="blog-section-link">Все записи →</a>
+      <a href="blog.html" class="cases-link">Все записи →</a>
     </div>
     <div class="blog-grid" id="homeBlogGrid"></div>
   </section>
@@ -371,12 +372,15 @@
 (function() {
   var grid = document.getElementById('homeBlogGrid');
   if (!grid || typeof POSTS === 'undefined') return;
+  var months = {'January':'января','February':'февраля','March':'марта','April':'апреля','May':'мая','June':'июня','July':'июля','August':'августа','September':'сентября','October':'октября','November':'ноября','December':'декабря'};
+  function ruDate(d) { for (var en in months) d = d.replace(en, months[en]); return d; }
   POSTS.slice(0, 9).forEach(function(p) {
     var a = document.createElement('a');
     a.href = 'posts/' + p.slug + '.html';
     a.className = 'blog-card';
-    a.innerHTML = '<div class="blog-card-date">' + p.date + '</div>' +
-                  '<div class="blog-card-title">' + p.title + '</div>';
+    var desc = p.description ? '<div class="blog-card-desc">' + p.description.substring(0, 100) + (p.description.length > 100 ? '…' : '') + '</div>' : '';
+    a.innerHTML = '<div class="blog-card-date">' + ruDate(p.date) + '</div>' +
+                  '<div class="blog-card-title">' + p.title + '</div>' + desc;
     grid.appendChild(a);
   });
 })();
