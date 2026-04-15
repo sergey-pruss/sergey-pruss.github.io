@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">17 February 2023</p>
+    <p class="post-date">17 февраля 2023</p>
     <h1 class="post-title">Я не писал здесь последние полгода, потому что активно занимался разработкой…</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Я не писал здесь последние полгода, потому что активно занимался разработкой нашего стартапа (сервис для командной работы). Стратегия — это выбор, во что вкладывать ресурсы, поэтому выбор был в пользу сервиса. Но душа просит делиться знаниями и опытом, поэтому решил выделить дополнительно несколько часов в неделю на этот канал.</p>
 <p>Он по-прежнему будет посвящен исследованию и классификации существенных конкурентных преимуществ.</p>
@@ -224,6 +223,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

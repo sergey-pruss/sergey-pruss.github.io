@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">20 February 2026</p>
+    <p class="post-date">20 февраля 2026</p>
     <h1 class="post-title">Невроз и личностный рост</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Невроз и личностный рост<br>14/50, психология</p>
 <p>Эта книга входит в мой личный топ-50 книг, которые сильнее всего повлияли на меня как на руководителя и человека. Я прочитал ее год назад, чтение далось тяжело, но еще тяжелее далась длительная рефлексия после прочтения, потому что внутри себя пришлось многое переосознать и перестроить. Как внешний результат — моя активная публичная проявленность в последнее время.</p>
@@ -226,6 +225,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

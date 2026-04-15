@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">20 June 2025</p>
+    <p class="post-date">20 июня 2025</p>
     <h1 class="post-title">Как решают проблемы сильные люди</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Как решают проблемы сильные люди<br>8/50, личная эффективность</p>
 <p>Стоицизм — крутая философия, которая помогает лучше справляться с трудностями. Я прочитал почти все книги Райана Холидея (популяризатора стоицизма), и та, о которой идет речь, как раз про это — как сильные люди справляются с проблемами, когда всё идёт не по плану.</p>
@@ -225,6 +224,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

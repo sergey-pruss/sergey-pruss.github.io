@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">3 March 2026</p>
+    <p class="post-date">3 марта 2026</p>
     <h1 class="post-title">Мой канал вошел в рейтинг Telegram-каналов от Kokoc Group. По итогам 2026 года…</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Мой канал вошел в рейтинг Telegram-каналов от Kokoc Group. По итогам 2026 года — 13 место в категории «Управление бизнесом».</p>
 <p>Хочется воспользоваться этим поводом, чтобы выразить искреннюю благодарность моим подписчикам, то есть вам, за то что меня читаете! ❤️</p>
@@ -223,6 +222,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

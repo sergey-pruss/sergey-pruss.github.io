@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">1 April 2021</p>
+    <p class="post-date">1 апреля 2021</p>
     <h1 class="post-title">Мы поговорили о том, как определять правильных людей. И вот, когда они на…</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Мы поговорили о том, как определять правильных людей. И вот, когда они на борту, куда плыть?</p>
 <p>Недавно в нашем книжном клубе после прочтения книги «Начни с почему?» обсуждали, почему одни компании или люди владеют волшебством, а другие нет. Пришли к мысли, что волшебство создаётся тогда, когда цель не прибыль, а что-то большее. Люди вдохновляются волшебством.</p>
@@ -228,6 +227,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

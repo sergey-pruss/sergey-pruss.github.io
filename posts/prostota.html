@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">13 December 2021</p>
+    <p class="post-date">13 декабря 2021</p>
     <h1 class="post-title">Простота</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Простота</p>
 <p>Простота — такое же сильное преимущество как и дизайн (они связаны). Хороший дизайн стремится к простоте. Простота стремится к хорошему дизайну. Так же как и с дизайном, простоту мало кто использует как стратегию. Давайте рассмотрим понятие простоты шире.</p>
@@ -227,6 +226,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

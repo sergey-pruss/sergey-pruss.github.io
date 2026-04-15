@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">13 March 2026</p>
+    <p class="post-date">13 марта 2026</p>
     <h1 class="post-title">Профессионализм</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Профессионализм</p>
 <p>Под профессионализмом мы имеем в виду не только компетентность в своей области — она как раз за скобками. Это то, что находится вокруг компетенции: <br>— высокая личная ответственность;<br>— высокая планка результата;<br>— стабильность результата;<br>— проактивность — желание сделать задачу еще лучше.</p>
@@ -229,6 +228,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

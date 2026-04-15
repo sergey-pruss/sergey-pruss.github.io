@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">6 December 2021</p>
+    <p class="post-date">6 декабря 2021</p>
     <h1 class="post-title">Завершая тему с дизайном, хочется поделиться несколькими идеями из книги,…</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Завершая тему с дизайном, хочется поделиться несколькими идеями из книги, которая у меня ассоциируется с этой темой — «Безумно просто» от маркетолога компании Chiat/Day, которая долго сотрудничала с Apple.</p>
 <p>— Chiat/Day также работало и с Intel, но реклама Apple вызывала эмоциональный отклик, а реклама Intel нет. Apple ориентировалась на свое дизайн-мышление, а Intel на цифры и исследования.</p>
@@ -226,6 +225,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

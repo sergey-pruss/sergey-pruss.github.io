@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">10 April 2025</p>
+    <p class="post-date">10 апреля 2025</p>
     <h1 class="post-title">Открывая организации будущего</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Открывая организации будущего<br>5/50, культура, стратегия</p>
 <p>Продолжаю серию из 100 книг, которые сильнее всего повлияли на меня и на работу агентства. Эта книга — одна из самых значимых. Она не просто вдохновила, а укрепила вектор нашего развития и стиля управления.</p>
@@ -227,6 +226,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

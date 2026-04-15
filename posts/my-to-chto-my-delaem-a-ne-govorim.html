@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">8 April 2026</p>
+    <p class="post-date">8 апреля 2026</p>
     <h1 class="post-title">Мы — то, что мы делаем (а не говорим)</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Мы — то, что мы делаем (а не говорим)</p>
 <p>Люди не обращают внимание на слова, а обращают внимание на действия. Поэтому когда компания декларирует, что ценности важны, а фактически принимаются решения, не соответствующие им, подтверждается, что необязательно разделять все ценности или какие-то из них, и что это норма.</p>
@@ -227,6 +226,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

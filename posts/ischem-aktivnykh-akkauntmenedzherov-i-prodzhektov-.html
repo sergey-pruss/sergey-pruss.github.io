@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">10 July 2024</p>
+    <p class="post-date">10 июля 2024</p>
     <h1 class="post-title">Ищем активных аккаунт-менеджеров и проджектов в Serenity.</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Ищем активных аккаунт-менеджеров и проджектов в Serenity.</p>
 <p>Обычно в вакансиях мы пишем, что у нас большой поток теплых входящих заявок и можно выбирать проекты, которые действительно нравятся. Так вот сейчас это как никогда правда.</p>
@@ -229,6 +228,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {

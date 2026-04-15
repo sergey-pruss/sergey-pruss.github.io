@@ -203,10 +203,9 @@
 <div id="site-header"></div>
 <div class="wrap">
   <div class="post-header">
-    <p class="post-date">20 January 2026</p>
+    <p class="post-date">20 января 2026</p>
     <h1 class="post-title">Я много писал о важности прямоты и обратной связи в культуре, и рад видеть, что…</h1>
   </div>
-  <hr>
   <div class="post-body">
     <p>Я много писал о важности прямоты и обратной связи в культуре, и рад видеть, что не один так думаю. Вот хороший пост от Дениса Ломова, CEO Red Collar, где сформулировано, почему честный фидбек в команде не возникает сам по себе и требует осознанной работы.</p>
     <a href="../blog.html" class="back-link">← Все записи</a>
@@ -221,6 +220,9 @@
     try { const r = await fetch(file); el.outerHTML = await r.text(); } catch(e) {}
   }
   await load('#site-header', '../header.html?v=2');
+  // Fix logo link for posts subdirectory
+  const logo = document.querySelector('.logo-svg');
+  if (logo) logo.setAttribute('href', '../index.html');
   await load('#site-footer', '../footer.html');
   // Mark blog link as active
   document.querySelectorAll('nav a.nav-link').forEach(a => {
