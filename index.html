@@ -113,24 +113,23 @@
   .agency-wrap { margin: 0 -24px; }
   .agency-header { padding: 0 24px 28px; }
   .agency-intro { font-size: .97rem; color: var(--ink-soft); line-height: 1.72; margin-top: 8px; }
-  .cases-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 28px; }
-  .case-item { position: relative; display: block; aspect-ratio: 3/4; overflow: hidden; text-decoration: none; color: #fff; border-radius: 10px; cursor: pointer; }
+  .cases-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 28px; padding: 0 12px; }
+  .case-item { position: relative; display: flex; flex-direction: column; text-decoration: none; color: #fff; border-radius: 10px; overflow: hidden; cursor: pointer; }
+  .case-img-wrap { position: relative; aspect-ratio: 3/4; overflow: hidden; flex-shrink: 0; }
   .case-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
   .case-item:hover img { transform: scale(1.04); }
-  .case-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.05) 45%, transparent 100%); transition: background .3s ease; }
-  .case-item:hover .case-overlay { background: linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,.15) 50%, transparent 100%); }
-  .case-body { position: absolute; top: 0; left: 0; right: 0; padding: 16px 14px; }
-  .case-tags { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-bottom: 6px; opacity: 0; transform: translateY(-4px); transition: opacity .25s ease, transform .25s ease; }
-  .case-item:hover .case-tags { opacity: 1; transform: translateY(0); }
-  .case-title { font-size: .82rem; line-height: 1.45; font-weight: 300; }
-  .case-item.large { grid-column: span 1; aspect-ratio: 2/3; }
-  .cases-footer { padding: 0 24px; }
+  .case-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.3) 0%, transparent 60%); }
+  .case-body { padding: 12px 4px 4px; }
+  .case-tags { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 4px; opacity: 0; transition: opacity .25s; }
+  .case-item:hover .case-tags { opacity: 1; }
+  .case-title { font-size: .85rem; line-height: 1.45; font-weight: 300; color: var(--ink); }
+  .cases-footer { padding: 0 12px; }
   .cases-link { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color .2s, border-color .2s; cursor: pointer; }
   .cases-link:hover { color: var(--accent); border-color: var(--accent); }
   @media (max-width: 600px) {
     .logo-svg-img { width: 175px; }
     nav .wrap { flex-direction: column !important; align-items: flex-start !important; gap: 20px; }
-    .nav-right { gap: 22px; } .cases-grid { grid-template-columns: 1fr 1fr; } .case-item { aspect-ratio: 2/3; } .case-body { top: 0; left: 0; right: 0; } .case-title { text-align: left; } }
+    .nav-right { gap: 22px; } .cases-grid { grid-template-columns: 1fr 1fr; } .case-img-wrap { aspect-ratio: 2/3; } }
 
   .nav-right { display: flex; gap: 24px; align-items: center; }
   nav a.nav-link { font-size: .72rem; color: var(--accent); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
@@ -287,49 +286,37 @@
         <p class="agency-intro">20 лет делаем маркетинг для крупных компаний. Клиенты: VK, Северсталь, Газпром, Сбербанк, Orange, Технониколь.</p>
       </div>
       <div class="cases-grid">
-        <a href="https://serenity.agency/case/darkrain-store" class="case-item" target="_blank">
-          <img src="https://serenity.agency/storage/WLXF5HzKVQUYRIDLQ7zOSRVDwZw17ziScjgTQABI.jpg" alt="Darkrain">
-          <div class="case-overlay"></div>
+        <a href="https://serenity.agency/case/darkrain-store" class="case-item" target="_blank"><div class="case-img-wrap"><img src="https://serenity.agency/storage/WLXF5HzKVQUYRIDLQ7zOSRVDwZw17ziScjgTQABI.jpg" alt="Darkrain"><div class="case-overlay"></div></div>
           <div class="case-body">
             <div class="case-tags">Продвижение · Сайт · Видео</div>
             <p class="case-title">Darkrain — интернет-магазин украшений</p>
           </div>
         </a>
-        <a href="https://serenity.agency/case/all/boca" class="case-item" target="_blank">
-          <img src="https://serenity.agency/storage/fcinfNVrWIvITcJr2rUpiKLo7K4C8Oif44dl5Kjs.webp" alt="Boca">
-          <div class="case-overlay"></div>
+        <a href="https://serenity.agency/case/all/boca" class="case-item" target="_blank"><div class="case-img-wrap"><img src="https://serenity.agency/storage/fcinfNVrWIvITcJr2rUpiKLo7K4C8Oif44dl5Kjs.webp" alt="Boca"><div class="case-overlay"></div></div>
           <div class="case-body">
             <div class="case-tags">Продвижение · Стратегия</div>
             <p class="case-title">Увеличили продажи через контекст и георекламу</p>
           </div>
         </a>
-        <a href="https://serenity.agency/case/all/minisklad" class="case-item" target="_blank">
-          <img src="https://serenity.agency/storage/JdKeaOWg6ErhKqPicV92KRbf7U75W0mdSuUWt6jp.webp" alt="Минисклад">
-          <div class="case-overlay"></div>
+        <a href="https://serenity.agency/case/all/minisklad" class="case-item" target="_blank"><div class="case-img-wrap"><img src="https://serenity.agency/storage/JdKeaOWg6ErhKqPicV92KRbf7U75W0mdSuUWt6jp.webp" alt="Минисклад"><div class="case-overlay"></div></div>
           <div class="case-body">
             <div class="case-tags">Брендинг · Стратегия</div>
             <p class="case-title">Новый стиль — обращений стало больше на 500%</p>
           </div>
         </a>
-        <a href="https://serenity.agency/case/all/grandmed" class="case-item" target="_blank">
-          <img src="https://serenity.agency/storage/AndTNWYK9X0q8jK1uKSkDrOF4PAEKyfO91k2aqI5.webp" alt="Грандмед">
-          <div class="case-overlay"></div>
+        <a href="https://serenity.agency/case/all/grandmed" class="case-item" target="_blank"><div class="case-img-wrap"><img src="https://serenity.agency/storage/AndTNWYK9X0q8jK1uKSkDrOF4PAEKyfO91k2aqI5.webp" alt="Грандмед"><div class="case-overlay"></div></div>
           <div class="case-body">
             <div class="case-tags">Продвижение · Брендинг</div>
             <p class="case-title">Комплексное продвижение медицинского холдинга</p>
           </div>
         </a>
-        <a href="https://serenity.agency/case/evrostroj" class="case-item" target="_blank">
-          <img src="https://serenity.agency/storage/eEn5z5K1VqnFurjwT6vHFhSyHwKolEzUF41JawC9.jpg" alt="Евростройй">
-          <div class="case-overlay"></div>
+        <a href="https://serenity.agency/case/evrostroj" class="case-item" target="_blank"><div class="case-img-wrap"><img src="https://serenity.agency/storage/eEn5z5K1VqnFurjwT6vHFhSyHwKolEzUF41JawC9.jpg" alt="Евростройй"><div class="case-overlay"></div></div>
           <div class="case-body">
             <div class="case-tags">Стратегия · Продвижение</div>
             <p class="case-title">На 30% больше конверсий для «Евростроя»</p>
           </div>
         </a>
-        <a href="https://serenity.agency/case/all/alfakabel" class="case-item" target="_blank">
-          <img src="https://serenity.agency/storage/X6YOpGtu2BPzPh4tOjFvDqj8KUKACkNZqvZUnbhd.webp" alt="Альфакабель">
-          <div class="case-overlay"></div>
+        <a href="https://serenity.agency/case/all/alfakabel" class="case-item" target="_blank"><div class="case-img-wrap"><img src="https://serenity.agency/storage/X6YOpGtu2BPzPh4tOjFvDqj8KUKACkNZqvZUnbhd.webp" alt="Альфакабель"><div class="case-overlay"></div></div>
           <div class="case-body">
             <div class="case-tags">Брендинг · Стратегия</div>
             <p class="case-title">Стратегия и фирменный стиль для завода</p>
