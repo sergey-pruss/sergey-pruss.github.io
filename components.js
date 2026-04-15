@@ -2,32 +2,41 @@
   const depth = location.pathname.split('/').filter(Boolean).length;
   const prefix = depth >= 2 ? '../' : '';
 
-  async function loadInto(selector, file) {
+  function injectHTML(container, html) {
+    // Parse and insert — scripts must be recreated to execute
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+
+    // Move all nodes except scripts first
+    Array.from(tmp.childNodes).forEach(node => {
+      if (node.nodeName !== 'SCRIPT') {
+        container.parentNode.insertBefore(node.cloneNode(true), container.nextSibling);
+      }
+    });
+
+    // Then create and append script elements so they execute
+    tmp.querySelectorAll('script').forEach(oldScript => {
+      const s = document.createElement('script');
+      Array.from(oldScript.attributes).forEach(a => s.setAttribute(a.name, a.value));
+      s.textContent = oldScript.textContent;
+      document.body.appendChild(s);
+    });
+
+    container.remove();
+  }
+
+  async function load(selector, file) {
     const el = document.querySelector(selector);
     if (!el) return;
     try {
       const r = await fetch(prefix + file);
       const html = await r.text();
-
-      // Insert HTML
-      el.innerHTML = html;
-
-      // Execute any <script> tags manually (innerHTML doesn't run them)
-      el.querySelectorAll('script').forEach(old => {
-        const s = document.createElement('script');
-        if (old.src) {
-          s.src = old.src;
-          s.async = old.async;
-        } else {
-          s.textContent = old.textContent;
-        }
-        old.parentNode.replaceChild(s, old);
-      });
+      injectHTML(el, html);
     } catch(e) {}
   }
 
-  await loadInto('#site-header', 'header.html?v=2');
-  await loadInto('#site-footer', 'footer.html');
+  await load('#site-header', 'header.html?v=2');
+  await load('#site-footer', 'footer.html');
 
   // Fix header links for subdirectory pages
   document.querySelectorAll('nav a').forEach(a => {
