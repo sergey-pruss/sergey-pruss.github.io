@@ -40,11 +40,15 @@
   .logo-svg { text-decoration: none; display: block; }
   .logo-svg-img { width: 220px; height: auto; display: block; transition: opacity .2s; }
   .logo-svg:hover .logo-svg-img { opacity: .75; }
-  @media (max-width: 600px) { .logo-svg-img { width: 160px; } }
-  @media (max-width: 380px) { .logo-svg-img { width: 130px; } }
+  @media (max-width: 600px) {
+    .logo-svg-img { width: 190px; }
+    nav .wrap { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .nav-right { display: flex; gap: 20px; }
+  }
+  @media (max-width: 380px) { .logo-svg-img { width: 160px; } }
 
   /* NAV */
-  nav { padding: 28px 0 0; opacity: 0; animation: fadeUp .6s ease .1s forwards; }
+  nav { padding: 32px 0 0; opacity: 0; animation: fadeUp .6s ease .1s forwards; }
   nav .wrap { display: flex; justify-content: space-between; align-items: center; }
   nav a.tg { font-size: .75rem; color: var(--ink-soft); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
   nav a.tg:hover { color: var(--accent); border-color: var(--accent); }
