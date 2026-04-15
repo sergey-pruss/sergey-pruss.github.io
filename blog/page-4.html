@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Блог, страница 4 — Сергей Прусс</title>
 <meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(108559120, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <style>
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl.otf'); font-weight: 100; font-display: swap; }
 @font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_0.otf'); font-weight: 300; font-display: swap; }
@@ -140,8 +158,8 @@
   .blog-card:hover { background: rgba(255,255,255,.08); }
   .blog-card-date { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
   .blog-card-title { font-size: .88rem; font-weight: 500; line-height: 1.45; color: var(--ink); }
-  .blog-card-desc { font-size: .8rem; line-height: 1.55; color: var(--ink-soft); margin-top: 4px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity .25s, max-height .25s; }
-  .blog-card:hover .blog-card-desc { opacity: 1; max-height: 60px; }
+  .blog-card-desc { font-size: .8rem; line-height: 1.55; color: var(--ink-soft); margin-top: 4px; opacity: 0; transition: opacity .25s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .blog-card:hover .blog-card-desc { opacity: 1; }
   @media (max-width: 600px) { .blog-card-desc { display: none; } }
   @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr 1fr; } .blog-card-desc { display: none; } }
 
@@ -200,22 +218,8 @@
   .post-card-desc{font-size:.88rem;line-height:1.65;color:var(--ink-soft)}
   .pagination{display:flex;gap:8px;align-items:center;padding:40px 0 80px;flex-wrap:wrap}
   .page-btn{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:8px 16px;text-decoration:none;font-family:'Museo Sans',sans-serif;transition:color .2s,border-color .2s}.page-btn:hover,.page-btn.active{color:var(--accent);border-color:var(--accent)}
-</style><!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-   ym(108559120, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-</head><body>
+</style></head>
+<body>
 <div id="site-header"></div>
 <div class="wrap">
   <div class="blog-header"><h1>Блог</h1><p class="sub">Заметки о культуре, управлении и бизнесе</p></div>

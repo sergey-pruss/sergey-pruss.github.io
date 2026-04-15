@@ -53,10 +53,19 @@ POST_HEAD = '''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title_esc} — Сергей Прусс</title>
 <meta name="description" content="{desc_esc}">
-<meta property="og:title" content="{title_esc}">
-<meta property="og:description" content="{desc_esc}">
+<meta name="author" content="Сергей Прусс">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sergeypruss.ru/posts/{slug}.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sergeypruss.ru/posts/{slug}.html">
+<meta property="og:title" content="{title_esc} — Сергей Прусс">
+<meta property="og:description" content="{desc_esc}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:locale" content="ru_RU">
+<meta property="article:published_time" content="{pub_date}">
+<script type="application/ld+json">
+{{"@context":"https://schema.org","@type":"Article","headline":"{title_esc}","description":"{desc_esc}","datePublished":"{pub_date}","url":"https://sergeypruss.ru/posts/{slug}.html","image":"{og_image}","author":{{"@type":"Person","name":"Сергей Прусс","url":"https://sergeypruss.ru"}}}}
+</script>
 {metrika}
 <style>{style}
   .post-header{{padding:52px 0 28px}}.post-date{{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}}.post-title{{font-family:'Museo Sans',sans-serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;line-height:1.2}}
