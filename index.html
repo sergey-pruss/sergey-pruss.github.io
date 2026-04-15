@@ -8,6 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
+@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl.otf'); font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_0.otf'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_1.otf'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_2.otf'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_3.otf'); font-weight: 900; font-display: swap; }
   :root {
     --bg: #141210;
     --ink: #e8e4de;
@@ -23,7 +28,7 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Spectral', Georgia, serif;
+    font-family: 'Museo Sans', sans-serif;
     font-weight: 300;
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
@@ -135,7 +140,7 @@
   .cta-note { font-size: .93rem; color: var(--ink-soft); margin-bottom: 26px; line-height: 1.7; max-width: 460px; }
   .cta-price { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 22px; }
   .cta-price span { color: var(--ink); }
-  .btn { display: inline-block; padding: 14px 34px; background: var(--ink); color: var(--bg); text-decoration: none; font-family: 'Spectral', serif; font-size: .88rem; letter-spacing: .04em; transition: background .2s, transform .15s; border-radius: 1px; }
+  .btn { display: inline-block; padding: 14px 34px; background: var(--ink); color: var(--bg); text-decoration: none; font-family: 'Museo Sans', sans-serif; font-size: .88rem; font-weight: 300; letter-spacing: .04em; transition: background .2s, transform .15s; border-radius: 1px; }
   .btn:hover { background: var(--accent); transform: translateY(-1px); cursor: pointer; }
 
   /* FOOTER */
