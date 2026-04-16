@@ -195,7 +195,7 @@
   }
 
   /* CTA */
-  .cta-section { padding: 50px 0 68px; }
+  .cta-section { padding: 50px 0 50px; }
   .cta-section h2 { font-family: 'Museo Sans', sans-serif; font-size: clamp(1.55rem, 4vw, 2.15rem); font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
   .cta-section h2 em { font-style: italic; color: var(--accent); }
   .cta-note { font-size: .93rem; color: var(--ink-soft); margin-bottom: 26px; line-height: 1.7;  }
@@ -205,7 +205,7 @@
   .btn:hover { background: var(--accent); transform: translateY(-1px); cursor: pointer; }
 
   /* FOOTER */
-  footer { padding: 26px 0 40px; }
+  footer { padding: 18px 0 20px; }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
   .footer-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: -.01em; color: var(--ink-soft); }
   .footer-links { display: flex; gap: 20px; }
@@ -294,7 +294,7 @@
 
     .review { padding: 16px; }
 
-    .cta-section { padding: 38px 0 56px; }
+    .cta-section { padding: 38px 0 40px; }
     .btn { display: block; text-align: center; padding: 16px; }
 
     footer .wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
@@ -342,7 +342,7 @@
 .post-cta{margin-top:52px;padding-top:32px;border-top:1px solid var(--line);font-size:.97rem;color:var(--ink-soft);line-height:1.7}
 .post-cta a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);transition:opacity .2s}
 .post-cta a:hover{opacity:.7}
-.post-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;padding:40px 0 80px;border-top:1px solid var(--line)}
+.post-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;padding:32px 0 42px;border-top:1px solid var(--line)}
 .post-nav-item{text-decoration:none;display:block}
 .post-nav-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
 .post-nav-title{font-size:.92rem;line-height:1.4;color:var(--ink);font-weight:500;transition:color .2s}
@@ -369,7 +369,7 @@
 .post-list .post-card.post-tag-knigi{background:#1e1e1e}
 .post-list .post-card.post-tag-knigi:hover{background:#1e1e1e}
 .post-list .post-card.post-tag-knigi .post-card-desc{display:none}
-.pagination{display:flex;gap:8px;align-items:center;padding:40px 0 80px;flex-wrap:wrap}
+.pagination{display:flex;gap:8px;align-items:center;padding:32px 0 42px;flex-wrap:wrap}
 .page-btn{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:8px 16px;text-decoration:none;font-family:'Museo Sans',sans-serif;transition:color var(--motion-fast),border-color var(--motion-fast),transform var(--motion-fast) var(--ease-out)}
 .page-btn:hover,.page-btn.active{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
 #site-tags{margin-bottom:40px}
