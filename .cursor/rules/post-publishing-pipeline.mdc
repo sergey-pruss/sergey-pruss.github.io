@@ -1,0 +1,14 @@
+---
+description: Source of truth and publish pipeline for new posts
+alwaysApply: true
+---
+
+# Post Publishing Pipeline
+
+- Treat `posts.js` as the source of truth for blog cards and order.
+- When adding a new post, update `posts.js` first (`slug`, `date`, `title`, `description`).
+- Regenerate pages with `python3 generate.py` after content updates.
+- Run `python3 typograph.py` after generation to normalize typography.
+- Keep `sitemap.xml` updated through the generator, do not edit it manually.
+- For HTML post files, preserve existing structural blocks (`post-header`, `post-body`, `post-nav`).
+- Before commit, verify no accidental deletions in `posts/`, `blog/`, or tag pages.

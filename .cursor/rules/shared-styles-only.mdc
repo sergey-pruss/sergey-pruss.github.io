@@ -1,0 +1,16 @@
+---
+description: Keep styles centralized in shared CSS files
+alwaysApply: true
+---
+
+# Shared Styles Only
+
+- Do not add inline `<style>` blocks in generated/static pages.
+- Put reusable styles in:
+  - `styles/site.css` (base, post pages, blog/tag lists),
+  - `styles/site-components.css` (header + JS-hydrated components).
+- For visual updates, change shared CSS first, not per-page HTML.
+- Preserve class contracts used by JS hydration:
+  - `post-list`, `post-card`, `post-card-title`, `post-card-desc`,
+  - `post-nav post-nav-related`, `blog-card`, `blog-card-title`, `blog-card-desc`.
+- Keep colors in the existing palette (`--bg`, `--ink`, `--ink-soft`, `--accent`, `--line`).

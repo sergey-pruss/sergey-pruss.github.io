@@ -1,0 +1,20 @@
+---
+description: Card behavior for blog list and related posts
+alwaysApply: true
+---
+
+# Blog Cards Behavior
+
+- Blog list and related-post cards should stay visually aligned.
+- Show title and description by default for normal posts.
+- Show compact hashtag label on hover when tag is available.
+- For `#книги` cards:
+  - keep title visible,
+  - hide description,
+  - render book cover without decorative frame/background,
+  - use `object-fit: contain` (no crop).
+- Tag color semantics must stay consistent:
+  - `#книги` blue,
+  - `#лидерство` warm orange,
+  - `#ценности` green.
+- Card border color should match tag color when a tag is present.

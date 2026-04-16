@@ -1,0 +1,19 @@
+---
+description: MVP workflow for importing posts from Telegram
+globs: telegram_import_mvp.py
+alwaysApply: false
+---
+
+# Telegram Import MVP
+
+- Use `telegram_import_mvp.py` only as a draft importer.
+- Keep required env vars explicit: `TG_API_ID`, `TG_API_HASH`.
+- Import result must produce:
+  - JSON draft file,
+  - `posts.js` snippet for manual review.
+- Do not auto-publish imported posts without content review.
+- After accepting drafts:
+  1. update `posts.js`,
+  2. run `python3 generate.py`,
+  3. run `python3 typograph.py`,
+  4. verify links, tags, and card rendering.
