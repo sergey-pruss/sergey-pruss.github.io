@@ -52,6 +52,8 @@
   .hero h1 em { font-style: italic; color: var(--accent); }
   .hero-sub { font-size: .98rem; color: var(--ink-soft); line-height: 1.72; }
   .hero-photo { position: absolute; right: 0; top: 30px; width: 260px; z-index: 1; }
+  .hero-text,
+  .hero-photo { will-change: transform; transition: transform .12s linear; }
   .hero-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; border-radius: 4px; display: block; }
 
   /* REVIEWS AVATARS */
@@ -80,7 +82,7 @@
   /* RESULTS */
   .results-intro { font-size: .97rem; color: var(--ink-soft); margin-bottom: 32px; font-style: italic; }
   .result-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: start; }
-  .result-item:first-of-type { border-top: 1px solid var(--line); }
+  .result-item:last-of-type { border-bottom: none; }
   .result-num { font-family: 'Museo Sans', sans-serif; font-size: .95rem; color: var(--accent); padding-top: 3px; text-align: right; }
   .result-text { font-size: .97rem; line-height: 1.68; }
 
@@ -173,10 +175,17 @@
   /* ANIMATION */
   @keyframes fadeUp { from { opacity: 0; transform: translate3d(0, var(--reveal-y), 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
 
+  .parallax-item {
+    --parallax-y: 0px;
+    transform: translate3d(0, var(--parallax-y), 0);
+    transition: transform .16s linear;
+    will-change: transform;
+  }
+
   /* Scroll-triggered reveal (hydrated in components.js) — only opacity + transform */
   .site-reveal {
     opacity: 0;
-    transform: translate3d(0, var(--reveal-y), 0);
+    transform: translate3d(0, calc(var(--reveal-y) + var(--parallax-y, 0px)), 0);
     transition:
       opacity var(--motion-med) var(--ease-out),
       transform var(--motion-med) var(--ease-out);
@@ -184,7 +193,7 @@
   }
   .site-reveal.site-reveal-visible {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, var(--parallax-y, 0px), 0);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -204,6 +213,13 @@
     section {
       animation: none !important;
       opacity: 1 !important;
+      transform: none !important;
+    }
+    body,
+    .parallax-item,
+    .hero-text,
+    .hero-photo {
+      transition: none !important;
       transform: none !important;
     }
     .case-item:hover,
@@ -250,13 +266,25 @@
 
 /* POST PAGES */
 .post-header{padding:52px 0 28px}
-.post-date{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}
-.post-date-link{margin-left:12px;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.post-date{display:flex;align-items:baseline;gap:20px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px;flex-wrap:wrap}
+.post-date-value{font:inherit;letter-spacing:inherit;color:inherit}
+.post-date-link{font:inherit;letter-spacing:inherit;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;line-height:1.1;transition:color .2s,border-color .2s}
 .post-date-link:hover{color:var(--accent);border-color:var(--accent)}
 .post-title{font-family:'Museo Sans',sans-serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;line-height:1.2}
 .post-body{padding-bottom:0}
 .post-tag{display:inline-block;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;transition:color .2s,border-color .2s}
 .post-tag:hover{color:var(--accent);border-color:var(--accent)}
+.post-author{display:flex;align-items:center;gap:12px;margin-top:38px}
+.post-author-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:center top;border:1px solid var(--line);flex-shrink:0}
+.post-author-name{font-size:1.03rem;line-height:1.2;color:var(--ink);font-weight:500;margin-bottom:2px}
+.post-author-role{font-size:.78rem;line-height:1.45;color:var(--ink-soft)}
+.post-author-role a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
+.post-author-role a:hover{color:var(--accent);border-color:var(--accent)}
+.post-meta-row{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:0}
+.post-meta-row .post-author{margin-left:0}
+.post-meta-row:not(.has-tag) .post-author{margin-left:0}
+.post-author-home{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
+.post-author-home:hover{color:var(--accent)}
 .post-body p{font-size:1rem;line-height:1.82;margin-bottom:1.4em;color:var(--ink)}
 .post-body p:last-child{margin-bottom:0}
 .post-body h2{margin-bottom:calc(.83em + 3px)}
@@ -279,13 +307,14 @@
 .post-nav-item:hover .post-nav-title{color:var(--accent)}
 .post-nav-item.next{text-align:right}
 @media(max-width:600px){.post-nav{grid-template-columns:1fr}.post-nav-item.next{text-align:left}}
+@media(max-width:600px){.post-meta-row{gap:12px}.post-meta-row .post-author{margin-left:0}}
 
 /* BLOG/TAG LIST PAGES */
 .blog-header{padding:52px 0 16px}
 .blog-header h1{font-family:'Museo Sans',sans-serif;font-size:clamp(2rem,6vw,3rem);font-weight:700;line-height:1.1;margin-bottom:8px}
 .blog-header .sub{font-size:.87rem;color:var(--ink-soft)}
 .post-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.post-list .post-card{text-decoration:none;display:flex;flex-direction:column;gap:8px;padding:20px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;transition:background var(--motion-fast),border-color var(--motion-fast),transform var(--motion-fast) var(--ease-out);height:320px;overflow:hidden;position:relative}
+.post-list .post-card{text-decoration:none;display:flex;flex-direction:column;gap:8px;padding:20px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;transition:background var(--motion-fast),border-color var(--motion-fast),transform var(--motion-fast) var(--ease-out);height:auto;min-height:320px;overflow:visible;position:relative}
 .post-list .post-card:hover{background:rgba(255,255,255,.08);border-color:#343536;transform:translateY(-3px)}
 .post-list .post-card-date{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
 .post-list .post-card-title{font-family:'Museo Sans',sans-serif;font-size:1.1rem;font-weight:500;line-height:1.3;color:var(--ink);margin-bottom:6px}
@@ -327,3 +356,4 @@ body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-
   .post-list .post-card-desc{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
   .post-list .post-card-hash{opacity:.95;transform:translateY(0)}
 }
+

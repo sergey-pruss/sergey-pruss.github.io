@@ -82,6 +82,44 @@
     }
   }
 
+  let authorBlockTemplateCache = null;
+
+  async function loadAuthorBlockTemplate() {
+    if (authorBlockTemplateCache !== null) return authorBlockTemplateCache;
+    try {
+      const r = await fetch(prefix + 'author-block.html');
+      if (!r.ok) {
+        authorBlockTemplateCache = '';
+        return authorBlockTemplateCache;
+      }
+      authorBlockTemplateCache = (await r.text()).trim();
+      return authorBlockTemplateCache;
+    } catch (e) {
+      authorBlockTemplateCache = '';
+      return authorBlockTemplateCache;
+    }
+  }
+
+  function localizeRelativeLinks(root) {
+    if (!root) return;
+    root.querySelectorAll('[href], [src]').forEach(el => {
+      ['href', 'src'].forEach(attr => {
+        const v = el.getAttribute(attr);
+        if (!v) return;
+        if (
+          v.startsWith('http') ||
+          v.startsWith('//') ||
+          v.startsWith('#') ||
+          v.startsWith('mailto:') ||
+          v.startsWith('tel:')
+        ) {
+          return;
+        }
+        if (prefix && !v.startsWith('../')) el.setAttribute(attr, `${prefix}${v}`);
+      });
+    });
+  }
+
   async function loadTagSlugMap() {
     const tags = ['knigi', 'liderstvo', 'tsennosti'];
     const map = new Map();
@@ -291,6 +329,62 @@
     });
   }
 
+  /** Мягкий параллакс на главной: блоки двигаются с разной скоростью при скролле. */
+  function initHomeParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const page = location.pathname.split('/').pop() || 'index.html';
+    const isHomePage = page === 'index.html' || location.pathname === '/';
+    if (!isHomePage) return;
+
+    let scheduled = false;
+    const items = [];
+
+    function collect(selector, speed, max) {
+      document.querySelectorAll(selector).forEach(el => {
+        el.classList.add('parallax-item');
+        items.push({ el, speed, max });
+      });
+    }
+
+    collect('.hero-label', -0.03, 16);
+    collect('.hero h1', -0.05, 26);
+    collect('.hero-sub', -0.025, 14);
+    collect('.hero-photo', 0.11, 70);
+    collect('.about-text', 0.015, 10);
+    collect('.about-photo', 0.06, 22);
+    collect('.about-facts .fact', 0.012, 8);
+    if (!items.length) return;
+
+    function clamp(v, min, max) {
+      return Math.max(min, Math.min(max, v));
+    }
+
+    function apply() {
+      scheduled = false;
+      const vh = window.innerHeight || document.documentElement.clientHeight || 1;
+      const center = vh * 0.55;
+      items.forEach(item => {
+        const rect = item.el.getBoundingClientRect();
+        const elCenter = rect.top + rect.height * 0.5;
+        const delta = center - elCenter;
+        const raw = delta * item.speed;
+        const y = clamp(raw, -item.max, item.max);
+        item.el.style.setProperty('--parallax-y', `${y.toFixed(2)}px`);
+      });
+    }
+
+    function onFrameRequest() {
+      if (!scheduled) {
+        scheduled = true;
+        requestAnimationFrame(apply);
+      }
+    }
+
+    window.addEventListener('scroll', onFrameRequest, { passive: true });
+    window.addEventListener('resize', onFrameRequest);
+    apply();
+  }
+
   function initScrollReveal() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -360,11 +454,105 @@
     const dateEl = document.querySelector('.post-date');
     if (!dateEl) return;
     if (dateEl.querySelector('.post-date-link')) return;
+    const dateText = dateEl.textContent.trim();
     const link = document.createElement('a');
     link.className = 'post-date-link';
     link.href = `${prefix}blog.html`;
-    link.textContent = 'Все посты';
-    dateEl.appendChild(link);
+    link.textContent = '← Все посты';
+    const value = document.createElement('span');
+    value.className = 'post-date-value';
+    value.textContent = dateText;
+    dateEl.textContent = '';
+    dateEl.append(link, value);
+  }
+
+  async function ensurePostAuthorBlock() {
+    if (!/\/posts\/[^/]+\.html$/.test(location.pathname)) return;
+    const body = document.querySelector('.post-body');
+    if (!body) return;
+
+    const template = await loadAuthorBlockTemplate();
+    if (!template) return;
+    let author = body.querySelector('.post-author');
+    if (!author) {
+      const holder = document.createElement('div');
+      holder.innerHTML = template;
+      author = holder.firstElementChild;
+      if (!author) return;
+      localizeRelativeLinks(author);
+    }
+
+    const signature = Array.from(body.querySelectorAll('p')).find(p => {
+      const text = (p.textContent || '').replace(/\s+/g, ' ').trim();
+      return text === 'Сергей Прусс';
+    });
+    if (signature) {
+      signature.replaceWith(author);
+    } else {
+      const tag = body.querySelector('.post-tag');
+      const tagP = tag ? tag.closest('p') : null;
+      if (tagP) tagP.insertAdjacentElement('afterend', author);
+      else body.appendChild(author);
+    }
+
+    const isBookPost = Boolean(
+      body.querySelector('.post-tag[href*="tag-knigi.html"], .post-tag[href$="tag-knigi.html"]')
+    );
+    if (isBookPost) {
+      const nav = document.querySelector('.post-nav');
+      if (nav && nav.parentNode) nav.parentNode.insertBefore(author, nav);
+      else body.appendChild(author);
+      const row = body.querySelector('.post-meta-row');
+      if (row) {
+        if (!row.children.length) row.remove();
+        else if (!row.querySelector('.post-author')) row.remove();
+      }
+    }
+  }
+
+  function alignPostMetaRow() {
+    if (!/\/posts\/[^/]+\.html$/.test(location.pathname)) return;
+    const body = document.querySelector('.post-body');
+    if (!body) return;
+    const isBookPost = Boolean(
+      body.querySelector('.post-tag[href*="tag-knigi.html"], .post-tag[href$="tag-knigi.html"]')
+    );
+    if (isBookPost) {
+      const row = body.querySelector('.post-meta-row');
+      if (row) {
+        const tag = row.querySelector('.post-tag');
+        const author = row.querySelector('.post-author');
+        if (tag) row.insertAdjacentElement('beforebegin', tag);
+        if (author) {
+          const nav = document.querySelector('.post-nav');
+          if (nav && nav.parentNode) nav.parentNode.insertBefore(author, nav);
+          else body.appendChild(author);
+        }
+        row.remove();
+      }
+      return;
+    }
+    const author = body.querySelector('.post-author');
+    if (!author) return;
+
+    let row = body.querySelector('.post-meta-row');
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'post-meta-row';
+      author.parentNode.insertBefore(row, author);
+    }
+
+    const tag = body.querySelector('.post-tag');
+    if (tag) {
+      row.classList.add('has-tag');
+      const p = tag.closest('p');
+      row.insertBefore(tag, row.firstChild);
+      if (p && p !== row && !p.textContent.trim()) p.remove();
+    } else {
+      row.classList.remove('has-tag');
+    }
+
+    row.appendChild(author);
   }
 
   ensureSharedStylesheet();
@@ -379,6 +567,8 @@
     hydrateBookCardsWithCover();
   }
   addPostHeaderBlogLink();
+  await ensurePostAuthorBlock();
+  alignPostMetaRow();
 
   // Fix header links for subdirectory pages
   document.querySelectorAll('nav a').forEach(a => {
@@ -426,5 +616,6 @@
     }
   });
 
+  initHomeParallax();
   initScrollReveal();
 })();

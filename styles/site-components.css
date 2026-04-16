@@ -64,7 +64,8 @@ nav .nav-right .nav-link {
 
 .post-nav.post-nav-related {
   display: block;
-  margin-top: 40px;
+  margin-top: 30px;
+  padding: 24px 0 60px;
   border-top: none;
 }
 
