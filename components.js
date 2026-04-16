@@ -59,13 +59,17 @@
   function ensureSharedStylesheet() {
     const id = 'site-components-css';
     if (document.getElementById(id)) return;
+    const targetHref = `${prefix}styles/site-components.css?v=3`;
     const existing = Array.from(document.querySelectorAll('link[rel=\"stylesheet\"]'))
-      .some(l => (l.getAttribute('href') || '').includes('site-components.css'));
-    if (existing) return;
+      .find(l => (l.getAttribute('href') || '').includes('site-components.css'));
+    if (existing) {
+      const href = existing.getAttribute('href') || '';
+      if (href.includes('site-components.css?v=3')) return;
+    }
     const link = document.createElement('link');
     link.id = id;
     link.rel = 'stylesheet';
-    link.href = `${prefix}styles/site-components.css?v=2`;
+    link.href = targetHref;
     document.head.appendChild(link);
   }
 
