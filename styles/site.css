@@ -389,7 +389,7 @@ body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-
 @media (max-width: 600px){
   .post-list{grid-template-columns:1fr}
   .post-list .post-card{height:auto;min-height:260px}
-  .post-list .post-card-title{font-size:1rem;line-height:1.32}
+  .post-list .post-card-title{font-size:.88rem;line-height:1.45;margin-bottom:6px}
   .post-list .post-card-desc{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
   .post-list .post-card-hash{opacity:.95;transform:translateY(0)}
   .post-list.home-post-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
