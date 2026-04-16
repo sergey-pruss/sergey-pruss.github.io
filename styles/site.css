@@ -85,6 +85,7 @@
     border-bottom: 1px solid var(--line);
     transition: border-color .22s var(--ease-out);
     cursor: default;
+    color: rgba(232,228,222,.84);
   }
   .for-whom-item::before{
     content: '';
@@ -93,7 +94,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 16px 16px;
-    opacity: .92;
+    opacity: .52;
     transform: scale(1);
     transition: transform .22s var(--ease-out), opacity .22s var(--ease-out);
   }
@@ -104,6 +105,7 @@
   .for-whom-item:last-child { border-bottom: none; }
   .for-whom-item:hover {
     border-color: rgba(212,120,90,.38);
+    color: var(--ink);
   }
   .for-whom-item:hover::before{
     opacity: 1;
@@ -114,10 +116,11 @@
   .results-intro { font-size: .97rem; color: var(--ink-soft); margin-bottom: 32px; font-style: italic; }
 .result-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: center; transition: border-color .2s var(--ease-out); }
   .result-item:last-of-type { border-bottom: none; }
-  .result-num { font-family: 'Museo Sans', sans-serif; font-size: .95rem; color: var(--accent); padding-top: 0; text-align: right; transform: scale(1); transition: transform .22s var(--ease-out), color .22s var(--ease-out); }
-  .result-text { font-size: .97rem; line-height: 1.68; }
+  .result-num { font-family: 'Museo Sans', sans-serif; font-size: .95rem; color: rgba(212,120,90,.56); padding-top: 0; text-align: right; transform: scale(1); transition: transform .22s var(--ease-out), color .22s var(--ease-out); }
+  .result-text { font-size: .97rem; line-height: 1.68; color: rgba(232,228,222,.84); transition: color .22s var(--ease-out); }
 .result-item:hover { border-color: rgba(212,120,90,.35); }
 .result-item:hover .result-num { transform: scale(1.1); color: #e29a80; }
+.result-item:hover .result-text { color: var(--ink); }
 
   /* ABOUT */
   .about-grid { display: grid; grid-template-columns: 1fr 150px; gap: 36px; align-items: start; }
@@ -157,7 +160,7 @@
   .cases-link:hover { color: var(--accent); border-color: var(--accent); }
   @media (max-width: 600px) {
     .logo-svg-img { width: 175px; }
-    nav .wrap { flex-direction: column !important; align-items: flex-start !important; gap: 28px; }
+    nav .wrap { flex-direction: column !important; align-items: flex-start !important; gap: 36px; }
     .nav-right { gap: 24px; } .cases-grid { grid-template-columns: 1fr 1fr; } .case-item { aspect-ratio: 2/3; } }
 
   .nav-right { display: flex; gap: 24px; align-items: center; }
@@ -390,5 +393,9 @@ body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-
   .post-list .post-card-hash{opacity:.95;transform:translateY(0)}
   .home-post-list{grid-template-columns:1fr 1fr}
   .home-post-list .post-card-hash{display:none}
+}
+
+@media (max-width: 480px){
+  .home-post-list{grid-template-columns:1fr}
 }
 
