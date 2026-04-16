@@ -207,7 +207,7 @@
           </div>
         </a>
       </div>
-      <div style="padding: 20px 24px 0;">
+      <div style="padding: 10px 24px 0;">
         <a href="https://serenity.agency/case/all" class="cases-link" target="_blank">Смотреть все кейсы →</a>
       </div>
     </div>
@@ -217,9 +217,11 @@
   <section class="blog-section">
     <div class="blog-section-header">
       <p class="section-label">Блог</p>
-      <a href="blog.html" class="cases-link">Все записи →</a>
     </div>
     <div class="post-list home-post-list" id="homeBlogGrid"></div>
+    <div style="padding-top: 38px;">
+      <a href="blog.html" class="cases-link">Все записи →</a>
+    </div>
   </section>
 
   <section class="cta-section">
@@ -241,7 +243,7 @@
   if (!grid || typeof POSTS === 'undefined') return;
   var months = {'January':'января','February':'февраля','March':'марта','April':'апреля','May':'мая','June':'июня','July':'июля','August':'августа','September':'сентября','October':'октября','November':'ноября','December':'декабря'};
   function ruDate(d) { for (var en in months) d = d.replace(en, months[en]); return d; }
-  var cardsLimit = window.matchMedia('(max-width: 600px)').matches ? 10 : 9;
+  var cardsLimit = window.matchMedia('(max-width: 600px)').matches ? 6 : 9;
   POSTS.slice(0, cardsLimit).forEach(function(p) {
     var a = document.createElement('a');
     a.href = 'posts/' + p.slug + '.html';

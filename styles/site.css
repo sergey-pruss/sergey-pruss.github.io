@@ -323,6 +323,8 @@
 .post-author-home:hover{color:var(--accent)}
 .post-body p{font-size:1rem;line-height:1.82;margin-bottom:1.4em;color:var(--ink)}
 .post-body p:last-child{margin-bottom:0}
+.post-inline-link,.post-body p a,.post-body li a{color:var(--accent);text-decoration:none;transition:color .2s,text-decoration-color .2s}
+.post-inline-link:hover,.post-body p a:hover,.post-body li a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
 .post-body h2{margin-bottom:calc(.83em + 3px)}
 .post-cover{margin:0 0 1.35em;display:inline-block;max-width:min(380px,100%);vertical-align:top;box-sizing:border-box}
 .post-cover img{display:block;width:auto;max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
@@ -357,6 +359,7 @@
 .post-list .post-card-desc{font-size:.8rem;line-height:1.55;color:var(--ink-soft);margin-top:4px;opacity:1}
 .post-list .post-card-hash{position:absolute;right:16px;bottom:14px;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none}
 .post-list .post-card:hover .post-card-hash{opacity:.95;transform:translateY(0)}
+.home-post-list .post-card-hash{display:none!important}
 .post-list .post-card .card-book-cover-wrap{margin-top:4px;flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
 .post-list .post-card .card-book-cover{display:block;width:100%;height:100%;object-fit:contain;border-radius:8px}
 .post-list .post-card.post-tag-knigi{background:#1e1e1e}
@@ -393,6 +396,8 @@ body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-
   .post-list .post-card-desc{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
   .post-list .post-card-hash{opacity:.95;transform:translateY(0)}
   .post-list.home-post-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .home-post-list .post-card{min-width:0}
+  .home-post-list .post-card{min-width:0;height:260px;min-height:260px;overflow:hidden}
+  .home-post-list .post-card-title{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .home-post-list .post-card-desc{-webkit-line-clamp:5}
 }
 
