@@ -56,7 +56,7 @@
     injectHTML(el, html);
   }
 
-  await load('#site-header', 'header.html?v=2');
+  await load('#site-header', 'header.html?v=4');
   await load('#site-footer', 'footer.html');
   await loadTagNav();
 
@@ -87,9 +87,15 @@
   // Highlight active nav link
   const page = location.pathname.split('/').pop() || 'index.html';
   const isTagPage = /^tag-(knigi|liderstvo|tsennosti)\.html$/.test(page);
+  const isPostPage = /\/posts\/[^/]+\.html$/.test(location.pathname);
+  const isBlogPaginationPage = /\/blog\/page-\d+\.html$/.test(location.pathname);
   document.querySelectorAll('nav a.nav-link').forEach(a => {
     const href = (a.getAttribute('href') || '').replace('../', '');
-    if (href === page || (page === '' && href === 'index.html') || (isTagPage && href === 'blog.html')) {
+    if (
+      href === page ||
+      (page === '' && href === 'index.html') ||
+      ((isTagPage || isPostPage || isBlogPaginationPage) && href === 'blog.html')
+    ) {
       a.style.color = 'var(--accent)';
       a.style.borderBottomColor = 'var(--accent)';
       a.style.borderBottomWidth = '1px';
