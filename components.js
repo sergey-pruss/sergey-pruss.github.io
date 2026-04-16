@@ -520,6 +520,15 @@
     dateEl.append(link, value);
   }
 
+  function isAuthorAfterContentPost() {
+    const m = /\/posts\/([^/]+)\.html$/.exec(location.pathname);
+    if (!m) return false;
+    const slugs = new Set([
+      'na-dnyakh-vyshel-novyy-vypusk-nashego-podkast'
+    ]);
+    return slugs.has(m[1]);
+  }
+
   async function ensurePostAuthorBlock() {
     if (!/\/posts\/[^/]+\.html$/.test(location.pathname)) return;
     const body = document.querySelector('.post-body');
@@ -552,7 +561,7 @@
     const isBookPost = Boolean(
       body.querySelector('.post-tag[href*="tag-knigi.html"], .post-tag[href$="tag-knigi.html"]')
     );
-    if (isBookPost) {
+    if (isBookPost || isAuthorAfterContentPost()) {
       const nav = document.querySelector('.post-nav');
       if (nav && nav.parentNode) nav.parentNode.insertBefore(author, nav);
       else body.appendChild(author);
@@ -571,7 +580,7 @@
     const isBookPost = Boolean(
       body.querySelector('.post-tag[href*="tag-knigi.html"], .post-tag[href$="tag-knigi.html"]')
     );
-    if (isBookPost) {
+    if (isBookPost || isAuthorAfterContentPost()) {
       const row = body.querySelector('.post-meta-row');
       if (row) {
         const tag = row.querySelector('.post-tag');
