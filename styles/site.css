@@ -161,7 +161,11 @@
   @media (max-width: 600px) {
     .logo-svg-img { width: 175px; }
     nav .wrap { flex-direction: column !important; align-items: flex-start !important; gap: 36px; }
-    .nav-right { gap: 24px; } .cases-grid { grid-template-columns: 1fr 1fr; } .case-item { aspect-ratio: 2/3; } }
+  .nav-right { gap: 24px; } .cases-grid { grid-template-columns: 1fr 1fr; } .case-item { aspect-ratio: 2/3; }
+  .case-tags { display: none; }
+  .case-body { top: 0; left: 0; right: 0; padding: 14px; }
+  .case-title { margin: 0; }
+}
 
   .nav-right { display: flex; gap: 24px; align-items: center; }
   nav a.nav-link { font-size: .72rem; color: var(--accent); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
