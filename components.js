@@ -166,7 +166,11 @@
   }
 
   async function hydrateBookCardsWithCover() {
-    const cards = Array.from(document.querySelectorAll('.post-list .post-card.post-tag-knigi, .post-nav.post-nav-related .blog-card.post-tag-knigi'));
+    const cards = Array.from(
+      document.querySelectorAll(
+        '.post-list .post-card.post-tag-knigi, .post-nav.post-nav-related .blog-card.post-tag-knigi, #homeBlogGrid .blog-card.post-tag-knigi'
+      )
+    );
     if (!cards.length) return;
     await Promise.all(cards.map(async card => {
       const href = card.getAttribute('href') || '';
@@ -258,7 +262,9 @@
   }
 
   function hydratePostListCards(posts, tagSlugMap) {
-    const cards = document.querySelectorAll('.post-list .post-card[href*="/posts/"], .post-list .post-card[href^="posts/"]');
+    const cards = document.querySelectorAll(
+      '.post-list .post-card[href*="/posts/"], .post-list .post-card[href^="posts/"], #homeBlogGrid .blog-card[href*="posts/"], #homeBlogGrid .blog-card[href^="posts/"]'
+    );
     if (!cards.length) return;
     const bySlug = new Map(posts.map(p => [p.slug, p]));
     cards.forEach(card => {
@@ -267,13 +273,14 @@
       if (!m) return;
       const post = bySlug.get(m[1]);
       if (!post) return;
-      const t = card.querySelector('.post-card-title');
-      const d = card.querySelector('.post-card-desc');
+      const t = card.querySelector('.post-card-title, .blog-card-title');
+      const d = card.querySelector('.post-card-desc, .blog-card-desc');
       if (t) t.textContent = truncText(post.title, 95);
       if (d) d.textContent = truncText(post.description, 180);
       const tags = tagSlugMap.get(post.slug) || [];
       tags.forEach(tag => card.classList.add(`post-tag-${tag}`));
       const primaryTag = pickPrimaryTag(tags);
+      if (!card.classList.contains('post-card')) return;
       let hash = card.querySelector('.post-card-hash');
       if (!hash && primaryTag) {
         hash = document.createElement('div');

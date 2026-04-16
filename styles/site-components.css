@@ -138,6 +138,14 @@ nav .nav-right .nav-link {
   border-radius: 8px;
 }
 
+.post-nav.post-nav-related .blog-card.post-tag-knigi {
+  background: #1e1e1e;
+}
+
+.post-nav.post-nav-related .blog-card.post-tag-knigi:hover {
+  background: #1e1e1e;
+}
+
 .post-nav.post-nav-related .blog-card.post-tag-knigi .blog-card-desc {
   display: none;
 }
