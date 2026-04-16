@@ -166,4 +166,13 @@ nav .nav-right .nav-link {
   .post-nav.post-nav-related .post-related-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .post-nav.post-nav-related .blog-card {
+    height: auto;
+    min-height: 260px;
+  }
+
+  .post-nav.post-nav-related .blog-card-desc {
+    opacity: 1;
+  }
 }
