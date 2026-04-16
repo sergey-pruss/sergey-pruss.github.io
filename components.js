@@ -48,9 +48,10 @@
 
   // Highlight active nav link
   const page = location.pathname.split('/').pop() || 'index.html';
+  const isTagPage = /^tag-(knigi|liderstvo|tsennosti)\.html$/.test(page);
   document.querySelectorAll('nav a.nav-link').forEach(a => {
     const href = (a.getAttribute('href') || '').replace('../', '');
-    if (href === page || (page === '' && href === 'index.html')) {
+    if (href === page || (page === '' && href === 'index.html') || (isTagPage && href === 'blog.html')) {
       a.style.color = 'var(--accent)';
       a.style.borderBottomColor = 'var(--accent)';
       a.style.borderBottomWidth = '1px';
