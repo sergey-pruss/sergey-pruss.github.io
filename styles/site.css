@@ -395,7 +395,3 @@ body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-
   .home-post-list .post-card-hash{display:none}
 }
 
-@media (max-width: 480px){
-  .home-post-list{grid-template-columns:1fr}
-}
-
