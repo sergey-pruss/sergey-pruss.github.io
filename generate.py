@@ -34,8 +34,54 @@ def ru_date(d):
 def esc(s):
     return s.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;')
 
+TRUNC_STOPWORDS = {
+    'и', 'а', 'но', 'или', 'либо', 'да', 'что', 'чтобы', 'как',
+    'в', 'во', 'на', 'с', 'со', 'к', 'ко', 'у', 'о', 'об', 'обо',
+    'по', 'за', 'для', 'про', 'под', 'над', 'из', 'изо', 'до', 'при', 'от', 'без',
+    'не', 'ни', 'же', 'ли', 'бы'
+}
+
+def _trim_trunc_end(s):
+    return re.sub(r'[\s,;:!?.…–—-]+$', '', s).strip()
+
+def _fix_dangling_stopword_fragment(s):
+    v = re.sub(r'\s+', ' ', s or '').strip()
+    if not v:
+        return v
+    if re.search(r'[.!?…]$', v):
+        return v
+
+    words = v.split()
+    changed = False
+    while len(words) > 1 and words[-1].lower() in TRUNC_STOPWORDS:
+        words.pop()
+        changed = True
+    if not changed:
+        return v
+    return _trim_trunc_end(' '.join(words)) + '...'
+
 def trunc(s, n):
-    return s[:n].rstrip() + '…' if len(s) > n else s
+    v = re.sub(r'\s+', ' ', s or '').strip()
+    if len(v) <= n:
+        return _fix_dangling_stopword_fragment(v)
+
+    probe = v[:n + 1]
+    boundary = probe.rfind(' ')
+    if boundary < int(n * 0.55):
+        boundary = n
+
+    candidate = _trim_trunc_end(v[:boundary])
+    if not candidate:
+        candidate = _trim_trunc_end(v[:n])
+
+    words = candidate.split()
+    while len(words) > 1 and words[-1].lower() in TRUNC_STOPWORDS:
+        words.pop()
+    candidate = ' '.join(words).strip()
+    if not candidate:
+        candidate = _trim_trunc_end(v[:n])
+
+    return candidate + '...'
 
 def get_style():
     with open('index.html') as f: html = f.read()

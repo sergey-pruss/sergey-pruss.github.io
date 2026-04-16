@@ -72,7 +72,7 @@
   section:nth-of-type(4) { animation-delay: .62s; }
   section:nth-of-type(5) { animation-delay: .68s; }
 
-  .section-label { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 28px; }
+  .section-label { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 28px; }
 
   /* FOR WHOM */
   .for-whom-item { font-size: 1rem; padding: 15px 0 15px 20px; border-left: 2px solid var(--line); border-bottom: 1px solid var(--line); transition: border-left-color .2s, padding-left .15s; cursor: default; }

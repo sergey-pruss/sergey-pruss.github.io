@@ -7,6 +7,8 @@ alwaysApply: true
 
 - Blog list and related-post cards should stay visually aligned.
 - Show title and description by default for normal posts.
+- If card text is truncated, end with `...` and only on a full word.
+- Do not end truncated card text on Russian stopwords (prepositions/conjunctions like `и`, `в`, `на`, `с`, `по`, `для`, `что`, `как`); trim to the previous meaningful word.
 - Show compact hashtag label on hover when tag is available.
 - For `#книги` cards:
   - keep title visible,

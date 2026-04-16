@@ -206,7 +206,7 @@
   async function hydrateBookCardsWithCover() {
     const cards = Array.from(
       document.querySelectorAll(
-        '.post-list .post-card.post-tag-knigi, .post-nav.post-nav-related .blog-card.post-tag-knigi, #homeBlogGrid .blog-card.post-tag-knigi'
+        '.post-list .post-card.post-tag-knigi, .post-nav.post-nav-related .blog-card.post-tag-knigi'
       )
     );
     if (!cards.length) return;
@@ -249,9 +249,51 @@
       .replace(/"/g, '&quot;');
   }
 
+  const TRUNC_STOPWORDS = new Set([
+    'и', 'а', 'но', 'или', 'либо', 'да', 'что', 'чтобы', 'как',
+    'в', 'во', 'на', 'с', 'со', 'к', 'ко', 'у', 'о', 'об', 'обо',
+    'по', 'за', 'для', 'про', 'под', 'над', 'из', 'изо', 'до', 'при', 'от', 'без',
+    'не', 'ни', 'же', 'ли', 'бы'
+  ]);
+
+  function trimTruncEnd(v) {
+    return v.replace(/[\s,;:!?.…–—-]+$/u, '').trim();
+  }
+
+  function fixDanglingStopwordFragment(v) {
+    const cleaned = String(v || '').replace(/\s+/g, ' ').trim();
+    if (!cleaned) return cleaned;
+    if (/[.!?…]$/u.test(cleaned)) return cleaned;
+
+    const words = cleaned.split(/\s+/).filter(Boolean);
+    let changed = false;
+    while (words.length > 1 && TRUNC_STOPWORDS.has(words[words.length - 1].toLowerCase())) {
+      words.pop();
+      changed = true;
+    }
+    if (!changed) return cleaned;
+    return `${trimTruncEnd(words.join(' '))}...`;
+  }
+
   function truncText(s, max) {
-    const v = String(s || '').trim();
-    return v.length > max ? `${v.slice(0, max).trimEnd()}…` : v;
+    const v = String(s || '').replace(/\s+/g, ' ').trim();
+    if (v.length <= max) return fixDanglingStopwordFragment(v);
+
+    const probe = v.slice(0, max + 1);
+    let boundary = probe.lastIndexOf(' ');
+    if (boundary < Math.floor(max * 0.55)) boundary = max;
+
+    let candidate = trimTruncEnd(v.slice(0, boundary));
+    if (!candidate) candidate = trimTruncEnd(v.slice(0, max));
+
+    const words = candidate.split(/\s+/).filter(Boolean);
+    while (words.length > 1 && TRUNC_STOPWORDS.has(words[words.length - 1].toLowerCase())) {
+      words.pop();
+    }
+
+    candidate = words.join(' ').trim();
+    if (!candidate) candidate = trimTruncEnd(v.slice(0, max));
+    return `${candidate}...`;
   }
 
   function getNearbyPostIndexes(posts, currentIndex, count) {
@@ -301,7 +343,7 @@
 
   function hydratePostListCards(posts, tagSlugMap) {
     const cards = document.querySelectorAll(
-      '.post-list .post-card[href*="/posts/"], .post-list .post-card[href^="posts/"], #homeBlogGrid .blog-card[href*="posts/"], #homeBlogGrid .blog-card[href^="posts/"]'
+      '.post-list .post-card[href*="/posts/"], .post-list .post-card[href^="posts/"]'
     );
     if (!cards.length) return;
     const bySlug = new Map(posts.map(p => [p.slug, p]));
