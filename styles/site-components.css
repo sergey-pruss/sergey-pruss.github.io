@@ -70,14 +70,6 @@ nav .nav-right .nav-link {
     font-weight: 500;
     letter-spacing: 0.11em;
   }
-
-  .home-post-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .home-post-list .post-card {
-    min-width: 0;
-  }
 }
 
 .post-nav.post-nav-related {
