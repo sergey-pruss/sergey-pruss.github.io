@@ -65,7 +65,7 @@
     const link = document.createElement('link');
     link.id = id;
     link.rel = 'stylesheet';
-    link.href = `${prefix}styles/site-components.css?v=1`;
+    link.href = `${prefix}styles/site-components.css?v=2`;
     document.head.appendChild(link);
   }
 
@@ -291,6 +291,70 @@
     });
   }
 
+  function initScrollReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const nodes = [];
+    const seen = new Set();
+    function add(el) {
+      if (!el || seen.has(el)) return;
+      seen.add(el);
+      nodes.push(el);
+    }
+
+    add(document.querySelector('.blog-header'));
+    add(document.querySelector('.post-header'));
+    add(document.querySelector('.post-body'));
+    add(document.querySelector('.pagination'));
+    document.querySelectorAll('.tag-nav .tag-chip').forEach(add);
+    document.querySelectorAll('.cases-grid .case-item').forEach(add);
+    document
+      .querySelectorAll('.post-list .post-card, .blog-grid .blog-card, .post-related-grid .blog-card')
+      .forEach(add);
+
+    if (!nodes.length) return;
+
+    let stagger = 0;
+    nodes.forEach(el => {
+      el.classList.add('site-reveal');
+      if (
+        el.matches(
+          '.post-list .post-card, .blog-grid .blog-card, .post-related-grid .blog-card, .cases-grid .case-item'
+        )
+      ) {
+        el.style.setProperty('--reveal-delay', `${Math.min(stagger++, 18) * 0.035}s`);
+      } else if (el.matches('.tag-nav .tag-chip')) {
+        el.style.setProperty('--reveal-delay', `${Math.min(stagger++, 10) * 0.04}s`);
+      }
+    });
+
+    function revealEl(el) {
+      el.classList.add('site-reveal-visible');
+    }
+
+    function mostlyVisible(el) {
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      return r.top < vh * 0.94 && r.bottom > -20;
+    }
+
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          revealEl(entry.target);
+          obs.unobserve(entry.target);
+        });
+      },
+      { root: null, rootMargin: '0px 0px -5% 0px', threshold: 0.02 }
+    );
+
+    nodes.forEach(el => {
+      if (mostlyVisible(el)) revealEl(el);
+      else io.observe(el);
+    });
+  }
+
   function addPostHeaderBlogLink() {
     if (!/\/posts\/[^/]+\.html$/.test(location.pathname)) return;
     const dateEl = document.querySelector('.post-date');
@@ -361,4 +425,6 @@
       a.style.borderBottomStyle = 'solid';
     }
   });
+
+  initScrollReveal();
 })();

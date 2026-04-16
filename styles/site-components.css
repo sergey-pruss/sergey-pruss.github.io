@@ -84,7 +84,10 @@ nav .nav-right .nav-link {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--line);
   border-radius: 10px;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   height: 300px;
   overflow: hidden;
 }
@@ -92,6 +95,7 @@ nav .nav-right .nav-link {
 .post-nav.post-nav-related .blog-card:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: #343536;
+  transform: translateY(-3px);
 }
 
 .post-nav.post-nav-related .blog-card-date {
@@ -144,6 +148,7 @@ nav .nav-right .nav-link {
 
 .post-nav.post-nav-related .blog-card.post-tag-knigi:hover {
   background: #1e1e1e;
+  transform: translateY(-3px);
 }
 
 .post-nav.post-nav-related .blog-card.post-tag-knigi .blog-card-desc {

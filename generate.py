@@ -85,8 +85,8 @@ BLOG_HEAD = '''<!DOCTYPE html>
 <title>{title_tag}</title>
 <meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
 {metrika}
-<link rel="stylesheet" href="{styles_prefix}styles/site.css?v=1">
-<link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=1">
+<link rel="stylesheet" href="{styles_prefix}styles/site.css?v=2">
+<link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=2">
 </head>'''
 
 
