@@ -38,16 +38,37 @@ def process_file(path):
         return True
     return False
 
+def process_js_file(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        original = f.read()
+
+    # Apply typography only inside template literals to avoid changing JS syntax.
+    result = re.sub(
+        r'`([^`]*)`',
+        lambda m: '`' + typograph_text(m.group(1)) + '`',
+        original,
+        flags=re.DOTALL,
+    )
+
+    if result != original:
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(result)
+        return True
+    return False
+
 def main():
     targets = sys.argv[1:] if len(sys.argv) > 1 else []
     if not targets:
-        targets = ['index.html', 'blog.html']
+        targets = ['index.html', 'blog.html', 'posts.js']
         for d in ['posts', 'blog']:
             if os.path.isdir(d):
                 targets += [f'{d}/{f}' for f in os.listdir(d) if f.endswith('.html')]
     changed = 0
     for path in targets:
-        if os.path.exists(path) and process_file(path):
+        if not os.path.exists(path):
+            continue
+        processor = process_js_file if path.endswith('.js') else process_file
+        if processor(path):
             changed += 1
             print(f'  ✓ {path}')
     print(f'\nОбработано: {len(targets)}, изменено: {changed}')
