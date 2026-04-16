@@ -219,7 +219,7 @@
       <p class="section-label">Блог</p>
       <a href="blog.html" class="cases-link">Все записи →</a>
     </div>
-    <div class="post-list" id="homeBlogGrid"></div>
+    <div class="post-list home-post-list" id="homeBlogGrid"></div>
   </section>
 
   <section class="cta-section">
@@ -241,7 +241,8 @@
   if (!grid || typeof POSTS === 'undefined') return;
   var months = {'January':'января','February':'февраля','March':'марта','April':'апреля','May':'мая','June':'июня','July':'июля','August':'августа','September':'сентября','October':'октября','November':'ноября','December':'декабря'};
   function ruDate(d) { for (var en in months) d = d.replace(en, months[en]); return d; }
-  POSTS.slice(0, 9).forEach(function(p) {
+  var cardsLimit = window.matchMedia('(max-width: 600px)').matches ? 10 : 9;
+  POSTS.slice(0, cardsLimit).forEach(function(p) {
     var a = document.createElement('a');
     a.href = 'posts/' + p.slug + '.html';
     a.className = 'post-card';

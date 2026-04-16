@@ -318,7 +318,8 @@
     const nav = document.querySelector('.post-nav');
     if (!nav) return;
 
-    const idxs = getNearbyPostIndexes(posts, currentIndex, 3);
+    const relatedCount = window.matchMedia('(max-width: 600px)').matches ? 4 : 3;
+    const idxs = getNearbyPostIndexes(posts, currentIndex, relatedCount);
     const nearby = idxs.map(i => posts[i]).filter(Boolean);
     if (!nearby.length) return;
 
@@ -377,6 +378,7 @@
     const page = location.pathname.split('/').pop() || 'index.html';
     const isHomePage = page === 'index.html' || location.pathname === '/';
     if (!isHomePage) return;
+    const mq = window.matchMedia('(min-width: 601px)');
 
     let scheduled = false;
     const items = [];
@@ -403,6 +405,10 @@
 
     function apply() {
       scheduled = false;
+      if (!mq.matches) {
+        items.forEach(item => item.el.style.setProperty('--parallax-y', '0px'));
+        return;
+      }
       const vh = window.innerHeight || document.documentElement.clientHeight || 1;
       const center = vh * 0.55;
       items.forEach(item => {
@@ -424,6 +430,8 @@
 
     window.addEventListener('scroll', onFrameRequest, { passive: true });
     window.addEventListener('resize', onFrameRequest);
+    if (typeof mq.addEventListener === 'function') mq.addEventListener('change', onFrameRequest);
+    else if (typeof mq.addListener === 'function') mq.addListener(onFrameRequest);
     apply();
   }
 
