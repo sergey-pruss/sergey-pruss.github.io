@@ -389,12 +389,10 @@ body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-
 @media (max-width: 600px){
   .post-list{grid-template-columns:1fr}
   .post-list .post-card{height:auto;min-height:260px}
+  .post-list .post-card-title{font-size:1rem;line-height:1.32}
   .post-list .post-card-desc{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
   .post-list .post-card-hash{opacity:.95;transform:translateY(0)}
   .post-list.home-post-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .home-post-list .post-card{min-width:0;min-height:220px;padding:18px}
-  .home-post-list .post-card-title{font-size:.94rem;line-height:1.35;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
-  .home-post-list .post-card-desc{-webkit-line-clamp:4}
-  .home-post-list .post-card-hash{display:none}
+  .home-post-list .post-card{min-width:0}
 }
 
