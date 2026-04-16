@@ -176,6 +176,7 @@ nav .nav-right .nav-link {
   color: var(--ink-soft);
   opacity: 0.9;
   pointer-events: none;
+  display: none;
 }
 
 @media (max-width: 600px) {

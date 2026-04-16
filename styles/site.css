@@ -334,7 +334,7 @@
 .post-card-title{font-size:clamp(1.38rem,3.4vw,1.72rem);line-height:1.2;font-weight:700;letter-spacing:-.01em;margin:0 0 16px;color:var(--ink)}
 .post-card-text{font-size:1.02rem;line-height:1.72;color:var(--ink);margin:0}
 .post-card-text + .post-card-text{margin-top:12px}
-.post-photos img{width:100%;border-radius:8px;display:block}
+.post-photos img{width:auto!important;max-width:100%;height:auto;border-radius:8px;display:block;margin:0 auto}
 .post-cta{margin-top:52px;padding-top:32px;border-top:1px solid var(--line);font-size:.97rem;color:var(--ink-soft);line-height:1.7}
 .post-cta a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);transition:opacity .2s}
 .post-cta a:hover{opacity:.7}
