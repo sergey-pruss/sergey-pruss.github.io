@@ -351,7 +351,7 @@
     collect('.hero-sub', -0.025, 14);
     collect('.hero-photo', 0.11, 70);
     collect('.about-text', 0.015, 10);
-    collect('.about-photo', 0.06, 22);
+    collect('.about-photo', 0.14, 120);
     collect('.about-facts .fact', 0.012, 8);
     if (!items.length) return;
 
