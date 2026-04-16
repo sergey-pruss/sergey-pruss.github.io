@@ -2,8 +2,6 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<link rel="preload" href="../fonts/MuseoSansCyrl_0.otf" as="font" type="font/otf" crossorigin>
-<link rel="preload" href="../fonts/MuseoSansCyrl_2.otf" as="font" type="font/otf" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Блог, страница 4 — Сергей Прусс</title>
 <meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
@@ -22,417 +20,199 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<style>
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_0.otf'); font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_1.otf'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_2.otf'); font-weight: 700; font-display: swap; }
-  :root {
-    --bg: #141210;
-    --ink: #e8e4de;
-    --ink-soft: #8a8480;
-    --accent: #d4785a;
-    --line: #2a2724;
-    --max: 800px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  a, button { cursor: pointer; }
-  html { font-size: 17px; scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Museo Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* LOGO SVG */
-  .logo-svg { text-decoration: none; display: block; }
-  .logo-svg-img { width: 210px; height: auto; display: block; transition: opacity .2s; }
-  .logo-svg:hover .logo-svg-img { opacity: .75; }
-
-  /* NAV */
-  nav { padding: 32px 0 0; opacity: 0; animation: fadeUp .6s ease .1s forwards; }
-  nav .wrap { display: flex; justify-content: space-between; align-items: center; }
-  .nav-right { display: flex; gap: 24px; align-items: center; }
-  nav a.nav-link { font-size: .72rem; color: var(--accent); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
-  nav a.nav-link:hover { border-color: var(--accent); }
-  nav a.tg { font-size: .72rem; color: var(--ink-soft); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
-  nav a.tg:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* HERO */
-  .hero { padding: 60px 0 0; opacity: 0; animation: fadeUp .7s ease .25s forwards; }
-  .hero-inner { position: relative; min-height: 440px; }
-  .hero-text { position: relative; z-index: 2; max-width: calc(100% - 200px); }
-  .hero-label { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 18px; }
-  .hero h1 { font-family: 'Museo Sans', sans-serif; font-size: clamp(1.9rem, 5vw, 2.9rem); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; margin-bottom: 22px; }
-  .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub { font-size: .98rem; color: var(--ink-soft); line-height: 1.72; }
-  .hero-photo { position: absolute; right: 0; top: 30px; width: 260px; z-index: 1; }
-  .hero-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; border-radius: 4px; display: block; }
-
-  /* REVIEWS AVATARS */
-  .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-  .review-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; }
-  .review-author { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
-
-  /* DIVIDER */
-  hr { border: none; border-top: 1px solid var(--line); margin: 0; }
-
-  /* SECTIONS */
-  section { padding: 50px 0; opacity: 0; animation: fadeUp .7s ease forwards; }
-  section:nth-of-type(1) { animation-delay: .44s; }
-  section:nth-of-type(2) { animation-delay: .5s; }
-  section:nth-of-type(3) { animation-delay: .56s; }
-  section:nth-of-type(4) { animation-delay: .62s; }
-  section:nth-of-type(5) { animation-delay: .68s; }
-
-  .section-label { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 28px; }
-
-  /* FOR WHOM */
-  .for-whom-item { font-size: 1rem; padding: 15px 0 15px 20px; border-left: 2px solid var(--line); border-bottom: 1px solid var(--line); transition: border-left-color .2s, padding-left .15s; cursor: default; }
-  .for-whom-item:last-child { border-bottom: none; }
-  .for-whom-item:hover { border-left-color: var(--accent); padding-left: 26px; }
-
-  /* RESULTS */
-  .results-intro { font-size: .97rem; color: var(--ink-soft); margin-bottom: 32px; font-style: italic; }
-  .result-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: start; }
-  .result-item:first-of-type { border-top: 1px solid var(--line); }
-  .result-num { font-family: 'Museo Sans', sans-serif; font-size: .95rem; color: var(--accent); padding-top: 3px; text-align: right; }
-  .result-text { font-size: .97rem; line-height: 1.68; }
-
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 150px; gap: 36px; align-items: start; }
-  .about-text { font-size: .98rem; line-height: 1.78; margin-bottom: 16px; }
-  .about-text:last-of-type { margin-bottom: 0; }
-  .about-photo img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top; border-radius: 2px; }
-  .about-facts { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
-  .fact { display: flex; gap: 14px; font-size: .88rem; color: var(--ink-soft); align-items: baseline; }
-  .fact-num { font-family: 'Museo Sans', sans-serif; color: var(--accent); font-weight: 500; font-size: .92rem; white-space: nowrap; min-width: 32px; text-align: right; }
-
-  /* REVIEWS */
-  .review { padding: 0 0 22px; background: transparent; border-radius: 2px; border: none; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
-  .review:last-of-type { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
-  .review-text { font-size: .97rem; line-height: 1.72; margin-bottom: 12px; font-style: italic; }
-  .review-author { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
-
-  .agency-link { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: border-color .2s, color .2s; }
-  .agency-link:visited { color: inherit; }
-  .agency-link:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* AGENCY */
-  .agency-wrap { margin: 0 -24px; }
-  .agency-header { padding: 0 24px 28px; }
-  .agency-intro { font-size: .97rem; color: var(--ink-soft); line-height: 1.72; margin-top: 8px; }
-  .cases-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 28px; padding: 0 12px; }
-  .case-item { position: relative; display: block; aspect-ratio: 3/4; overflow: hidden; text-decoration: none; color: #fff; border-radius: 10px; cursor: pointer; }
-  .case-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
-  .case-item:hover img { transform: scale(1.04); }
-  .case-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 50%, transparent 100%); transition: background .3s ease; }
-  .case-body { position: absolute; top: 0; left: 0; right: 0; padding: 14px; }
-  .case-tags { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 6px; opacity: 0; transition: opacity .25s ease; }
-  .case-item:hover .case-tags { opacity: 1; }
-  .case-title { font-size: .82rem; line-height: 1.45; font-weight: 300; color: #fff; }
-  .cases-footer { padding: 0; }
-  .cases-link { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color .2s, border-color .2s; cursor: pointer; }
-  .cases-link:hover { color: var(--accent); border-color: var(--accent); }
-  @media (max-width: 600px) {
-    .logo-svg-img { width: 175px; }
-    nav .wrap { flex-direction: column !important; align-items: flex-start !important; gap: 20px; }
-    .nav-right { gap: 22px; } .cases-grid { grid-template-columns: 1fr 1fr; } .case-item { aspect-ratio: 2/3; } }
-
-  .nav-right { display: flex; gap: 24px; align-items: center; }
-  nav a.nav-link { font-size: .72rem; color: var(--accent); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
-  nav a.nav-link:hover { color: var(--accent); border-color: var(--accent); }
-
-
-  /* BLOG SECTION */
-  .blog-section { padding: 50px 0; }
-  .blog-section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; }
-  .blog-section-header .section-label { margin-bottom: 0; }
-  .blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-  .blog-card { text-decoration: none; display: flex; flex-direction: column; gap: 8px; padding: 20px; background: rgba(255,255,255,.04); border-radius: 10px; transition: background .2s; height: 220px; overflow: hidden; }
-  .blog-card:hover { background: rgba(255,255,255,.08); }
-  .blog-card-date { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
-  .blog-card-title { font-size: .88rem; font-weight: 500; line-height: 1.45; color: var(--ink); }
-  .blog-card-desc { font-size: .8rem; line-height: 1.55; color: var(--ink-soft); margin-top: 4px; opacity: 0; transition: opacity .25s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .blog-card:hover .blog-card-desc { opacity: 1; }
-  @media (max-width: 600px) { .blog-card-desc { display: none; } }
-  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr 1fr; } .blog-card-desc { display: none; } }
-
-  /* CTA */
-  .cta-section { padding: 50px 0 68px; }
-  .cta-section h2 { font-family: 'Museo Sans', sans-serif; font-size: clamp(1.55rem, 4vw, 2.15rem); font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
-  .cta-section h2 em { font-style: italic; color: var(--accent); }
-  .cta-note { font-size: .93rem; color: var(--ink-soft); margin-bottom: 26px; line-height: 1.7;  }
-  .cta-price { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 22px; }
-  .cta-price span { color: var(--ink); }
-  .btn { display: inline-block; padding: 14px 34px; background: var(--ink); color: var(--bg); text-decoration: none; font-family: 'Museo Sans', sans-serif; font-size: .88rem; font-weight: 300; letter-spacing: .04em; transition: background .2s, transform .15s; border-radius: 1px; }
-  .btn:hover { background: var(--accent); transform: translateY(-1px); cursor: pointer; }
-
-  /* FOOTER */
-  footer { padding: 26px 0 40px; }
-  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .footer-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: -.01em; color: var(--ink-soft); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
-  .footer-links a:hover { color: var(--accent); }
-
-  /* ANIMATION */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* MOBILE */
-  @media (max-width: 600px) {
-    html { font-size: 16px; }
-
-    .hero { padding: 44px 0 0; }
-    .hero-inner { min-height: auto; }
-    .hero-text { max-width: 100%; }
-    .hero-photo { position: static; width: 100%; margin-top: 24px; }
-    .hero h1 { font-size: 2rem; }
-
-    section { padding: 38px 0; }
-
-    .about-grid { grid-template-columns: 1fr; gap: 0; }
-    .about-photo { display: none; }
-
-    .review { padding: 16px; }
-
-    .cta-section { padding: 38px 0 56px; }
-    .btn { display: block; text-align: center; padding: 16px; }
-
-    footer .wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
-  }
-
-  @media (max-width: 380px) {
-    html { font-size: 15px; }
-  }
-
-  .blog-header{padding:52px 0 16px}.blog-header h1{font-family:'Museo Sans',sans-serif;font-size:clamp(2rem,6vw,3rem);font-weight:700;line-height:1.1;margin-bottom:8px}.blog-header .sub{font-size:.87rem;color:var(--ink-soft)}
-  .post-card{padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none;display:block;transition:opacity .15s}.post-card:hover{opacity:.75}
-  .post-card-date{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
-  .post-card-title{font-family:'Museo Sans',sans-serif;font-size:1.1rem;font-weight:500;line-height:1.3;color:var(--ink);margin-bottom:6px}
-  .post-card-desc{font-size:.88rem;line-height:1.65;color:var(--ink-soft)}
-  .pagination{display:flex;gap:8px;align-items:center;padding:40px 0 80px;flex-wrap:wrap}
-  .page-btn{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:8px 16px;text-decoration:none;font-family:'Museo Sans',sans-serif;transition:color .2s,border-color .2s}.page-btn:hover,.page-btn.active{color:var(--accent);border-color:var(--accent)}
-  .tag-nav{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 7px}.tag-chip{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);padding:7px 12px;border-radius:999px;transition:color .2s,border-color .2s}.tag-chip:hover,.tag-chip.active{color:var(--accent);border-color:var(--accent)}
-</style><link rel="icon" type="image/x-icon" href="../favicon.ico">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Сергей Прусс","item":"https://sergeypruss.ru/"},
-  {"@type":"ListItem","position":2,"name":"Блог","item":"https://sergeypruss.ru/blog.html"}
-]}
-</script>
+<link rel="stylesheet" href="../styles/site.css?v=1">
+<link rel="stylesheet" href="../styles/site-components.css?v=1">
 </head>
 <body>
 <div id="site-header"></div>
 <div class="wrap">
-  <div class="blog-header"><h1>Блог</h1><p class="sub">Заметки о культуре, управлении и бизнесе</p></div>
+  <div class="blog-header"><h1>Блог</h1><p class="sub">Заметки о культуре, управлении и бизнесе</p></div>
   <div id="site-tags"></div>
   <div class="post-list">
-    <a class="post-card" href="../posts/strategicheskiy-sdvig.html">
-      <div class="post-card-date">11 марта 2022</div>
-      <div class="post-card-title">Стратегический сдвиг</div>
-      <div class="post-card-desc">Один из ярких примеров этого явления — действия Эндрю Гроува, сооснователя компании Intel.</div>
-    </a>
-    <a class="post-card" href="../posts/ya-rasskazal-o-nashem-plane-rabotat-bez-usili.html">
-      <div class="post-card-date">24 февраля 2022</div>
-      <div class="post-card-title">Я рассказал о нашем плане работать без усилий. Это может пок…</div>
-      <div class="post-card-desc">Существует концепция эссенциализма, суть которой — делать меньше и получать больше.</div>
-    </a>
-    <a class="post-card" href="../posts/kak-dobitsya-prostoty-na-urovne-kultury.html">
-      <div class="post-card-date">17 февраля 2022</div>
-      <div class="post-card-title">Как добиться простоты на уровне культуры?</div>
-      <div class="post-card-desc">Есть культуры, в которых все сложно. Люди работают под давлением и в напряженной обстановк…</div>
-    </a>
-    <a class="post-card" href="../posts/prostota-na-urovne-kultury.html">
-      <div class="post-card-date">10 февраля 2022</div>
-      <div class="post-card-title">Простота на уровне культуры</div>
-      <div class="post-card-desc">Стив Джобс, возвращаясь в Apple, принял радикальное решение с точки зрения простоты.</div>
-    </a>
-    <a class="post-card" href="../posts/prostota-na-urovne-kommunikatsiy.html">
-      <div class="post-card-date">4 февраля 2022</div>
-      <div class="post-card-title">Простота на уровне коммуникаций</div>
-      <div class="post-card-desc">1. Часто у брендов меняются креативные кампании (вместе с агентствами, о чем я говорил тут…</div>
-    </a>
-    <a class="post-card" href="../posts/mir-izmenilsya-i-bolshinstvo-kompaniy-esche-n.html">
-      <div class="post-card-date">20 января 2022</div>
-      <div class="post-card-title">Мир изменился, и большинство компаний еще не успело приспосо…</div>
-      <div class="post-card-desc">Раньше было шоком, когда Тинькофф открывал банк без отделений, а сейчас отделения всех бес…</div>
-    </a>
     <a class="post-card" href="../posts/nedavno-ya-interesovalsya-strakhovkoy-dlya-kv.html">
       <div class="post-card-date">17 января 2022</div>
-      <div class="post-card-title">Недавно я интересовался страховкой для квартиры. Есть консер…</div>
-      <div class="post-card-desc">Еще один недавний опыт. Приобрел дорогой тепловентилятор от Tefal (жена утверждает, что мы…</div>
+      <div class="post-card-title">Недавно я интересовался страховкой для квартиры. Есть консер…</div>
+      <div class="post-card-desc">Еще один недавний опыт. Приобрел дорогой тепловентилятор от Tefal (жена утверждает, что мы…</div>
     </a>
     <a class="post-card" href="../posts/prostota-na-urovne-produkta.html">
       <div class="post-card-date">10 января 2022</div>
-      <div class="post-card-title">Простота на уровне продукта</div>
-      <div class="post-card-desc">Простота в продукте — одно из сильнейших преимуществ.</div>
+      <div class="post-card-title">Простота на уровне продукта</div>
+      <div class="post-card-desc">Простота в продукте — одно из сильнейших преимуществ.</div>
     </a>
     <a class="post-card" href="../posts/prostota-na-urovne-strategii.html">
       <div class="post-card-date">15 декабря 2021</div>
-      <div class="post-card-title">Простота на уровне стратегии</div>
-      <div class="post-card-desc">Крайне важно, чтобы стратегия бренда была простой и понятной, но у большинства компаний с…</div>
+      <div class="post-card-title">Простота на уровне стратегии</div>
+      <div class="post-card-desc">Крайне важно, чтобы стратегия бренда была простой и понятной, но у большинства компаний с…</div>
     </a>
     <a class="post-card" href="../posts/prostota.html">
       <div class="post-card-date">13 декабря 2021</div>
       <div class="post-card-title">Простота</div>
-      <div class="post-card-desc">Простота — такое же сильное преимущество как и дизайн (они связаны). Хороший дизайн стреми…</div>
+      <div class="post-card-desc">Простота — такое же сильное преимущество как и дизайн (они связаны). Хороший дизайн стреми…</div>
     </a>
     <a class="post-card" href="../posts/zavershaya-temu-s-dizaynom-khochetsya-podelit.html">
       <div class="post-card-date">6 декабря 2021</div>
       <div class="post-card-title">Завершая тему с дизайном, хочется поделиться несколькими иде…</div>
-      <div class="post-card-desc">— Chiat/Day также работало и с Intel, но реклама Apple вызывала эмоциональный отклик, а ре…</div>
+      <div class="post-card-desc">— Chiat/Day также работало и с Intel, но реклама Apple вызывала эмоциональный отклик, а ре…</div>
     </a>
     <a class="post-card" href="../posts/kak-sozdavat-khoroshiy-dizayn.html">
       <div class="post-card-date">23 ноября 2021</div>
-      <div class="post-card-title">Как создавать хороший дизайн</div>
-      <div class="post-card-desc">— Культивировать развитие дизайн-мышления на уровне всей компании (хотя бы в команде марке…</div>
+      <div class="post-card-title">Как создавать хороший дизайн</div>
+      <div class="post-card-desc">— Культивировать развитие дизайн-мышления на уровне всей компании (хотя бы в команде марке…</div>
     </a>
     <a class="post-card" href="../posts/chto-takoe-khoroshiy-dizayn.html">
       <div class="post-card-date">18 ноября 2021</div>
-      <div class="post-card-title">Что такое хороший дизайн</div>
+      <div class="post-card-title">Что такое хороший дизайн</div>
       <div class="post-card-desc">Хороший дизайн соответствует нескольким критериям.</div>
     </a>
     <a class="post-card" href="../posts/dizayn.html">
       <div class="post-card-date">9 ноября 2021</div>
       <div class="post-card-title">Дизайн</div>
-      <div class="post-card-desc">Для этой темы я искал примеры компаний, которые фокусируются на лучшем дизайне и обнаружил…</div>
+      <div class="post-card-desc">Для этой темы я искал примеры компаний, которые фокусируются на лучшем дизайне и обнаружил…</div>
     </a>
     <a class="post-card" href="../posts/kak-razvivat-dizaynmyshlenie.html">
       <div class="post-card-date">28 октября 2021</div>
-      <div class="post-card-title">Как развивать дизайн-мышление?</div>
-      <div class="post-card-desc">Когда вы изучаете психологию, то со временем начинаете замечать особенности поведения люде…</div>
+      <div class="post-card-title">Как развивать дизайн-мышление?</div>
+      <div class="post-card-desc">Когда вы изучаете психологию, то со временем начинаете замечать особенности поведения люде…</div>
     </a>
     <a class="post-card" href="../posts/dizaynmyshlenie.html">
       <div class="post-card-date">21 октября 2021</div>
       <div class="post-card-title">Дизайн-мышление</div>
-      <div class="post-card-desc">Чтобы сформулировать, в чем суть дизайн-мышления, сперва поговорим про человеческую природ…</div>
+      <div class="post-card-desc">Чтобы сформулировать, в чем суть дизайн-мышления, сперва поговорим про человеческую природ…</div>
     </a>
     <a class="post-card" href="../posts/kak-ponimat-chto-yavlyaetsya-suschestvennymi-.html">
       <div class="post-card-date">13 октября 2021</div>
-      <div class="post-card-title">Как понимать, что является существенными преимуществами?</div>
+      <div class="post-card-title">Как понимать, что является существенными преимуществами?</div>
       <div class="post-card-desc">— Необходимо быть самым требовательным своим клиентом.</div>
     </a>
     <a class="post-card" href="../posts/marketingovoe-myshlenie.html">
       <div class="post-card-date">8 октября 2021</div>
       <div class="post-card-title">Маркетинговое мышление</div>
-      <div class="post-card-desc">Этот тип мышления о том, как понимать, что является существенным преимуществом для потреби…</div>
+      <div class="post-card-desc">Этот тип мышления о том, как понимать, что является существенным преимуществом для потреби…</div>
     </a>
     <a class="post-card" href="../posts/kak-razvivat-strategicheskoe-myshlenie.html">
       <div class="post-card-date">1 октября 2021</div>
-      <div class="post-card-title">Как развивать стратегическое мышление?</div>
-      <div class="post-card-desc">Многие, потратив силы на разработку стратегии, перестают об этом думать и просто начинают…</div>
+      <div class="post-card-title">Как развивать стратегическое мышление?</div>
+      <div class="post-card-desc">Многие, потратив силы на разработку стратегии, перестают об этом думать и просто начинают…</div>
     </a>
     <a class="post-card" href="../posts/strategicheskoe-myshlenie.html">
       <div class="post-card-date">28 сентября 2021</div>
       <div class="post-card-title">Стратегическое мышление</div>
-      <div class="post-card-desc">Перед тем, как перейти к стратегическому мышлению, давайте разберемся, что такое стратегия…</div>
+      <div class="post-card-desc">Перед тем, как перейти к стратегическому мышлению, давайте разберемся, что такое стратегия…</div>
     </a>
     <a class="post-card" href="../posts/tri-tipa-myshleniya.html">
       <div class="post-card-date">22 сентября 2021</div>
       <div class="post-card-title">Три типа мышления</div>
-      <div class="post-card-desc">У какой компании вы бы хотели покупать: в той, где все работают ради денег и ненавидят сво…</div>
+      <div class="post-card-desc">У какой компании вы бы хотели покупать: в той, где все работают ради денег и ненавидят сво…</div>
     </a>
     <a class="post-card" href="../posts/na-proshloy-nedele-u-nas-proshla-pervaya-vech.html">
       <div class="post-card-date">15 сентября 2021</div>
-      <div class="post-card-title">На прошлой неделе у нас прошла первая вечеринка после пандем…</div>
-      <div class="post-card-desc">За долгое время удаленки все соскучились, и на тусовке царила душевная атмосфера эйфории.</div>
+      <div class="post-card-title">На прошлой неделе у нас прошла первая вечеринка после пандем…</div>
+      <div class="post-card-desc">За долгое время удаленки все соскучились, и на тусовке царила душевная атмосфера эйфории.</div>
     </a>
     <a class="post-card" href="../posts/pochemu-kultura-est-strategiyu-na-zavtrak-2.html">
       <div class="post-card-date">8 сентября 2021</div>
-      <div class="post-card-title">Почему культура ест стратегию на завтрак?</div>
-      <div class="post-card-desc">Вы можете понимать важность и очень хотеть создать сильные конкурентные преимущества, но е…</div>
+      <div class="post-card-title">Почему культура ест стратегию на завтрак?</div>
+      <div class="post-card-desc">Вы можете понимать важность и очень хотеть создать сильные конкурентные преимущества, но е…</div>
     </a>
     <a class="post-card" href="../posts/za-15-let-ya-pytalsya-sformirovat-neskolko-up.html">
       <div class="post-card-date">6 августа 2021</div>
-      <div class="post-card-title">За 15 лет я пытался сформировать несколько управляющих коман…</div>
-      <div class="post-card-desc">По моему опыту, в управляющей команде не должно быть людей, которые не разделяют ваши ценн…</div>
+      <div class="post-card-title">За 15 лет я пытался сформировать несколько управляющих коман…</div>
+      <div class="post-card-desc">По моему опыту, в управляющей команде не должно быть людей, которые не разделяют ваши ценн…</div>
     </a>
     <a class="post-card" href="../posts/ya-provozhu-eksperiment-a-vinoy-vsemu-etot-ka.html">
       <div class="post-card-date">28 июля 2021</div>
-      <div class="post-card-title">Я провожу эксперимент, а виной всему этот канал. В апреле я…</div>
-      <div class="post-card-desc">Раньше я принимал участие в большинстве решений, особенно по таким важным вещам, как наш м…</div>
+      <div class="post-card-title">Я провожу эксперимент, а виной всему этот канал. В апреле я…</div>
+      <div class="post-card-desc">Раньше я принимал участие в большинстве решений, особенно по таким важным вещам, как наш м…</div>
     </a>
     <a class="post-card" href="../posts/samoe-glavnoe-preimuschestvo-udalennogo-forma.html">
       <div class="post-card-date">13 июля 2021</div>
       <div class="post-card-title">Самое главное преимущество удаленного формата — огромный выб…</div>
-      <div class="post-card-desc">Для самой команды тоже есть ряд преимуществ помимо того, что они могут работать откуда уго…</div>
+      <div class="post-card-desc">Для самой команды тоже есть ряд преимуществ помимо того, что они могут работать откуда уго…</div>
     </a>
     <a class="post-card" href="../posts/kogda-nachalas-pandemiya-my-navsegda-pereshli.html">
       <div class="post-card-date">29 июня 2021</div>
-      <div class="post-card-title">Когда началась пандемия, мы навсегда перешли на удаленный фо…</div>
-      <div class="post-card-desc">У нас и до пандемии можно было работать из дома, и мы даже советовали несколько дней работ…</div>
+      <div class="post-card-title">Когда началась пандемия, мы навсегда перешли на удаленный фо…</div>
+      <div class="post-card-desc">У нас и до пандемии можно было работать из дома, и мы даже советовали несколько дней работ…</div>
     </a>
     <a class="post-card" href="../posts/pochemu-my-schitaem-chto-dlya-proektnoy-rabot.html">
       <div class="post-card-date">21 июня 2021</div>
-      <div class="post-card-title">Почему мы считаем, что для проектной работы оклады — это пло…</div>
-      <div class="post-card-desc">— У человека нет личной мотивации достигать больших результатов, потому что вне зависимост…</div>
+      <div class="post-card-title">Почему мы считаем, что для проектной работы оклады — это пло…</div>
+      <div class="post-card-desc">— У человека нет личной мотивации достигать больших результатов, потому что вне зависимост…</div>
     </a>
     <a class="post-card" href="../posts/ranee-ya-rasskazyval-pro-samoorganizatsiyu-v-.html">
       <div class="post-card-date">7 июня 2021</div>
-      <div class="post-card-title">Ранее я рассказывал про самоорганизацию в найме сотрудников.…</div>
-      <div class="post-card-desc">Уже три года мы проводим квартальную оценку в виде игры (о ней можно прочитать в нашем бло…</div>
+      <div class="post-card-title">Ранее я рассказывал про самоорганизацию в найме сотрудников.…</div>
+      <div class="post-card-desc">Уже три года мы проводим квартальную оценку в виде игры (о ней можно прочитать в нашем бло…</div>
     </a>
     <a class="post-card" href="../posts/v-samoorganizovannykh-organizatsiyakh-u-gaydo.html">
       <div class="post-card-date">26 мая 2021</div>
-      <div class="post-card-title">В самоорганизованных организациях у гайдов важная роль, пото…</div>
-      <div class="post-card-desc">Так как самоорганизация основана на самостоятельности, в том числе и в обучении, то гайды…</div>
+      <div class="post-card-title">В самоорганизованных организациях у гайдов важная роль, пото…</div>
+      <div class="post-card-desc">Так как самоорганизация основана на самостоятельности, в том числе и в обучении, то гайды…</div>
     </a>
     <a class="post-card" href="../posts/chem-samoorganizatsiya-luchshe-v-nayme-i-adap.html">
       <div class="post-card-date">18 мая 2021</div>
-      <div class="post-card-title">Чем самоорганизация лучше в найме и адаптации?</div>
-      <div class="post-card-desc">Обычно в компании конкретным кандидатом занимается один или несколько человек, и их можно…</div>
+      <div class="post-card-title">Чем самоорганизация лучше в найме и адаптации?</div>
+      <div class="post-card-desc">Обычно в компании конкретным кандидатом занимается один или несколько человек, и их можно…</div>
     </a>
     <a class="post-card" href="../posts/u-nas-neobychnoe-agentstvo-bez-otdelov-i-iera.html">
       <div class="post-card-date">11 мая 2021</div>
-      <div class="post-card-title">У нас необычное агентство без отделов и иерархии. Я бы опред…</div>
-      <div class="post-card-desc">Наш бренд привлекает потенциальных клиентов, и команда под проект самоорганизовывается с с…</div>
+      <div class="post-card-title">У нас необычное агентство без отделов и иерархии. Я бы опред…</div>
+      <div class="post-card-desc">Наш бренд привлекает потенциальных клиентов, и команда под проект самоорганизовывается с с…</div>
     </a>
     <a class="post-card" href="../posts/ranee-my-pogovorili-o-klassicheskikh-sostavly.html">
       <div class="post-card-date">27 апреля 2021</div>
-      <div class="post-card-title">Ранее мы поговорили о классических составляющих хорошей куль…</div>
-      <div class="post-card-desc">Все новое не очень хорошо принимается, поэтому эксперты старой закалки, которые любят регу…</div>
+      <div class="post-card-title">Ранее мы поговорили о классических составляющих хорошей куль…</div>
+      <div class="post-card-desc">Все новое не очень хорошо принимается, поэтому эксперты старой закалки, которые любят регу…</div>
     </a>
     <a class="post-card" href="../posts/rasskazav-pro-digitale-menyay-mir-zakhotelos-.html">
       <div class="post-card-date">14 апреля 2021</div>
-      <div class="post-card-title">Рассказав про Digitale «Меняй Мир», захотелось вспомнить про…</div>
-      <div class="post-card-desc">Когда человек счастлив, он более продуктивен — это подтверждено множеством исследований.</div>
+      <div class="post-card-title">Рассказав про Digitale «Меняй Мир», захотелось вспомнить про…</div>
+      <div class="post-card-desc">Когда человек счастлив, он более продуктивен — это подтверждено множеством исследований.</div>
     </a>
     <a class="post-card" href="../posts/esli-prodolzhaete-dumat-nad-formulirovaniem-s.html">
       <div class="post-card-date">12 апреля 2021</div>
-      <div class="post-card-title">Если продолжаете думать над формулированием своей миссии — д…</div>
+      <div class="post-card-title">Если продолжаете думать над формулированием своей миссии — д…</div>
       <div class="post-card-desc">Какие миссии вам нравятся больше всего?</div>
     </a>
     <a class="post-card" href="../posts/my-pogovorili-o-tom-kak-opredelyat-pravilnykh.html">
       <div class="post-card-date">1 апреля 2021</div>
-      <div class="post-card-title">Мы поговорили о том, как определять правильных людей. И вот,…</div>
-      <div class="post-card-desc">Недавно в нашем книжном клубе после прочтения книги «Начни с почему?</div>
+      <div class="post-card-title">Мы поговорили о том, как определять правильных людей. И вот,…</div>
+      <div class="post-card-desc">Недавно в нашем книжном клубе после прочтения книги «Начни с почему?</div>
     </a>
     <a class="post-card" href="../posts/kak-opredelit-kakie-lyudi-pravilnye.html">
       <div class="post-card-date">24 марта 2021</div>
-      <div class="post-card-title">Как определить, какие люди правильные?</div>
-      <div class="post-card-desc">Сформулировать основные ценности компании и принимать решения по людям не с точки зрения и…</div>
+      <div class="post-card-title">Как определить, какие люди правильные?</div>
+      <div class="post-card-desc">Сформулировать основные ценности компании и принимать решения по людям не с точки зрения и…</div>
     </a>
     <a class="post-card" href="../posts/dzhim-kollinz-v-svoem-issledovanii-vyvel-odin.html">
       <div class="post-card-date">9 марта 2021</div>
-      <div class="post-card-title">Джим Коллинз в своем исследовании вывел один из принципов, к…</div>
-      <div class="post-card-desc">Как только компания формирует команду из правильных людей, все участники начинают чувствов…</div>
+      <div class="post-card-title">Джим Коллинз в своем исследовании вывел один из принципов, к…</div>
+      <div class="post-card-desc">Как только компания формирует команду из правильных людей, все участники начинают чувствов…</div>
     </a>
     <a class="post-card" href="../posts/pochemu-my-otkazyvaem-krutym-spetsialistam.html">
       <div class="post-card-date">25 февраля 2021</div>
-      <div class="post-card-title">Почему мы отказываем крутым специалистам?</div>
-      <div class="post-card-desc">В мире бизнеса успешные специалисты «знают себе цену», поэтому считается, что им не свойст…</div>
+      <div class="post-card-title">Почему мы отказываем крутым специалистам?</div>
+      <div class="post-card-desc">В мире бизнеса успешные специалисты «знают себе цену», поэтому считается, что им не свойст…</div>
     </a>
     <a class="post-card" href="../posts/ego-glavnyy-vrag-kultury-ya-mnogo-raz-zamecha.html">
       <div class="post-card-date">17 февраля 2021</div>
-      <div class="post-card-title">Эго — главный враг культуры. Я много раз замечал, как эгоцен…</div>
-      <div class="post-card-desc">Когда появлялся человек, который проявлял свое эго, это заражало и других.</div>
+      <div class="post-card-title">Эго — главный враг культуры. Я много раз замечал, как эгоцен…</div>
+      <div class="post-card-desc">Когда появлялся человек, который проявлял свое эго, это заражало и других.</div>
+    </a>
+    <a class="post-card" href="../posts/prodolzhaya-pro-obratnuyu-svyaz.html">
+      <div class="post-card-date">10 февраля 2021</div>
+      <div class="post-card-title">Продолжая про обратную связь.</div>
+      <div class="post-card-desc">У нас работал руководитель направления разработки, которая считала себя лучше других руков…</div>
+    </a>
+    <a class="post-card" href="../posts/top10-knig-po-kulture.html">
+      <div class="post-card-date">9 февраля 2021</div>
+      <div class="post-card-title">Топ-10 книг по культуре</div>
+      <div class="post-card-desc">3. Открывая организации будущего</div>
+    </a>
+    <a class="post-card" href="../posts/osnovnoy-instrument-dlya-razvitiya-komandy-et.html">
+      <div class="post-card-date">8 февраля 2021</div>
+      <div class="post-card-title">Основной инструмент для развития команды — это обратная связ…</div>
+      <div class="post-card-desc">Люди редко видят себя объективно. Собственное эго заставляет нас представлять себя в лучше…</div>
     </a>
   </div>
 <div class="pagination">
@@ -441,8 +221,6 @@
 <a href="../blog/page-2.html" class="page-btn">2</a>
 <a href="../blog/page-3.html" class="page-btn">3</a>
 <a href="../blog/page-4.html" class="page-btn  active">4</a>
-<a href="../blog/page-5.html" class="page-btn">5</a>
-<a href="../blog/page-5.html" class="page-btn">Вперёд →</a>
 </div>
 </div>
 <div id="site-footer"></div>

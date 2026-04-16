@@ -2,10 +2,9 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<link rel="preload" href="fonts/MuseoSansCyrl_0.otf" as="font" type="font/otf" crossorigin>
-<link rel="preload" href="fonts/MuseoSansCyrl_2.otf" as="font" type="font/otf" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Блог — Сергей Прусс</title>
+<meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -21,394 +20,164 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<style>
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_0.otf'); font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_1.otf'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Museo Sans'; src: url('fonts/MuseoSansCyrl_2.otf'); font-weight: 700; font-display: swap; }
-  :root {
-    --bg: #141210;
-    --ink: #e8e4de;
-    --ink-soft: #8a8480;
-    --accent: #d4785a;
-    --line: #2a2724;
-    --max: 800px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  a, button { cursor: pointer; }
-  html { font-size: 17px; scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Museo Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* LOGO SVG */
-  .logo-svg { text-decoration: none; display: block; }
-  .logo-svg-img { width: 210px; height: auto; display: block; transition: opacity .2s; }
-  .logo-svg:hover .logo-svg-img { opacity: .75; }
-
-  /* NAV */
-  nav { padding: 32px 0 0; opacity: 0; animation: fadeUp .6s ease .1s forwards; }
-  nav .wrap { display: flex; justify-content: space-between; align-items: center; }
-  .nav-right { display: flex; gap: 24px; align-items: center; }
-  nav a.nav-link { font-size: .72rem; color: var(--accent); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
-  nav a.nav-link:hover { border-color: var(--accent); }
-  nav a.tg { font-size: .72rem; color: var(--ink-soft); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
-  nav a.tg:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* HERO */
-  .hero { padding: 60px 0 0; opacity: 0; animation: fadeUp .7s ease .25s forwards; }
-  .hero-inner { position: relative; min-height: 440px; }
-  .hero-text { position: relative; z-index: 2; max-width: calc(100% - 200px); }
-  .hero-label { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 18px; }
-  .hero h1 { font-family: 'Museo Sans', sans-serif; font-size: clamp(1.9rem, 5vw, 2.9rem); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; margin-bottom: 22px; }
-  .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub { font-size: .98rem; color: var(--ink-soft); line-height: 1.72; }
-  .hero-photo { position: absolute; right: 0; top: 30px; width: 260px; z-index: 1; }
-  .hero-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; border-radius: 4px; display: block; }
-
-  /* REVIEWS AVATARS */
-  .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-  .review-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; }
-  .review-author { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
-
-  /* DIVIDER */
-  hr { border: none; border-top: 1px solid var(--line); margin: 0; }
-
-  /* SECTIONS */
-  section { padding: 50px 0; opacity: 0; animation: fadeUp .7s ease forwards; }
-  section:nth-of-type(1) { animation-delay: .44s; }
-  section:nth-of-type(2) { animation-delay: .5s; }
-  section:nth-of-type(3) { animation-delay: .56s; }
-  section:nth-of-type(4) { animation-delay: .62s; }
-  section:nth-of-type(5) { animation-delay: .68s; }
-
-  .section-label { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 28px; }
-
-  /* FOR WHOM */
-  .for-whom-item { font-size: 1rem; padding: 15px 0 15px 20px; border-left: 2px solid var(--line); border-bottom: 1px solid var(--line); transition: border-left-color .2s, padding-left .15s; cursor: default; }
-  .for-whom-item:last-child { border-bottom: none; }
-  .for-whom-item:hover { border-left-color: var(--accent); padding-left: 26px; }
-
-  /* RESULTS */
-  .results-intro { font-size: .97rem; color: var(--ink-soft); margin-bottom: 32px; font-style: italic; }
-  .result-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: start; }
-  .result-item:first-of-type { border-top: 1px solid var(--line); }
-  .result-num { font-family: 'Museo Sans', sans-serif; font-size: .95rem; color: var(--accent); padding-top: 3px; text-align: right; }
-  .result-text { font-size: .97rem; line-height: 1.68; }
-
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 150px; gap: 36px; align-items: start; }
-  .about-text { font-size: .98rem; line-height: 1.78; margin-bottom: 16px; }
-  .about-text:last-of-type { margin-bottom: 0; }
-  .about-photo img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top; border-radius: 2px; }
-  .about-facts { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
-  .fact { display: flex; gap: 14px; font-size: .88rem; color: var(--ink-soft); align-items: baseline; }
-  .fact-num { font-family: 'Museo Sans', sans-serif; color: var(--accent); font-weight: 500; font-size: .92rem; white-space: nowrap; min-width: 32px; text-align: right; }
-
-  /* REVIEWS */
-  .review { padding: 0 0 22px; background: transparent; border-radius: 2px; border: none; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
-  .review:last-of-type { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
-  .review-text { font-size: .97rem; line-height: 1.72; margin-bottom: 12px; font-style: italic; }
-  .review-author { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
-
-  .agency-link { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: border-color .2s, color .2s; }
-  .agency-link:visited { color: inherit; }
-  .agency-link:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* AGENCY */
-  .agency-wrap { margin: 0 -24px; }
-  .agency-header { padding: 0 24px 28px; }
-  .agency-intro { font-size: .97rem; color: var(--ink-soft); line-height: 1.72; margin-top: 8px; }
-  .cases-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 28px; padding: 0 12px; }
-  .case-item { position: relative; display: block; aspect-ratio: 3/4; overflow: hidden; text-decoration: none; color: #fff; border-radius: 10px; cursor: pointer; }
-  .case-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
-  .case-item:hover img { transform: scale(1.04); }
-  .case-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 50%, transparent 100%); transition: background .3s ease; }
-  .case-body { position: absolute; top: 0; left: 0; right: 0; padding: 14px; }
-  .case-tags { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 6px; opacity: 0; transition: opacity .25s ease; }
-  .case-item:hover .case-tags { opacity: 1; }
-  .case-title { font-size: .82rem; line-height: 1.45; font-weight: 300; color: #fff; }
-  .cases-footer { padding: 0; }
-  .cases-link { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color .2s, border-color .2s; cursor: pointer; }
-  .cases-link:hover { color: var(--accent); border-color: var(--accent); }
-  @media (max-width: 600px) {
-    .logo-svg-img { width: 175px; }
-    nav .wrap { flex-direction: column !important; align-items: flex-start !important; gap: 20px; }
-    .nav-right { gap: 22px; } .cases-grid { grid-template-columns: 1fr 1fr; } .case-item { aspect-ratio: 2/3; } }
-
-  .nav-right { display: flex; gap: 24px; align-items: center; }
-  nav a.nav-link { font-size: .72rem; color: var(--accent); text-decoration: none; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
-  nav a.nav-link:hover { color: var(--accent); border-color: var(--accent); }
-
-
-  /* BLOG SECTION */
-  .blog-section { padding: 50px 0; }
-  .blog-section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; }
-  .blog-section-header .section-label { margin-bottom: 0; }
-  .blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-  .blog-card { text-decoration: none; display: flex; flex-direction: column; gap: 8px; padding: 20px; background: rgba(255,255,255,.04); border-radius: 10px; transition: background .2s; height: 220px; overflow: hidden; }
-  .blog-card:hover { background: rgba(255,255,255,.08); }
-  .blog-card-date { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
-  .blog-card-title { font-size: .88rem; font-weight: 500; line-height: 1.45; color: var(--ink); }
-  .blog-card-desc { font-size: .8rem; line-height: 1.55; color: var(--ink-soft); margin-top: 4px; opacity: 0; transition: opacity .25s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .blog-card:hover .blog-card-desc { opacity: 1; }
-  @media (max-width: 600px) { .blog-card-desc { display: none; } }
-  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr 1fr; } .blog-card-desc { display: none; } }
-
-  /* CTA */
-  .cta-section { padding: 50px 0 68px; }
-  .cta-section h2 { font-family: 'Museo Sans', sans-serif; font-size: clamp(1.55rem, 4vw, 2.15rem); font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
-  .cta-section h2 em { font-style: italic; color: var(--accent); }
-  .cta-note { font-size: .93rem; color: var(--ink-soft); margin-bottom: 26px; line-height: 1.7;  }
-  .cta-price { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 22px; }
-  .cta-price span { color: var(--ink); }
-  .btn { display: inline-block; padding: 14px 34px; background: var(--ink); color: var(--bg); text-decoration: none; font-family: 'Museo Sans', sans-serif; font-size: .88rem; font-weight: 300; letter-spacing: .04em; transition: background .2s, transform .15s; border-radius: 1px; }
-  .btn:hover { background: var(--accent); transform: translateY(-1px); cursor: pointer; }
-
-  /* FOOTER */
-  footer { padding: 26px 0 40px; }
-  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .footer-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: -.01em; color: var(--ink-soft); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
-  .footer-links a:hover { color: var(--accent); }
-
-  /* ANIMATION */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* MOBILE */
-  @media (max-width: 600px) {
-    html { font-size: 16px; }
-
-    .hero { padding: 44px 0 0; }
-    .hero-inner { min-height: auto; }
-    .hero-text { max-width: 100%; }
-    .hero-photo { position: static; width: 100%; margin-top: 24px; }
-    .hero h1 { font-size: 2rem; }
-
-    section { padding: 38px 0; }
-
-    .about-grid { grid-template-columns: 1fr; gap: 0; }
-    .about-photo { display: none; }
-
-    .review { padding: 16px; }
-
-    .cta-section { padding: 38px 0 56px; }
-    .btn { display: block; text-align: center; padding: 16px; }
-
-    footer .wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
-  }
-
-  @media (max-width: 380px) {
-    html { font-size: 15px; }
-  }
-
-  .blog-header{padding:52px 0 16px}.blog-header h1{font-family:'Museo Sans',sans-serif;font-size:clamp(2rem,6vw,3rem);font-weight:700;line-height:1.1;margin-bottom:8px}.blog-header .sub{font-size:.87rem;color:var(--ink-soft)}
-  .post-card{padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none;display:block;transition:opacity .15s}.post-card:hover{opacity:.75}
-  .post-card-date{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
-  .post-card-title{font-family:'Museo Sans',sans-serif;font-size:1.1rem;font-weight:500;line-height:1.3;color:var(--ink);margin-bottom:6px}
-  .post-card-desc{font-size:.88rem;line-height:1.65;color:var(--ink-soft)}
-  .pagination{display:flex;gap:8px;align-items:center;padding:40px 0 80px;flex-wrap:wrap}
-  .page-btn{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:8px 16px;text-decoration:none;font-family:'Museo Sans',sans-serif;transition:color .2s,border-color .2s}.page-btn:hover,.page-btn.active{color:var(--accent);border-color:var(--accent)}
-  .tag-nav{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 7px}.tag-chip{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);padding:7px 12px;border-radius:999px;transition:color .2s,border-color .2s}.tag-chip:hover,.tag-chip.active{color:var(--accent);border-color:var(--accent)}
-</style><meta name="description" content="Блог Сергея Прусса — заметки о культуре, управлении и бизнесе. Книги, инсайты, практический опыт CEO маркетингового агентства.">
-<meta name="keywords" content="блог о бизнесе, управление командой, культура компании, книги по менеджменту, Сергей Прусс">
-<meta name="author" content="Сергей Прусс">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://sergeypruss.ru/blog.html">
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sergeypruss.ru/blog.html">
-<meta property="og:title" content="Блог — Сергей Прусс">
-<meta property="og:description" content="Заметки о культуре, управлении и бизнесе. Книги, инсайты, практический опыт CEO.">
-<meta property="og:image" content="https://sergeypruss.ru/img/og-image.jpg">
-<meta property="og:locale" content="ru_RU">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Блог Сергея Прусса",
-  "url": "https://sergeypruss.ru/blog.html",
-  "description": "Заметки о культуре, управлении и бизнесе",
-  "author": {
-    "@type": "Person",
-    "name": "Сергей Прусс",
-    "url": "https://sergeypruss.ru"
-  }
-}
-</script>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Сергей Прусс","item":"https://sergeypruss.ru/"},
-  {"@type":"ListItem","position":2,"name":"Блог","item":"https://sergeypruss.ru/blog.html"}
-]}
-</script>
+<link rel="stylesheet" href="styles/site.css?v=1">
+<link rel="stylesheet" href="styles/site-components.css?v=1">
 </head>
 <body>
 <div id="site-header"></div>
 <div class="wrap">
-  <div class="blog-header"><h1>Блог</h1><p class="sub">Заметки о культуре, управлении и бизнесе</p></div>
+  <div class="blog-header"><h1>Блог</h1><p class="sub">Заметки о культуре, управлении и бизнесе</p></div>
   <div id="site-tags"></div>
   <div class="post-list">
     <a class="post-card" href="posts/cheklist-kak-opredelit-svoi-tsennosti-i-vstro.html">
       <div class="post-card-date">10 апреля 2026</div>
-      <div class="post-card-title">Чек-лист как определить свои ценности и встроить их в работу…</div>
-      <div class="post-card-desc">Но не придумывайте, а попытайтесь обнаружить через свой реальный опыт.</div>
+      <div class="post-card-title">Чек-лист как определить свои ценности и встроить их в работу…</div>
+      <div class="post-card-desc">Но не придумывайте, а попытайтесь обнаружить через свой реальный опыт.</div>
     </a>
     <a class="post-card" href="posts/my-to-chto-my-delaem-a-ne-govorim.html">
       <div class="post-card-date">8 апреля 2026</div>
-      <div class="post-card-title">Мы — то, что мы делаем (а не говорим)</div>
-      <div class="post-card-desc">Люди не обращают внимание на слова, а обращают внимание на действия.</div>
+      <div class="post-card-title">Мы — то, что мы делаем (а не говорим)</div>
+      <div class="post-card-desc">Люди не обращают внимание на слова, а обращают внимание на действия.</div>
     </a>
     <a class="post-card" href="posts/pochti-vse-tsennosti-nashego-agentstva-o-koto.html">
       <div class="post-card-date">1 апреля 2026</div>
-      <div class="post-card-title">Почти все ценности нашего агентства, о которых я рассказал,…</div>
-      <div class="post-card-desc">По набору этих ценностей можно увидеть, что если работать без них, то это может тормозить…</div>
+      <div class="post-card-title">Почти все ценности нашего агентства, о которых я рассказал,…</div>
+      <div class="post-card-desc">По набору этих ценностей можно увидеть, что если работать без них, то это может тормозить…</div>
     </a>
     <a class="post-card" href="posts/postoyannoe-razvitie.html">
       <div class="post-card-date">26 марта 2026</div>
       <div class="post-card-title">Постоянное развитие</div>
-      <div class="post-card-desc">Если человек не развивается, это неизбежно приводит к деградации и потере конкурентоспособ…</div>
+      <div class="post-card-desc">Если человек не развивается, это неизбежно приводит к деградации и потере конкурентоспособ…</div>
     </a>
     <a class="post-card" href="posts/ekologichnost.html">
       <div class="post-card-date">20 марта 2026</div>
       <div class="post-card-title">Экологичность</div>
-      <div class="post-card-desc">Я считаю экологичность важной ценностью и конкурентным преимуществом.</div>
+      <div class="post-card-desc">Я считаю экологичность важной ценностью и конкурентным преимуществом.</div>
     </a>
     <a class="post-card" href="posts/professionalizm.html">
       <div class="post-card-date">13 марта 2026</div>
       <div class="post-card-title">Профессионализм</div>
-      <div class="post-card-desc">Под профессионализмом мы имеем в виду не только компетентность в своей области — она как р…</div>
+      <div class="post-card-desc">Под профессионализмом мы имеем в виду не только компетентность в своей области — она как р…</div>
     </a>
     <a class="post-card" href="posts/korporatsiya-geniev.html">
       <div class="post-card-date">11 марта 2026</div>
       <div class="post-card-title">Корпорация гениев</div>
-      <div class="post-card-desc">Книга Эда Кэтмелла (президент компании) рассказывает про внутреннюю кухню одного из самых…</div>
+      <div class="post-card-desc">Книга Эда Кэтмелла (президент компании) рассказывает про внутреннюю кухню одного из самых…</div>
     </a>
     <a class="post-card" href="posts/komandnaya-igra.html">
       <div class="post-card-date">10 марта 2026</div>
       <div class="post-card-title">Командная игра</div>
-      <div class="post-card-desc">Только слаженные команды приводят к высоким результатам — одному невозможно добиться чего-…</div>
+      <div class="post-card-desc">Только слаженные команды приводят к высоким результатам — одному невозможно добиться чего-…</div>
     </a>
     <a class="post-card" href="posts/zdorovoe-ego-eto-obektivnost-umenie-slyshat-d.html">
       <div class="post-card-date">6 марта 2026</div>
-      <div class="post-card-title">Здоровое эго — это объективность, умение слышать других, аде…</div>
-      <div class="post-card-desc">На мой взгляд, ужасно когда во главе организации или команды стоит человек, который делает…</div>
+      <div class="post-card-title">Здоровое эго — это объективность, умение слышать других, аде…</div>
+      <div class="post-card-desc">На мой взгляд, ужасно когда во главе организации или команды стоит человек, который делает…</div>
     </a>
     <a class="post-card" href="posts/kak-my-rabotaem-s-tsennostyami.html">
       <div class="post-card-date">5 марта 2026</div>
-      <div class="post-card-title">Как мы работаем с ценностями</div>
-      <div class="post-card-desc">Джим Коллинз писал, что путь к эффективности лежит с правильными людьми на борту.</div>
+      <div class="post-card-title">Как мы работаем с ценностями</div>
+      <div class="post-card-desc">Джим Коллинз писал, что путь к эффективности лежит с правильными людьми на борту.</div>
     </a>
     <a class="post-card" href="posts/moy-kanal-voshel-v-reyting-telegramkanalov-ot.html">
       <div class="post-card-date">3 марта 2026</div>
-      <div class="post-card-title">Мой канал вошел в рейтинг Telegram-каналов от Kokoc Group. П…</div>
+      <div class="post-card-title">Мой канал вошел в рейтинг Telegram-каналов от Kokoc Group. П…</div>
       <div class="post-card-desc">Хочется воспользоваться этим поводом, чтобы выразить искреннюю благодарность моим подписчи…</div>
     </a>
     <a class="post-card" href="posts/za-poslednee-vremya-u-nas-vyshlo-neskolko-nov.html">
       <div class="post-card-date">27 февраля 2026</div>
-      <div class="post-card-title">За последнее время у нас вышло несколько новых материалов.</div>
-      <div class="post-card-desc">Разобрали, как оформлять статьи на сайте так, чтобы их читали, рассказали про формат мини-…</div>
+      <div class="post-card-title">За последнее время у нас вышло несколько новых материалов.</div>
+      <div class="post-card-desc">Разобрали, как оформлять статьи на сайте так, чтобы их читали, рассказали про формат мини-…</div>
     </a>
     <a class="post-card" href="posts/byt-schastlivym.html">
       <div class="post-card-date">26 февраля 2026</div>
       <div class="post-card-title">Быть счастливым</div>
-      <div class="post-card-desc">Неожиданное качество? Сейчас объясню, почему, на мой взгляд, оно важно для лидера.</div>
+      <div class="post-card-desc">Неожиданное качество? Сейчас объясню, почему, на мой взгляд, оно важно для лидера.</div>
     </a>
     <a class="post-card" href="posts/psikhologicheskaya-zrelost.html">
       <div class="post-card-date">25 февраля 2026</div>
       <div class="post-card-title">Психологическая зрелость</div>
-      <div class="post-card-desc">Главная ступенька ко всем качествам, о которых я говорил ранее  — психологическая зрелость…</div>
+      <div class="post-card-desc">Главная ступенька ко всем качествам, о которых я говорил ранее  — психологическая зрелость…</div>
     </a>
     <a class="post-card" href="posts/nevroz-i-lichnostnyy-rost.html">
       <div class="post-card-date">20 февраля 2026</div>
-      <div class="post-card-title">Невроз и личностный рост</div>
-      <div class="post-card-desc">Эта книга входит в мой личный топ-50 книг, которые сильнее всего повлияли на меня как на р…</div>
+      <div class="post-card-title">Невроз и личностный рост</div>
+      <div class="post-card-desc">Эта книга входит в мой личный топ-50 книг, которые сильнее всего повлияли на меня как на р…</div>
     </a>
     <a class="post-card" href="posts/vchera-sporil-s-kollegoy-na-temu-ii-interesno.html">
       <div class="post-card-date">19 февраля 2026</div>
-      <div class="post-card-title">Вчера спорил с коллегой на тему ИИ, интересно ли читать сген…</div>
-      <div class="post-card-desc">Давайте проведем эксперимент. На основе долгих обсуждений с ChatGPT темы невротизма и токс…</div>
+      <div class="post-card-title">Вчера спорил с коллегой на тему ИИ, интересно ли читать сген…</div>
+      <div class="post-card-desc">Давайте проведем эксперимент. На основе долгих обсуждений с ChatGPT темы невротизма и токс…</div>
     </a>
     <a class="post-card" href="posts/energiya-lidera.html">
       <div class="post-card-date">17 февраля 2026</div>
       <div class="post-card-title">Энергия лидера</div>
-      <div class="post-card-desc">Когда у лидера нет энергии, само лидерство пропадает, потому что лидерство — это всегда дв…</div>
+      <div class="post-card-desc">Когда у лидера нет энергии, само лидерство пропадает, потому что лидерство — это всегда дв…</div>
     </a>
     <a class="post-card" href="posts/gibkost.html">
       <div class="post-card-date">13 февраля 2026</div>
       <div class="post-card-title">Гибкость</div>
-      <div class="post-card-desc">Зачастую для руководителей пойти навстречу считается слабостью, делать уступки – тоже.</div>
+      <div class="post-card-desc">Зачастую для руководителей пойти навстречу считается слабостью, делать уступки – тоже.</div>
     </a>
     <a class="post-card" href="posts/my-obsudili-vazhnost-silnykh-professionalov-v.html">
       <div class="post-card-date">11 февраля 2026</div>
-      <div class="post-card-title">Мы обсудили важность сильных профессионалов в команде, вредн…</div>
-      <div class="post-card-desc">Мы обсудили важность сильных профессионалов в команде, вредное влияние на культуру неподхо…</div>
+      <div class="post-card-title">Мы обсудили важность сильных профессионалов в команде, вредн…</div>
+      <div class="post-card-desc">Мы обсудили важность сильных профессионалов в команде, вредное влияние на культуру неподхо…</div>
     </a>
     <a class="post-card" href="posts/problemy-i-potryaseniya-vyyavlyayut-takie-tal.html">
       <div class="post-card-date">10 февраля 2026</div>
-      <div class="post-card-title">Проблемы и потрясения выявляют такие таланты, которые при пр…</div>
-      <div class="post-card-desc">Проблемы и потрясения выявляют такие таланты, которые при процветании продолжали бы мирно…</div>
+      <div class="post-card-title">Проблемы и потрясения выявляют такие таланты, которые при пр…</div>
+      <div class="post-card-desc">Проблемы и потрясения выявляют такие таланты, которые при процветании продолжали бы мирно…</div>
     </a>
     <a class="post-card" href="posts/mnogim-agentstvam-interesno-delat-tolko-bolsh.html">
       <div class="post-card-date">6 февраля 2026</div>
       <div class="post-card-title">Многим агентствам интересно делать только большие крутые сай…</div>
-      <div class="post-card-desc">Если видите, что у вас проблемы с конверсией, рекомендуем начать с увеличения конверсии са…</div>
+      <div class="post-card-desc">Если видите, что у вас проблемы с конверсией, рекомендуем начать с увеличения конверсии са…</div>
     </a>
     <a class="post-card" href="posts/velikie-po-sobstvennomu-vyboru.html">
       <div class="post-card-date">2 февраля 2026</div>
-      <div class="post-card-title">Великие по собственному выбору</div>
-      <div class="post-card-desc">Книга про долгосрочное стратегическое мышление и про то, как сохранять управляемость на ди…</div>
+      <div class="post-card-title">Великие по собственному выбору</div>
+      <div class="post-card-desc">Книга про долгосрочное стратегическое мышление и про то, как сохранять управляемость на ди…</div>
     </a>
     <a class="post-card" href="posts/chto-zhe-delat-s-etoy-problemoy.html">
       <div class="post-card-date">30 января 2026</div>
-      <div class="post-card-title">Что же делать с этой проблемой?</div>
-      <div class="post-card-desc">Иногда такие проблемы в команде продолжаются годами, и культура постепенно деградирует: ко…</div>
+      <div class="post-card-title">Что же делать с этой проблемой?</div>
+      <div class="post-card-desc">Иногда такие проблемы в команде продолжаются годами, и культура постепенно деградирует: ко…</div>
     </a>
     <a class="post-card" href="posts/otvetstvennost-rukovoditelya.html">
       <div class="post-card-date">28 января 2026</div>
       <div class="post-card-title">Ответственность руководителя</div>
-      <div class="post-card-desc">Как обсуждали в прошлом посте, для многих руководителей необходимость попрощаться со слабы…</div>
+      <div class="post-card-desc">Как обсуждали в прошлом посте, для многих руководителей необходимость попрощаться со слабы…</div>
     </a>
     <a class="post-card" href="posts/pochemu-dazhe-silnym-lideram-slozhno-proschat.html">
       <div class="post-card-date">26 января 2026</div>
-      <div class="post-card-title">Почему даже сильным лидерам сложно прощаться со слабыми колл…</div>
+      <div class="post-card-title">Почему даже сильным лидерам сложно прощаться со слабыми колл…</div>
       <div class="post-card-desc">Во‑первых, есть эмоциональные барьеры.</div>
     </a>
     <a class="post-card" href="posts/u-nas-vyshel-novyy-keys-kak-my-pomogli-alfaka.html">
       <div class="post-card-date">23 января 2026</div>
-      <div class="post-card-title">У нас вышел новый кейс — как мы помогли «Альфакабелю» выдели…</div>
-      <div class="post-card-desc">Это интересный пример: сложный B2B‑продукт, много конкурентов.</div>
+      <div class="post-card-title">У нас вышел новый кейс — как мы помогли «Альфакабелю» выдели…</div>
+      <div class="post-card-desc">Это интересный пример: сложный B2B‑продукт, много конкурентов.</div>
     </a>
     <a class="post-card" href="posts/vosmoy-navyk.html">
       <div class="post-card-date">22 января 2026</div>
       <div class="post-card-title">Восьмой навык</div>
-      <div class="post-card-desc">В одном из прошлых постов мы затрагивали тему win-win, я все еще продолжаю к ней мысленно…</div>
+      <div class="post-card-desc">В одном из прошлых постов мы затрагивали тему win-win, я все еще продолжаю к ней мысленно…</div>
     </a>
     <a class="post-card" href="posts/ya-mnogo-pisal-o-vazhnosti-pryamoty-i-obratno.html">
       <div class="post-card-date">20 января 2026</div>
-      <div class="post-card-title">Я много писал о важности прямоты и обратной связи в культуре…</div>
-      <div class="post-card-desc">Я много писал о важности прямоты и обратной связи в культуре, и рад видеть, что не один та…</div>
+      <div class="post-card-title">Я много писал о важности прямоты и обратной связи в культуре…</div>
+      <div class="post-card-desc">Я много писал о важности прямоты и обратной связи в культуре, и рад видеть, что не один та…</div>
     </a>
     <a class="post-card" href="posts/chestnaya-obratnaya-svyaz-eto-roskosh.html">
       <div class="post-card-date">20 января 2026</div>
-      <div class="post-card-title">Честная обратная связь - это роскошь</div>
-      <div class="post-card-desc">Я тут осознал, что честная обратная связь в компании - это не норма, а роскошь.</div>
+      <div class="post-card-title">Честная обратная связь - это роскошь</div>
+      <div class="post-card-desc">Я тут осознал, что честная обратная связь в компании - это не норма, а роскошь.</div>
     </a>
     <a class="post-card" href="posts/pochemu-vygoranie-izza-slabykh-opasno-dlya-ku.html">
       <div class="post-card-date">20 января 2026</div>
-      <div class="post-card-title">Почему выгорание из-за слабых опасно для культуры</div>
-      <div class="post-card-desc">Сильные профессионалы — это ключевые элементы системы, именно из них складываются сильные…</div>
+      <div class="post-card-title">Почему выгорание из-за слабых опасно для культуры</div>
+      <div class="post-card-desc">Сильные профессионалы — это ключевые элементы системы, именно из них складываются сильные…</div>
     </a>
     <a class="post-card" href="posts/prodolzhaem-seriyu.html">
       <div class="post-card-date">16 января 2026</div>
@@ -417,48 +186,58 @@
     </a>
     <a class="post-card" href="posts/ego-eto-vrag.html">
       <div class="post-card-date">15 января 2026</div>
-      <div class="post-card-title">Эго — это враг</div>
-      <div class="post-card-desc">Тему деструктивного влияния эго на культуру и бизнес для меня еще давно открыл Коллинз.</div>
+      <div class="post-card-title">Эго — это враг</div>
+      <div class="post-card-desc">Тему деструктивного влияния эго на культуру и бизнес для меня еще давно открыл Коллинз.</div>
     </a>
     <a class="post-card" href="posts/winwin-ili-lostlost.html">
       <div class="post-card-date">14 января 2026</div>
-      <div class="post-card-title">Win-win или lost-lost</div>
-      <div class="post-card-desc">В рабочих отношениях идея win-win кажется очевидной, но в повседневной командной работе лю…</div>
+      <div class="post-card-title">Win-win или lost-lost</div>
+      <div class="post-card-desc">В рабочих отношениях идея win-win кажется очевидной, но в повседневной командной работе лю…</div>
     </a>
     <a class="post-card" href="posts/kak-novyy-professional-v-komande-menyaet-atmo.html">
       <div class="post-card-date">25 декабря 2025</div>
-      <div class="post-card-title">Как новый профессионал в команде меняет атмосферу</div>
-      <div class="post-card-desc">Когда в команде появляется новый сильный профессионал, он влияет на команду еще до того, к…</div>
+      <div class="post-card-title">Как новый профессионал в команде меняет атмосферу</div>
+      <div class="post-card-desc">Когда в команде появляется новый сильный профессионал, он влияет на команду еще до того, к…</div>
     </a>
     <a class="post-card" href="posts/radikalnaya-pryamota.html">
       <div class="post-card-date">23 декабря 2025</div>
       <div class="post-card-title">Радикальная прямота</div>
-      <div class="post-card-desc">В Serenity мы всегда стремились развивать культуру откровенной обратной связи. Эта книга с…</div>
+      <div class="post-card-desc">В Serenity мы всегда стремились развивать культуру откровенной обратной связи. Эта книга с…</div>
     </a>
     <a class="post-card" href="posts/sformuliroval-5-mikrosignalov-po-kotorym-mozh.html">
       <div class="post-card-date">16 декабря 2025</div>
-      <div class="post-card-title">Сформулировал 5 микросигналов, по которым можно быстро распо…</div>
-      <div class="post-card-desc">Профессионалов видно почти сразу — по тому, как они общаются и мыслят.</div>
+      <div class="post-card-title">Сформулировал 5 микросигналов, по которым можно быстро распо…</div>
+      <div class="post-card-desc">Профессионалов видно почти сразу — по тому, как они общаются и мыслят.</div>
     </a>
     <a class="post-card" href="posts/snachala-kto-potom-chto.html">
       <div class="post-card-date">3 декабря 2025</div>
       <div class="post-card-title">Сначала кто — потом что</div>
-      <div class="post-card-desc">В прошлом посте я писал об этом принципе из «От хорошего к великому».</div>
+      <div class="post-card-desc">В прошлом посте я писал об этом принципе из «От хорошего к великому».</div>
     </a>
     <a class="post-card" href="posts/ot-khoroshego-k-velikomu-pochemu-odni-kompani.html">
       <div class="post-card-date">1 декабря 2025</div>
-      <div class="post-card-title">От хорошего к великому. Почему одни компании совершают проры…</div>
-      <div class="post-card-desc">Коллинз много лет исследовал, почему одни компании становятся великими, а другие — нет.</div>
+      <div class="post-card-title">От хорошего к великому. Почему одни компании совершают проры…</div>
+      <div class="post-card-desc">Коллинз много лет исследовал, почему одни компании становятся великими, а другие — нет.</div>
     </a>
     <a class="post-card" href="posts/obnovili-keys-nashego-samogo-dolgosrochnogo-k.html">
       <div class="post-card-date">31 октября 2025</div>
       <div class="post-card-title">Обновили кейс нашего самого долгосрочного клиента — Darkrain…</div>
-      <div class="post-card-desc">О нём я уже рассказывал в серии постов: как начинали 6 лет назад с одного канала, как прох…</div>
+      <div class="post-card-desc">О нём я уже рассказывал в серии постов: как начинали 6 лет назад с одного канала, как прох…</div>
     </a>
     <a class="post-card" href="posts/nedavno-vypustili-novyy-keys-grandmed-v-nem-r.html">
       <div class="post-card-date">6 октября 2025</div>
-      <div class="post-card-title">Недавно выпустили новый кейс Grandmed, в нем рассказываем, к…</div>
-      <div class="post-card-desc">Если честно, медицинский маркетинг — один из самых сложных: много юридических ограничений,…</div>
+      <div class="post-card-title">Недавно выпустили новый кейс Grandmed, в нем рассказываем, к…</div>
+      <div class="post-card-desc">Если честно, медицинский маркетинг — один из самых сложных: много юридических ограничений,…</div>
+    </a>
+    <a class="post-card" href="posts/kriterii-chto-zona-peredana-uspeshno-i-kak-is.html">
+      <div class="post-card-date">27 августа 2025</div>
+      <div class="post-card-title">Критерии, что зона передана успешно, и как искать ответствен…</div>
+      <div class="post-card-desc">Есть простой критерий: отпуск. Если человек уехал, и все продолжает работать стабильно, бе…</div>
+    </a>
+    <a class="post-card" href="posts/chto-znachit-peredat-zonu-otvetstvennosti-i-k.html">
+      <div class="post-card-date">30 июля 2025</div>
+      <div class="post-card-title">Что значит «передать зону ответственности» и как это сделать</div>
+      <div class="post-card-desc">Передача зоны ответственности — это не просто передача задач, а создание условий, в которы…</div>
     </a>
   </div>
 <div class="pagination">
@@ -466,7 +245,6 @@
 <a href="blog/page-2.html" class="page-btn">2</a>
 <a href="blog/page-3.html" class="page-btn">3</a>
 <a href="blog/page-4.html" class="page-btn">4</a>
-<a href="blog/page-5.html" class="page-btn">5</a>
 <a href="blog/page-2.html" class="page-btn">Вперёд →</a>
 </div>
 </div>

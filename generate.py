@@ -21,7 +21,7 @@ METRIKA = '''<!-- Yandex.Metrika counter -->
 <noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->'''
 
-PER_PAGE = 40
+PER_PAGE = 42
 
 MONTHS_RU = {'January':'января','February':'февраля','March':'марта','April':'апреля',
              'May':'мая','June':'июня','July':'июля','August':'августа',
@@ -85,20 +85,13 @@ BLOG_HEAD = '''<!DOCTYPE html>
 <title>{title_tag}</title>
 <meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
 {metrika}
-<style>{style}
-  .blog-header{{padding:52px 0 36px}}.blog-header h1{{font-family:'Museo Sans',sans-serif;font-size:clamp(2rem,6vw,3rem);font-weight:700;line-height:1.1;margin-bottom:8px}}.blog-header .sub{{font-size:.87rem;color:var(--ink-soft)}}
-  .post-card{{padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none;display:block;transition:opacity .15s}}.post-card:first-child{{border-top:1px solid var(--line)}}.post-card:hover{{opacity:.75}}
-  .post-card-date{{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}}
-  .post-card-title{{font-family:'Museo Sans',sans-serif;font-size:1.1rem;font-weight:500;line-height:1.3;color:var(--ink);margin-bottom:6px}}
-  .post-card-desc{{font-size:.88rem;line-height:1.65;color:var(--ink-soft)}}
-  .pagination{{display:flex;gap:8px;align-items:center;padding:40px 0 80px;flex-wrap:wrap}}
-  .page-btn{{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:8px 16px;text-decoration:none;font-family:'Museo Sans',sans-serif;transition:color .2s,border-color .2s}}.page-btn:hover,.page-btn.active{{color:var(--accent);border-color:var(--accent)}}
-</style></head>'''
+<link rel="stylesheet" href="{styles_prefix}styles/site.css?v=1">
+<link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=1">
+</head>'''
 
 
 def build_blog_pages():
     entries = get_entries()
-    style = get_style()
     total = len(entries)
     total_pages = (total + PER_PAGE - 1) // PER_PAGE
 
@@ -126,13 +119,13 @@ def build_blog_pages():
     </a>''' for s,d,t,desc in page_e)
 
     def page(title_tag, cards_html, pagination, prefix):
-        head = BLOG_HEAD.format(title_tag=title_tag, metrika=METRIKA, style=style)
+        head = BLOG_HEAD.format(title_tag=title_tag, metrika=METRIKA, styles_prefix=prefix)
         return f'''{head}
 <body>
 <div id="site-header"></div>
 <div class="wrap">
   <div class="blog-header"><h1>Блог</h1><p class="sub">Заметки о культуре, управлении и бизнесе</p></div>
-  <hr>
+  <div id="site-tags"></div>
   <div class="post-list">
 {cards_html}
   </div>
