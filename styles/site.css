@@ -399,5 +399,6 @@ body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-
   .home-post-list .post-card{min-width:0;height:260px;min-height:260px;overflow:hidden}
   .home-post-list .post-card-title{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
   .home-post-list .post-card-desc{-webkit-line-clamp:5}
+  .home-post-list .post-card-hash{display:none!important;opacity:0!important;visibility:hidden!important}
 }
 
