@@ -284,6 +284,18 @@
     });
   }
 
+  function addPostHeaderBlogLink() {
+    if (!/\/posts\/[^/]+\.html$/.test(location.pathname)) return;
+    const dateEl = document.querySelector('.post-date');
+    if (!dateEl) return;
+    if (dateEl.querySelector('.post-date-link')) return;
+    const link = document.createElement('a');
+    link.className = 'post-date-link';
+    link.href = `${prefix}blog.html`;
+    link.textContent = 'Все посты';
+    dateEl.appendChild(link);
+  }
+
   ensureSharedStylesheet();
   await load('#site-header', 'header.html?v=5');
   await load('#site-footer', 'footer.html');
@@ -295,6 +307,7 @@
     hydratePostListCards(postsData, tagSlugMap);
     hydrateBookCardsWithCover();
   }
+  addPostHeaderBlogLink();
 
   // Fix header links for subdirectory pages
   document.querySelectorAll('nav a').forEach(a => {
