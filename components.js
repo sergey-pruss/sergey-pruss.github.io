@@ -552,10 +552,9 @@
     if (signature) {
       signature.replaceWith(author);
     } else {
-      const tag = body.querySelector('.post-tag');
-      const tagP = tag ? tag.closest('p') : null;
-      if (tagP) tagP.insertAdjacentElement('afterend', author);
-      else body.appendChild(author);
+      // Keep the author block after the full post content, even when a tag paragraph
+      // appears before the final closing paragraph.
+      body.appendChild(author);
     }
 
     const isBookPost = Boolean(
