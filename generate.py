@@ -7,8 +7,8 @@ import re, os, json
 
 def analytics_head(script_prefix: str) -> str:
     """script_prefix: '' с корня сайта, '../' из /blog/ и /posts/. См. scripts/analytics.js."""
-    return f'''<!-- Счётчики: scripts/analytics.js -->
-<script src="{script_prefix}scripts/analytics.js" defer></script>
+    return f'''<!-- Яндекс.Метрика + Top.Mail.Ru (счётчик из кабинета VK Рекламы) — см. scripts/analytics.js -->
+<script src="{script_prefix}scripts/analytics.js?v=2" defer></script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /><img src="https://top-fwz1.mail.ru/counter?id=3759565;js=na" style="position:absolute; left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>'''
 
 PER_PAGE = 42
