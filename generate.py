@@ -5,21 +5,11 @@
 """
 import re, os, json
 
-METRIKA = '''<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-   ym(108559120, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->'''
+def analytics_head(script_prefix: str) -> str:
+    """script_prefix: '' с корня сайта, '../' из /blog/ и /posts/. См. scripts/analytics.js."""
+    return f'''<!-- Счётчики: scripts/analytics.js -->
+<script src="{script_prefix}scripts/analytics.js" defer></script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /><img src="https://top-fwz1.mail.ru/counter?id=3759565;js=na" style="position:absolute; left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>'''
 
 PER_PAGE = 42
 
@@ -91,7 +81,8 @@ def get_entries():
     with open('posts.js') as f: js = f.read()
     return re.findall(r'\{slug:`([^`]+)`,date:`([^`]+)`,title:`((?:[^`]|\\`)*?)`,description:`((?:[^`]|\\`)*?)`\}', js)
 
-# ─── POST TEMPLATE ───────────────────────────────────────────────
+# ─── POST TEMPLATE (сейчас не собирается этим скриптом) ───────────
+# При сборке постов подставлять metrika=analytics_head('../').
 POST_HEAD = '''<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -165,7 +156,7 @@ def build_blog_pages():
     </a>''' for s,d,t,desc in page_e)
 
     def page(title_tag, cards_html, pagination, prefix):
-        head = BLOG_HEAD.format(title_tag=title_tag, metrika=METRIKA, styles_prefix=prefix)
+        head = BLOG_HEAD.format(title_tag=title_tag, metrika=analytics_head(prefix), styles_prefix=prefix)
         return f'''{head}
 <body>
 <div id="site-header"></div>
