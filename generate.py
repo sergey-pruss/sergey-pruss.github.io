@@ -121,6 +121,8 @@ BLOG_HEAD = '''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title_tag}</title>
 <meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{canonical_url}">
 {metrika}
 <link rel="stylesheet" href="{styles_prefix}styles/site.css?v=2">
 <link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=2">
@@ -155,8 +157,13 @@ def build_blog_pages():
       {f'<div class="post-card-desc">{esc(trunc(desc.replace(chr(92)+"` ","`"),90))}</div>' if desc else ''}
     </a>''' for s,d,t,desc in page_e)
 
-    def page(title_tag, cards_html, pagination, prefix):
-        head = BLOG_HEAD.format(title_tag=title_tag, metrika=analytics_head(prefix), styles_prefix=prefix)
+    def page(title_tag, cards_html, pagination, prefix, canonical_url):
+        head = BLOG_HEAD.format(
+            title_tag=title_tag,
+            metrika=analytics_head(prefix),
+            styles_prefix=prefix,
+            canonical_url=canonical_url
+        )
         return f'''{head}
 <body>
 <div id="site-header"></div>
@@ -173,12 +180,24 @@ def build_blog_pages():
 </body></html>'''
 
     with open('blog.html','w') as f:
-        f.write(page('Блог — Сергей Прусс', cards(entries[:PER_PAGE]), pag_root(1), ''))
+        f.write(page(
+            'Блог — Сергей Прусс',
+            cards(entries[:PER_PAGE]),
+            pag_root(1),
+            '',
+            'https://sergeypruss.ru/blog.html'
+        ))
 
     os.makedirs('blog', exist_ok=True)
     for p in range(2, total_pages+1):
         with open(f'blog/page-{p}.html','w') as f:
-            f.write(page(f'Блог, страница {p} — Сергей Прусс', cards(entries[(p-1)*PER_PAGE:p*PER_PAGE], '../'), pag_sub(p), '../'))
+            f.write(page(
+                f'Блог, страница {p} — Сергей Прусс',
+                cards(entries[(p-1)*PER_PAGE:p*PER_PAGE], '../'),
+                pag_sub(p),
+                '../',
+                f'https://sergeypruss.ru/blog/page-{p}.html'
+            ))
 
     print(f"Blog: {total} posts, {total_pages} pages")
 
