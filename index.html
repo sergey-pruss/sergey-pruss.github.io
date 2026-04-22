@@ -9,8 +9,8 @@
 <title>Сергей Прусс — консалтинг для предпринимателей</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles/site.css?v=7">
-<link rel="stylesheet" href="styles/site-components.css?v=3">
+<link rel="stylesheet" href="styles/site.css?v=9">
+<link rel="stylesheet" href="styles/site-components.css?v=4">
 <!-- Яндекс.Метрика + Top.Mail.Ru (счётчик из кабинета VK Рекламы) — см. scripts/analytics.js -->
 <script src="scripts/analytics.js?v=2" defer></script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108559120" style="position:absolute; left:-9999px;" alt="" /><img src="https://top-fwz1.mail.ru/counter?id=3759565;js=na" style="position:absolute; left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
@@ -214,14 +214,16 @@
 
   <hr>
 
-  <section class="cta-section">
-    <h2>Работаю с <em>1–2 людьми</em> одновременно</h2>
-    <p class="cta-note">Не набираю большой поток. Мне важно реально погрузиться в ситуацию каждого. Есть бесплатная встреча-знакомство, где мы поймём, смогу ли я вам быть полезен.</p>
+  <section class="cta-section" id="contact-anchor">
+    <h2>Если <em>чувствуете</em>, что <em>застряли</em></h2>
+    <p class="cta-note">Напишите — расскажите, что у вас происходит, я отвечу смогу ли я вам быть полезен.</p>
     <p class="cta-price">Одна сессия — <span>10 000 ₽</span></p>
-    <a href="https://t.me/sergeyprus" class="btn" target="_blank">Написать в Telegram</a>
+    <a href="https://t.me/sergeyprus" class="btn" target="_blank">Написать в Telegram <span class="btn-arrow" aria-hidden="true">→</span></a>
   </section>
 
 </div>
+
+<a href="https://t.me/sergeyprus" class="floating-contact-btn" aria-label="Написать в Telegram" target="_blank">Написать в Telegram <span class="btn-arrow" aria-hidden="true">→</span></a>
 
 <div id="site-footer"></div>
 
@@ -233,7 +235,7 @@
   if (!grid || typeof POSTS === 'undefined') return;
   var months = {'January':'января','February':'февраля','March':'марта','April':'апреля','May':'мая','June':'июня','July':'июля','August':'августа','September':'сентября','October':'октября','November':'ноября','December':'декабря'};
   function ruDate(d) { for (var en in months) d = d.replace(en, months[en]); return d; }
-  var cardsLimit = window.matchMedia('(max-width: 600px)').matches ? 6 : 9;
+  var cardsLimit = 6;
   POSTS.slice(0, cardsLimit).forEach(function(p) {
     var a = document.createElement('a');
     a.href = 'posts/' + p.slug + '.html';
@@ -246,6 +248,28 @@
                   (desc ? '<div class="post-card-desc">' + desc + '</div>' : '');
     grid.appendChild(a);
   });
+})();
+
+(function() {
+  var btn = document.querySelector('.floating-contact-btn');
+  var target = document.getElementById('contact-anchor');
+  if (!btn || !target) return;
+
+  function updateFloatingButtonState() {
+    var passedTop = window.scrollY > 57;
+    var viewportBottom = window.scrollY + window.innerHeight;
+    var docHeight = document.documentElement.scrollHeight || document.body.scrollHeight || 0;
+    var hideNearBottom = viewportBottom >= docHeight - 57;
+    var targetRect = target.getBoundingClientRect();
+    var targetVisible = targetRect.top < window.innerHeight - 80;
+    var shouldShow = passedTop && !hideNearBottom && !targetVisible;
+    btn.classList.toggle('is-visible', shouldShow);
+  }
+
+  window.addEventListener('scroll', updateFloatingButtonState, { passive: true });
+  window.addEventListener('resize', updateFloatingButtonState);
+  window.addEventListener('load', updateFloatingButtonState);
+  updateFloatingButtonState();
 })();
 </script>
 </body>
