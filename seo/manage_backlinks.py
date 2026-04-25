@@ -53,6 +53,7 @@ def update_platform(
     status: str | None = None,
     profile_url: str | None = None,
     placed_url: str | None = None,
+    notes: str | None = None,
 ) -> bool:
     updated = False
     for row in rows:
@@ -64,6 +65,8 @@ def update_platform(
             row["profile_url"] = profile_url
         if placed_url is not None:
             row["placed_url"] = placed_url
+        if notes is not None:
+            row["notes"] = notes
         updated = True
     return updated
 
@@ -85,13 +88,17 @@ def print_summary(rows: List[Dict[str, str]]) -> None:
 
 
 def print_next(rows: List[Dict[str, str]], limit: int) -> None:
-    queue = [r for r in rows if r["status"] in {"todo", "in_progress"}]
+    open_statuses = {"todo", "in_progress", "awaiting_user", "awaiting_user_registration", "awaiting_user_data"}
+    queue = [r for r in rows if r["status"] in open_statuses]
     queue.sort(key=lambda r: (int(r["tier"]), 0 if r["priority"] == "high" else 1, r["platform"]))
     for row in queue[:limit]:
-        print(
+        line = (
             f'{row["platform"]} | tier={row["tier"]} | priority={row["priority"]} '
             f'| status={row["status"]} | manual={row["requires_manual_step"]}'
         )
+        if row.get("profile_url"):
+            line += f" | form={row['profile_url']}"
+        print(line)
 
 
 def main() -> None:
@@ -121,6 +128,13 @@ def main() -> None:
     p_log.add_argument("--result", required=True)
     p_log.add_argument("--details", default="")
 
+    p_set = sub.add_parser("set", help="Set status and optional fields")
+    p_set.add_argument("--platform", required=True)
+    p_set.add_argument("--status", required=True)
+    p_set.add_argument("--profile-url", default=None)
+    p_set.add_argument("--placed-url", default=None)
+    p_set.add_argument("--notes", default=None)
+
     args = parser.parse_args()
     rows = load_rows()
 
@@ -133,6 +147,21 @@ def main() -> None:
     if args.cmd == "log":
         append_log(args.platform, args.action, args.result, args.details)
         print(f"Logged: {args.platform} [{args.result}]")
+        return
+
+    if args.cmd == "set":
+        ok = update_platform(
+            rows,
+            args.platform,
+            status=args.status,
+            profile_url=args.profile_url,
+            placed_url=args.placed_url,
+            notes=args.notes,
+        )
+        if not ok:
+            raise SystemExit(f"Platform not found: {args.platform}")
+        save_rows(rows)
+        print(f"Updated: {args.platform} -> {args.status}")
         return
 
     if args.cmd == "start":

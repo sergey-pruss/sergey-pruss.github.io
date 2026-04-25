@@ -14,3 +14,8 @@ ts_utc,platform,action,result,details
 2026-04-25T07:39:18+00:00,Serenity (страница команды/экспертов),policy,skipped_unavailable,По подтверждению владельца площадка недоступна
 2026-04-25T07:39:59+00:00,YouTube (about/profile),registration_attempt,awaiting_user_auth,Для добавления ссылки в описание канала нужен вход в YouTube Studio аккаунтом владельца
 2026-04-25T07:53:03+00:00,YouTube (about/profile),manual_step,done,Добавлена ссылка на сайт в описании канала
+2026-04-25T07:58:40+00:00,Spravker,auto_triage,skipped_no_geo,Городские справочники; вариант A — не применяем
+2026-04-25T07:58:40+00:00,Cataloxy,auto_triage,awaiting_user_registration,Форма firms_add.htm; Cloudflare/регистрация — только владелец
+2026-04-25T07:58:40+00:00,OrgPage,auto_triage,awaiting_user_registration,Cabinet/Create — регистрация; в анкете адрес
+2026-04-25T07:58:40+00:00,Rusprofile,auto_triage,awaiting_user_data,Нужен ИНН юрлица/ИП или подтверждение отсутствия карточки
+2026-04-25T07:58:40+00:00,РБК Компании,auto_triage,awaiting_user_data,Проверить модель размещения companies.rbc.ru; прислать URL карточки если создаётся
