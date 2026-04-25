@@ -3,3 +3,7 @@ ts_utc,platform,action,result,details
 2026-04-25T07:06:30+00:00,Google Business Profile,registration_attempt,blocked_manual,Нужен вход в Google-аккаунт и верификация бизнес-профиля
 2026-04-25T07:06:30+00:00,2ГИС,registration_attempt,blocked_manual,Нужна авторизация и подтверждение карточки компании
 2026-04-25T07:06:30+00:00,vc.ru,registration_attempt,blocked_manual,Нужна авторизация для заполнения профиля и публикации
+2026-04-25T07:19:35+00:00,vc.ru,manual_step,done,Добавлена ссылка на сайт в профиль
+2026-04-25T07:20:21+00:00,2ГИС,registration_attempt,need_contact_data,"Открыта форма добавления, но для отправки требуются телефон, email и контактное лицо"
+2026-04-25T07:20:21+00:00,Яндекс Бизнес,registration_attempt,awaiting_user_auth,Требуется вход в Яндекс-аккаунт владельца
+2026-04-25T07:20:21+00:00,Google Business Profile,registration_attempt,awaiting_user_auth,Требуется вход в Google-аккаунт владельца
