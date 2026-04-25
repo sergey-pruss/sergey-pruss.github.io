@@ -36,3 +36,6 @@ ts_utc,platform,action,result,details
 2026-04-25T08:38:14+00:00,Wave 2,research_add,ok,"Добавлены LinkedIn, Habr, GitHub, X, Substack, Reddit с фильтром кликабельности"
 2026-04-25T08:41:13+00:00,Habr профиль (О себе),start,awaiting_user_registration,Стоп на экране логина
 2026-04-25T08:41:13+00:00,LinkedIn профиль (About/Contact),start,awaiting_user_registration,Стоп на экране входа
+2026-04-25T08:47:20+00:00,Habr профиль (О себе),placed,ok,Подтверждено пользователем: профиль готов
+2026-04-25T08:47:20+00:00,LinkedIn профиль (About/Contact),policy,skipped_user_decision,Пропустить LinkedIn
+2026-04-25T08:47:20+00:00,GitHub профиль (bio/link),policy,skipped_user_decision,Пропустить GitHub
