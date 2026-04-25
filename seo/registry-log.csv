@@ -23,3 +23,6 @@ ts_utc,platform,action,result,details
 2026-04-25T07:58:54+00:00,Hashnode профиль,auto_triage,awaiting_user_registration,hashnode.com — вход и bio
 2026-04-25T07:58:54+00:00,Crunchbase (если релевантно),auto_triage,awaiting_user_data,Нужна сущность компании; для физлица обычно нет
 2026-04-25T08:08:50+00:00,Cataloxy,policy,skipped_user_decision,Пропущено по запросу пользователя
+2026-04-25T08:12:32+00:00,OrgPage,policy,skipped_by_strategy,По решению владельца не ведем каталоги организаций
+2026-04-25T08:12:32+00:00,Rusprofile,policy,skipped_by_strategy,По решению владельца не ведем каталоги организаций
+2026-04-25T08:12:33+00:00,РБК Компании,policy,skipped_by_strategy,По решению владельца не ведем каталоги организаций

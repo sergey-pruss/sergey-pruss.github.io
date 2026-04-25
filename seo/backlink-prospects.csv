@@ -4,10 +4,10 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 1,2ГИС,company_profile,RU,high,skipped_no_geo,https://business.2gis.ru/,,yes,Пропущено: 2ГИС — прежде всего гео-карточка; без города/точки не подходит
 1,vc.ru,author_profile,RU,high,placed,https://vc.ru/id91901,https://vc.ru/id91901,yes,Заполнить профиль и опубликовать 1-2 экспертных материала
 1,Serenity (страница команды/экспертов),partner_link,RU,high,skipped_unavailable,,,no,Пропущено: площадка/раздел недоступны для размещения
-2,РБК Компании,directory,RU,medium,awaiting_user_data,https://companies.rbc.ru/,,yes,Автомат: карточка обычно требует юр.данных/проверки; уточнить в поддержке RBC и прислать ссылку на карточку
-2,Rusprofile,directory,RU,medium,awaiting_user_data,https://www.rusprofile.ru/,,yes,Справочник по ЕГРЮЛ/ЕГРИП: если есть ИП/ООО — дать ИНН; иначе пропустить
+2,РБК Компании,directory,RU,medium,skipped_by_strategy,https://companies.rbc.ru/,,yes,Исключено: корпоративный каталог не приоритетен для персонального бренда
+2,Rusprofile,directory,RU,medium,skipped_by_strategy,https://www.rusprofile.ru/,,yes,Исключено: каталог юрлиц/ИП нецелевой для текущей модели
 2,Spravker,directory,RU,medium,skipped_no_geo,https://spravker.ru/,,no,Пропущено: сеть городских справочников; вариант A без фиксированного города
-2,OrgPage,directory,RU,medium,awaiting_user_registration,https://www.orgpage.ru/Cabinet/Create/,,no,Требуется регистрация ЛК; в анкете часто просят адрес — заполнить минимально корректно под онлайн
+2,OrgPage,directory,RU,medium,skipped_by_strategy,https://www.orgpage.ru/Cabinet/Create/,,no,Исключено: каталог организаций не приоритетен для персонального бренда
 2,Cataloxy,directory,RU,medium,skipped_user_decision,https://www.cataloxy.ru/firms_add.htm,,no,Пропущено по решению владельца
 2,YouTube (about/profile),brand_profile,global,high,placed,https://www.youtube.com/@sergeypruss,https://www.youtube.com/@sergeypruss,yes,Ссылка в описании профиля и в релевантном видео
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
