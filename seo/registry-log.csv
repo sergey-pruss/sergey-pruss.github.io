@@ -34,3 +34,5 @@ ts_utc,platform,action,result,details
 2026-04-25T08:26:06+00:00,Hashnode профиль,register,email_not_received_retry,Повторный запрос magic link: письмо не пришло
 2026-04-25T08:32:17+00:00,Hashnode профиль,qa_link_check,skipped_unavailable,Отказ от площадки: URL в профиле не кликается
 2026-04-25T08:38:14+00:00,Wave 2,research_add,ok,"Добавлены LinkedIn, Habr, GitHub, X, Substack, Reddit с фильтром кликабельности"
+2026-04-25T08:41:13+00:00,Habr профиль (О себе),start,awaiting_user_registration,Стоп на экране логина
+2026-04-25T08:41:13+00:00,LinkedIn профиль (About/Contact),start,awaiting_user_registration,Стоп на экране входа
