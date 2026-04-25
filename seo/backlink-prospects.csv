@@ -8,7 +8,7 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 2,Rusprofile,directory,RU,medium,awaiting_user_data,https://www.rusprofile.ru/,,yes,Справочник по ЕГРЮЛ/ЕГРИП: если есть ИП/ООО — дать ИНН; иначе пропустить
 2,Spravker,directory,RU,medium,skipped_no_geo,https://spravker.ru/,,no,Пропущено: сеть городских справочников; вариант A без фиксированного города
 2,OrgPage,directory,RU,medium,awaiting_user_registration,https://www.orgpage.ru/Cabinet/Create/,,no,Требуется регистрация ЛК; в анкете часто просят адрес — заполнить минимально корректно под онлайн
-2,Cataloxy,directory,RU,medium,awaiting_user_registration,https://www.cataloxy.ru/firms_add.htm,,no,Требуется регистрация/ЛК; сайт с антиботом — завершение только вручную со стороны владельца
+2,Cataloxy,directory,RU,medium,skipped_user_decision,https://www.cataloxy.ru/firms_add.htm,,no,Пропущено по решению владельца
 2,YouTube (about/profile),brand_profile,global,high,placed,https://www.youtube.com/@sergeypruss,https://www.youtube.com/@sergeypruss,yes,Ссылка в описании профиля и в релевантном видео
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
 3,Medium профиль,author_profile,global,low,awaiting_user_registration,https://medium.com/me,,yes,Регистрация и bio; ссылка на sergeypruss.ru в About

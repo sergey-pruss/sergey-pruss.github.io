@@ -22,3 +22,4 @@ ts_utc,platform,action,result,details
 2026-04-25T07:58:54+00:00,Medium профиль,auto_triage,awaiting_user_registration,Профиль medium.com/me — вход владельца
 2026-04-25T07:58:54+00:00,Hashnode профиль,auto_triage,awaiting_user_registration,hashnode.com — вход и bio
 2026-04-25T07:58:54+00:00,Crunchbase (если релевантно),auto_triage,awaiting_user_data,Нужна сущность компании; для физлица обычно нет
+2026-04-25T08:08:50+00:00,Cataloxy,policy,skipped_user_decision,Пропущено по запросу пользователя
