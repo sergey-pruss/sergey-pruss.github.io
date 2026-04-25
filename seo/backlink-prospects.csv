@@ -19,4 +19,5 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 3,X (Twitter) профиль,social_profile,global,medium,skipped_user_decision,https://x.com/,,yes,Пропущено по решению владельца
 3,Substack профиль (About),author_profile,global,medium,skipped_user_decision,https://substack.com/,,yes,Пропущено по решению владельца
 3,Reddit профиль (about),social_profile,global,low,skipped_user_decision,https://www.reddit.com/,,yes,Пропущено по решению владельца
+3,Dev.to профиль,author_profile,global,medium,skipped_user_decision,https://dev.to/,,yes,Пропущено по решению владельца
 3,Crunchbase (если релевантно),brand_profile,global,low,skipped_by_strategy,https://www.crunchbase.com/,,yes,Исключено: по решению владельца регистрация не планируется (не стартап/не юрсущность)
