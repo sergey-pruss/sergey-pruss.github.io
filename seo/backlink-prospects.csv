@@ -12,5 +12,5 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 2,YouTube (about/profile),brand_profile,global,high,placed,https://www.youtube.com/@sergeypruss,https://www.youtube.com/@sergeypruss,yes,Ссылка в описании профиля и в релевантном видео
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
 3,Medium профиль,author_profile,global,low,placed,https://medium.com/@sergeyprus,https://medium.com/@sergeyprus,yes,Профиль подтвержден и доступен; далее заполнить About и добавить ссылку https://sergeypruss.ru/
-3,Hashnode профиль,author_profile,global,low,awaiting_user_registration,https://hashnode.com/login,,yes,Письмо с magic link не пришло; повторить отправку позже/проверить Spam
+3,Hashnode профиль,author_profile,global,low,awaiting_user_registration,https://hashnode.com/login,,yes,"2 попытки magic link (sergeyprus@gmail.com), письмо не пришло; проверить Spam/All Mail и задержку провайдера. Альтернатива: вход через Google/GitHub."
 3,Crunchbase (если релевантно),brand_profile,global,low,skipped_by_strategy,https://www.crunchbase.com/,,yes,Исключено: по решению владельца регистрация не планируется (не стартап/не юрсущность)
