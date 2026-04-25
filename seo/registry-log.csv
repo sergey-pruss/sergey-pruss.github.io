@@ -19,3 +19,6 @@ ts_utc,platform,action,result,details
 2026-04-25T07:58:40+00:00,OrgPage,auto_triage,awaiting_user_registration,Cabinet/Create — регистрация; в анкете адрес
 2026-04-25T07:58:40+00:00,Rusprofile,auto_triage,awaiting_user_data,Нужен ИНН юрлица/ИП или подтверждение отсутствия карточки
 2026-04-25T07:58:40+00:00,РБК Компании,auto_triage,awaiting_user_data,Проверить модель размещения companies.rbc.ru; прислать URL карточки если создаётся
+2026-04-25T07:58:54+00:00,Medium профиль,auto_triage,awaiting_user_registration,Профиль medium.com/me — вход владельца
+2026-04-25T07:58:54+00:00,Hashnode профиль,auto_triage,awaiting_user_registration,hashnode.com — вход и bio
+2026-04-25T07:58:54+00:00,Crunchbase (если релевантно),auto_triage,awaiting_user_data,Нужна сущность компании; для физлица обычно нет

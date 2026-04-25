@@ -11,6 +11,6 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 2,Cataloxy,directory,RU,medium,awaiting_user_registration,https://www.cataloxy.ru/firms_add.htm,,no,Требуется регистрация/ЛК; сайт с антиботом — завершение только вручную со стороны владельца
 2,YouTube (about/profile),brand_profile,global,high,placed,https://www.youtube.com/@sergeypruss,https://www.youtube.com/@sergeypruss,yes,Ссылка в описании профиля и в релевантном видео
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
-3,Medium профиль,author_profile,global,low,todo,,,yes,Нужен англоязычный короткий профиль
-3,Hashnode профиль,author_profile,global,low,todo,,,yes,Ссылка на сайт и экспертные заметки
-3,Crunchbase (если релевантно),brand_profile,global,low,todo,,,yes,Только если будет корректная сущность
+3,Medium профиль,author_profile,global,low,awaiting_user_registration,https://medium.com/me,,yes,Регистрация и bio; ссылка на sergeypruss.ru в About
+3,Hashnode профиль,author_profile,global,low,awaiting_user_registration,https://hashnode.com/,,yes,Создать блог-профиль; ссылка на сайт в bio
+3,Crunchbase (если релевантно),brand_profile,global,low,awaiting_user_data,https://www.crunchbase.com/,,yes,Обычно нужна компания/раунд; для персонального бренда часто не подходит — по ситуации
