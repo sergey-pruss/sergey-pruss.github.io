@@ -13,4 +13,4 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
 3,Medium профиль,author_profile,global,low,awaiting_user_registration,https://medium.com/me,,yes,Регистрация и bio; ссылка на sergeypruss.ru в About
 3,Hashnode профиль,author_profile,global,low,awaiting_user_registration,https://hashnode.com/,,yes,Создать блог-профиль; ссылка на сайт в bio
-3,Crunchbase (если релевантно),brand_profile,global,low,awaiting_user_data,https://www.crunchbase.com/,,yes,Обычно нужна компания/раунд; для персонального бренда часто не подходит — по ситуации
+3,Crunchbase (если релевантно),brand_profile,global,low,skipped_by_strategy,https://www.crunchbase.com/,,yes,Исключено: по решению владельца регистрация не планируется (не стартап/не юрсущность)

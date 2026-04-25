@@ -26,3 +26,4 @@ ts_utc,platform,action,result,details
 2026-04-25T08:12:32+00:00,OrgPage,policy,skipped_by_strategy,По решению владельца не ведем каталоги организаций
 2026-04-25T08:12:32+00:00,Rusprofile,policy,skipped_by_strategy,По решению владельца не ведем каталоги организаций
 2026-04-25T08:12:33+00:00,РБК Компании,policy,skipped_by_strategy,По решению владельца не ведем каталоги организаций
+2026-04-25T08:14:10+00:00,Crunchbase (если релевантно),policy,skipped_by_strategy,По решению владельца: не регистрируемся
