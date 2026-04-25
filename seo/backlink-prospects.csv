@@ -10,7 +10,7 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 2,OrgPage,directory,RU,medium,todo,,,no,Нужна аккуратная категория и описание
 2,Cataloxy,directory,RU,medium,todo,,,no,Избегать переоптимизированных анкоров
 2,YouTube (about/profile),brand_profile,global,medium,todo,,,yes,Ссылка в описании профиля и в релевантном видео
-2,Telegram канал (описание),social_profile,RU,medium,todo,,,yes,Добавить URL сайта в био канала
+2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
 3,Medium профиль,author_profile,global,low,todo,,,yes,Нужен англоязычный короткий профиль
 3,Hashnode профиль,author_profile,global,low,todo,,,yes,Ссылка на сайт и экспертные заметки
 3,Crunchbase (если релевантно),brand_profile,global,low,todo,,,yes,Только если будет корректная сущность
