@@ -123,6 +123,32 @@ BLOG_HEAD = '''<!DOCTYPE html>
 <meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{canonical_url}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{canonical_url}">
+<meta property="og:title" content="{title_tag}">
+<meta property="og:description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
+<meta property="og:image" content="https://sergeypruss.ru/img/og-image.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Сергей Прусс">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title_tag}">
+<meta name="twitter:description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
+<meta name="twitter:image" content="https://sergeypruss.ru/img/og-image.jpg">
+{pagination_links}
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Блог Сергея Прусса",
+  "url": "https://sergeypruss.ru/blog.html",
+  "description": "Заметки о культуре, управлении и бизнесе от Сергея Прусса",
+  "publisher": {{
+    "@type": "Person",
+    "name": "Сергей Прусс",
+    "url": "https://sergeypruss.ru"
+  }}
+}}
+</script>
 {metrika}
 <link rel="stylesheet" href="{styles_prefix}styles/site.css?v=2">
 <link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=2">
@@ -157,12 +183,24 @@ def build_blog_pages():
       {f'<div class="post-card-desc">{esc(trunc(desc.replace(chr(92)+"` ","`"),90))}</div>' if desc else ''}
     </a>''' for s,d,t,desc in page_e)
 
-    def page(title_tag, cards_html, pagination, prefix, canonical_url):
+    def build_pagination_links(cur):
+        prev_link = ''
+        next_link = ''
+        if cur > 1:
+            prev_url = 'https://sergeypruss.ru/blog.html' if cur == 2 else f'https://sergeypruss.ru/blog/page-{cur-1}.html'
+            prev_link = f'<link rel="prev" href="{prev_url}">'
+        if cur < total_pages:
+            next_url = f'https://sergeypruss.ru/blog/page-{cur+1}.html'
+            next_link = f'<link rel="next" href="{next_url}">'
+        return '\n'.join(v for v in [prev_link, next_link] if v)
+
+    def page(title_tag, cards_html, pagination, prefix, canonical_url, cur):
         head = BLOG_HEAD.format(
             title_tag=title_tag,
             metrika=analytics_head(prefix),
             styles_prefix=prefix,
-            canonical_url=canonical_url
+            canonical_url=canonical_url,
+            pagination_links=build_pagination_links(cur)
         )
         return f'''{head}
 <body>
@@ -185,7 +223,8 @@ def build_blog_pages():
             cards(entries[:PER_PAGE]),
             pag_root(1),
             '',
-            'https://sergeypruss.ru/blog.html'
+            'https://sergeypruss.ru/blog.html',
+            1
         ))
 
     os.makedirs('blog', exist_ok=True)
@@ -196,15 +235,11 @@ def build_blog_pages():
                 cards(entries[(p-1)*PER_PAGE:p*PER_PAGE], '../'),
                 pag_sub(p),
                 '../',
-                f'https://sergeypruss.ru/blog/page-{p}.html'
+                f'https://sergeypruss.ru/blog/page-{p}.html',
+                p
             ))
 
     print(f"Blog: {total} posts, {total_pages} pages")
-
-
-if __name__ == '__main__':
-    build_blog_pages()
-    print("Done. Run: python3 typograph.py")
 
 
 def build_sitemap():

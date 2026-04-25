@@ -1,0 +1,16 @@
+tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_step,notes
+1,Яндекс Бизнес,company_profile,RU,high,todo,,,yes,Нужна верификация карточки и базовые данные компании/персоны
+1,Google Business Profile,company_profile,global,high,todo,,,yes,Нужна верификация профиля
+1,2ГИС,company_profile,RU,high,todo,,,yes,Нужна карточка и подтверждение
+1,vc.ru,author_profile,RU,high,todo,,,yes,Заполнить профиль и опубликовать 1-2 экспертных материала
+1,Serenity (страница команды/экспертов),partner_link,RU,high,todo,,,no,Добавить ссылку на персональный сайт в релевантном блоке
+2,РБК Компании,directory,RU,medium,todo,,,yes,Создать карточку и добавить сайт
+2,Rusprofile,directory,RU,medium,todo,,,yes,Следить за корректностью NAP и ссылок
+2,Spravker,directory,RU,medium,todo,,,no,Проверить индексируемость страницы профиля
+2,OrgPage,directory,RU,medium,todo,,,no,Нужна аккуратная категория и описание
+2,Cataloxy,directory,RU,medium,todo,,,no,Избегать переоптимизированных анкоров
+2,YouTube (about/profile),brand_profile,global,medium,todo,,,yes,Ссылка в описании профиля и в релевантном видео
+2,Telegram канал (описание),social_profile,RU,medium,todo,,,yes,Добавить URL сайта в био канала
+3,Medium профиль,author_profile,global,low,todo,,,yes,Нужен англоязычный короткий профиль
+3,Hashnode профиль,author_profile,global,low,todo,,,yes,Ссылка на сайт и экспертные заметки
+3,Crunchbase (если релевантно),brand_profile,global,low,todo,,,yes,Только если будет корректная сущность
