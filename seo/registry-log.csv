@@ -1,1 +1,5 @@
 ts_utc,platform,action,result,details
+2026-04-25T07:06:30+00:00,Яндекс Бизнес,registration_attempt,blocked_manual,Нужна авторизация в Яндексе и подтверждение по телефону/SMS
+2026-04-25T07:06:30+00:00,Google Business Profile,registration_attempt,blocked_manual,Нужен вход в Google-аккаунт и верификация бизнес-профиля
+2026-04-25T07:06:30+00:00,2ГИС,registration_attempt,blocked_manual,Нужна авторизация и подтверждение карточки компании
+2026-04-25T07:06:30+00:00,vc.ru,registration_attempt,blocked_manual,Нужна авторизация для заполнения профиля и публикации

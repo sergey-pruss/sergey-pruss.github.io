@@ -1,8 +1,8 @@
 tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_step,notes
-1,Яндекс Бизнес,company_profile,RU,high,todo,,,yes,Нужна верификация карточки и базовые данные компании/персоны
-1,Google Business Profile,company_profile,global,high,todo,,,yes,Нужна верификация профиля
-1,2ГИС,company_profile,RU,high,todo,,,yes,Нужна карточка и подтверждение
-1,vc.ru,author_profile,RU,high,todo,,,yes,Заполнить профиль и опубликовать 1-2 экспертных материала
+1,Яндекс Бизнес,company_profile,RU,high,in_progress,https://business.yandex.ru/,,yes,Нужна верификация карточки и базовые данные компании/персоны
+1,Google Business Profile,company_profile,global,high,in_progress,https://business.google.com/,,yes,Нужна верификация профиля
+1,2ГИС,company_profile,RU,high,in_progress,https://business.2gis.ru/,,yes,Нужна карточка и подтверждение
+1,vc.ru,author_profile,RU,high,in_progress,https://vc.ru/,,yes,Заполнить профиль и опубликовать 1-2 экспертных материала
 1,Serenity (страница команды/экспертов),partner_link,RU,high,todo,,,no,Добавить ссылку на персональный сайт в релевантном блоке
 2,РБК Компании,directory,RU,medium,todo,,,yes,Создать карточку и добавить сайт
 2,Rusprofile,directory,RU,medium,todo,,,yes,Следить за корректностью NAP и ссылок
