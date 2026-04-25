@@ -13,4 +13,10 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
 3,Medium профиль,author_profile,global,low,placed,https://medium.com/@sergeyprus,https://medium.com/@sergeyprus,yes,Профиль подтвержден и доступен; далее заполнить About и добавить ссылку https://sergeypruss.ru/
 3,Hashnode профиль,author_profile,global,low,skipped_unavailable,https://hashnode.com/@sergeypruss,,yes,Пропущено по факту теста: ссылка на сайт в профиле отображается текстом и не является активной (некликабельной)
+3,LinkedIn профиль (About/Contact),author_profile,global,high,todo,https://www.linkedin.com/,,yes,Проверить: ссылка на сайт должна быть кликабельной в Contact info/Featured
+3,Habr профиль (О себе),author_profile,RU,high,todo,https://habr.com/ru/users/,,yes,Проверить кликабельность ссылки в профиле и видимость без логина
+3,GitHub профиль (bio/link),author_profile,global,medium,todo,https://github.com/,,yes,Добавить сайт в поле Website и проверить кликабельность на публичной странице
+3,X (Twitter) профиль,social_profile,global,medium,todo,https://x.com/,,yes,Добавить сайт в bio/profile URL и проверить кликабельность в веб-версии
+3,Substack профиль (About),author_profile,global,medium,todo,https://substack.com/,,yes,Проверить активную ссылку в профиле автора/публикации
+3,Reddit профиль (about),social_profile,global,low,todo,https://www.reddit.com/,,yes,Проверить: ссылка кликабельна в профиле и видна без авторизации
 3,Crunchbase (если релевантно),brand_profile,global,low,skipped_by_strategy,https://www.crunchbase.com/,,yes,Исключено: по решению владельца регистрация не планируется (не стартап/не юрсущность)
