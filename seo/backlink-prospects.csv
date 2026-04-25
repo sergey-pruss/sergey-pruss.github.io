@@ -3,13 +3,13 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 1,Google Business Profile,company_profile,global,high,skipped_no_geo,https://business.google.com/,,yes,Пропущено: онлайн без фиксированного адреса/гео; отдельный бизнес-профиль с локализацией не планируется
 1,2ГИС,company_profile,RU,high,skipped_no_geo,https://business.2gis.ru/,,yes,Пропущено: 2ГИС — прежде всего гео-карточка; без города/точки не подходит
 1,vc.ru,author_profile,RU,high,placed,https://vc.ru/id91901,https://vc.ru/id91901,yes,Заполнить профиль и опубликовать 1-2 экспертных материала
-1,Serenity (страница команды/экспертов),partner_link,RU,high,todo,,,no,Добавить ссылку на персональный сайт в релевантном блоке
+1,Serenity (страница команды/экспертов),partner_link,RU,high,skipped_unavailable,,,no,Пропущено: площадка/раздел недоступны для размещения
 2,РБК Компании,directory,RU,medium,todo,,,yes,Создать карточку и добавить сайт
 2,Rusprofile,directory,RU,medium,todo,,,yes,Следить за корректностью NAP и ссылок
 2,Spravker,directory,RU,medium,todo,,,no,Проверить индексируемость страницы профиля
 2,OrgPage,directory,RU,medium,todo,,,no,Нужна аккуратная категория и описание
 2,Cataloxy,directory,RU,medium,todo,,,no,Избегать переоптимизированных анкоров
-2,YouTube (about/profile),brand_profile,global,medium,todo,,,yes,Ссылка в описании профиля и в релевантном видео
+2,YouTube (about/profile),brand_profile,global,high,in_progress,https://www.youtube.com/,,yes,Ссылка в описании профиля и в релевантном видео
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
 3,Medium профиль,author_profile,global,low,todo,,,yes,Нужен англоязычный короткий профиль
 3,Hashnode профиль,author_profile,global,low,todo,,,yes,Ссылка на сайт и экспертные заметки
