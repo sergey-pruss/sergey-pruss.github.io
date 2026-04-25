@@ -29,3 +29,5 @@ ts_utc,platform,action,result,details
 2026-04-25T08:14:10+00:00,Crunchbase (если релевантно),policy,skipped_by_strategy,По решению владельца: не регистрируемся
 2026-04-25T08:16:24+00:00,Hashnode профиль,register,magic_link_sent,sergeyprus@gmail.com; ожидает клика в почте
 2026-04-25T08:18:33+00:00,Medium профиль,register,verification_sent,sergeyprus@gmail.com; ожидает кода/ссылки из письма
+2026-04-25T08:21:59+00:00,Medium профиль,placed,ok,Публичный профиль: https://medium.com/@sergeyprus
+2026-04-25T08:21:59+00:00,Hashnode профиль,register,email_not_received,Magic link не пришел на sergeyprus@gmail.com
