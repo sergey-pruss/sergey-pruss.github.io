@@ -40,3 +40,4 @@ ts_utc,platform,action,result,details
 2026-04-25T08:47:20+00:00,LinkedIn профиль (About/Contact),policy,skipped_user_decision,Пропустить LinkedIn
 2026-04-25T08:47:20+00:00,GitHub профиль (bio/link),policy,skipped_user_decision,Пропустить GitHub
 2026-04-25T08:50:22+00:00,Substack профиль (About),policy,skipped_user_decision,№2: нет
+2026-04-25T08:51:47+00:00,X (Twitter) профиль,policy,skipped_user_decision,№1: нет (формат 1/2)

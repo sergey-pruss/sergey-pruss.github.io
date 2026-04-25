@@ -16,7 +16,7 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 3,LinkedIn профиль (About/Contact),author_profile,global,high,skipped_user_decision,https://www.linkedin.com/,,yes,Пропущено по решению владельца
 3,Habr профиль (О себе),author_profile,RU,high,placed,https://habr.com/ru/users/sergey_pruss/,https://habr.com/ru/users/sergey_pruss/,yes,Профиль заполнен; ссылка на сайт добавлена в 'О себе' и кликабельна
 3,GitHub профиль (bio/link),author_profile,global,medium,skipped_user_decision,https://github.com/,,yes,Пропущено по решению владельца
-3,X (Twitter) профиль,social_profile,global,medium,todo,https://x.com/,,yes,Добавить сайт в bio/profile URL и проверить кликабельность в веб-версии
+3,X (Twitter) профиль,social_profile,global,medium,skipped_user_decision,https://x.com/,,yes,Пропущено по решению владельца
 3,Substack профиль (About),author_profile,global,medium,skipped_user_decision,https://substack.com/,,yes,Пропущено по решению владельца
 3,Reddit профиль (about),social_profile,global,low,todo,https://www.reddit.com/,,yes,Проверить: ссылка кликабельна в профиле и видна без авторизации
 3,Crunchbase (если релевантно),brand_profile,global,low,skipped_by_strategy,https://www.crunchbase.com/,,yes,Исключено: по решению владельца регистрация не планируется (не стартап/не юрсущность)
