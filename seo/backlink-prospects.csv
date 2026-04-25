@@ -9,7 +9,7 @@ tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_st
 2,Spravker,directory,RU,medium,todo,,,no,Проверить индексируемость страницы профиля
 2,OrgPage,directory,RU,medium,todo,,,no,Нужна аккуратная категория и описание
 2,Cataloxy,directory,RU,medium,todo,,,no,Избегать переоптимизированных анкоров
-2,YouTube (about/profile),brand_profile,global,high,in_progress,https://www.youtube.com/,,yes,Ссылка в описании профиля и в релевантном видео
+2,YouTube (about/profile),brand_profile,global,high,placed,https://www.youtube.com/@sergeypruss,https://www.youtube.com/@sergeypruss,yes,Ссылка в описании профиля и в релевантном видео
 2,Telegram канал (описание),social_profile,RU,medium,placed,https://t.me/sergeypruss,https://t.me/sergeypruss,yes,Добавить URL сайта в био канала
 3,Medium профиль,author_profile,global,low,todo,,,yes,Нужен англоязычный короткий профиль
 3,Hashnode профиль,author_profile,global,low,todo,,,yes,Ссылка на сайт и экспертные заметки

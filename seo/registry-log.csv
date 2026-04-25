@@ -13,3 +13,4 @@ ts_utc,platform,action,result,details
 2026-04-25T07:37:20+00:00,Telegram канал (описание),manual_step,done,Добавлена ссылка на сайт в описании канала
 2026-04-25T07:39:18+00:00,Serenity (страница команды/экспертов),policy,skipped_unavailable,По подтверждению владельца площадка недоступна
 2026-04-25T07:39:59+00:00,YouTube (about/profile),registration_attempt,awaiting_user_auth,Для добавления ссылки в описание канала нужен вход в YouTube Studio аккаунтом владельца
+2026-04-25T07:53:03+00:00,YouTube (about/profile),manual_step,done,Добавлена ссылка на сайт в описании канала
