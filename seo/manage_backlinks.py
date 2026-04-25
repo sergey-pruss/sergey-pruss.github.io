@@ -85,10 +85,7 @@ def print_summary(rows: List[Dict[str, str]]) -> None:
 
 
 def print_next(rows: List[Dict[str, str]], limit: int) -> None:
-    queue = [
-        r for r in rows
-        if r["status"] in {"todo", "in_progress"}
-    ]
+    queue = [r for r in rows if r["status"] in {"todo", "in_progress"}]
     queue.sort(key=lambda r: (int(r["tier"]), 0 if r["priority"] == "high" else 1, r["platform"]))
     for row in queue[:limit]:
         print(

@@ -7,3 +7,6 @@ ts_utc,platform,action,result,details
 2026-04-25T07:20:21+00:00,2ГИС,registration_attempt,need_contact_data,"Открыта форма добавления, но для отправки требуются телефон, email и контактное лицо"
 2026-04-25T07:20:21+00:00,Яндекс Бизнес,registration_attempt,awaiting_user_auth,Требуется вход в Яндекс-аккаунт владельца
 2026-04-25T07:20:21+00:00,Google Business Profile,registration_attempt,awaiting_user_auth,Требуется вход в Google-аккаунт владельца
+2026-04-25T07:35:18+00:00,Яндекс Бизнес,policy,skipped_no_geo,"Вариант A: консалтинг онлайн, без фиксированного города — локальная карточка не планируется"
+2026-04-25T07:35:18+00:00,Google Business Profile,policy,skipped_no_geo,Вариант A: онлайн без фиксированной гео — не применяем
+2026-04-25T07:35:18+00:00,2ГИС,policy,skipped_no_geo,Вариант A: без города/точки — гео-каталог нецелесообразен

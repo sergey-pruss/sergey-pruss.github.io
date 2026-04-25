@@ -1,7 +1,7 @@
 tier,platform,type,geo,priority,status,profile_url,placed_url,requires_manual_step,notes
-1,Яндекс Бизнес,company_profile,RU,high,in_progress,https://business.yandex.ru/,,yes,Нужна верификация карточки и базовые данные компании/персоны
-1,Google Business Profile,company_profile,global,high,in_progress,https://business.google.com/,,yes,Нужна верификация профиля
-1,2ГИС,company_profile,RU,high,in_progress,https://business.2gis.ru/,,yes,Нужна карточка и подтверждение
+1,Яндекс Бизнес,company_profile,RU,high,skipped_no_geo,https://business.yandex.ru/,,yes,Пропущено: онлайн без фиксированного адреса/города; локальная карточка нецелесообразна
+1,Google Business Profile,company_profile,global,high,skipped_no_geo,https://business.google.com/,,yes,Пропущено: онлайн без фиксированного адреса/гео; отдельный бизнес-профиль с локализацией не планируется
+1,2ГИС,company_profile,RU,high,skipped_no_geo,https://business.2gis.ru/,,yes,Пропущено: 2ГИС — прежде всего гео-карточка; без города/точки не подходит
 1,vc.ru,author_profile,RU,high,placed,https://vc.ru/id91901,https://vc.ru/id91901,yes,Заполнить профиль и опубликовать 1-2 экспертных материала
 1,Serenity (страница команды/экспертов),partner_link,RU,high,todo,,,no,Добавить ссылку на персональный сайт в релевантном блоке
 2,РБК Компании,directory,RU,medium,todo,,,yes,Создать карточку и добавить сайт
