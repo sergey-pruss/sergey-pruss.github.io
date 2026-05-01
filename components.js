@@ -300,16 +300,25 @@
     return `${candidate}...`;
   }
 
-  function getNearbyPostIndexes(posts, currentIndex, count) {
-    const out = [];
-    for (let step = 1; out.length < count && step < posts.length; step++) {
-      const left = currentIndex - step;
-      const right = currentIndex + step;
-      if (left >= 0) out.push(left);
-      if (out.length >= count) break;
-      if (right < posts.length) out.push(right);
+  function pickRelatedPosts(posts, tagSlugMap, currentIndex, slug, count, excludedSlugs) {
+    const excluded = new Set(excludedSlugs);
+    const currentTags = tagSlugMap.get(slug) || [];
+    const scored = [];
+    for (let i = 0; i < posts.length; i++) {
+      const post = posts[i];
+      if (excluded.has(post.slug)) continue;
+      const pt = tagSlugMap.get(post.slug) || [];
+      let score = 0;
+      for (const t of currentTags) {
+        if (pt.includes(t)) score++;
+      }
+      scored.push({ i, score, post });
     }
-    return out.slice(0, count);
+    scored.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return Math.abs(a.i - currentIndex) - Math.abs(b.i - currentIndex);
+    });
+    return scored.slice(0, count).map(s => s.post);
   }
 
   function renderRelatedPosts(posts, tagSlugMap) {
@@ -322,28 +331,99 @@
     const nav = document.querySelector('.post-nav');
     if (!nav) return;
 
-    const relatedCount = window.matchMedia('(max-width: 600px)').matches ? 4 : 3;
-    const idxs = getNearbyPostIndexes(posts, currentIndex, relatedCount);
-    const nearby = idxs.map(i => posts[i]).filter(Boolean);
-    if (!nearby.length) return;
+    const older1 = currentIndex + 1 < posts.length ? posts[currentIndex + 1] : null;
+    const older2 = currentIndex + 2 < posts.length ? posts[currentIndex + 2] : null;
 
-    nav.classList.add('post-nav-related');
-    nav.innerHTML = `<div class="post-related-grid">${
-      nearby.map(p => {
-        const tags = tagSlugMap.get(p.slug) || [];
-        const tagClass = tags.map(t => `post-tag-${t}`).join(' ');
-        const primaryTag = pickPrimaryTag(tags);
-        const hash = primaryTag ? `<div class="blog-card-hash">${escapeHtml(tagLabel(primaryTag))}</div>` : '';
-        return `
+    const excludedFromRelated = new Set([slug]);
+    if (older1) excludedFromRelated.add(older1.slug);
+    if (older2) excludedFromRelated.add(older2.slug);
+
+    const relatedCount = window.matchMedia('(max-width: 600px)').matches ? 4 : 3;
+    const related = pickRelatedPosts(
+      posts,
+      tagSlugMap,
+      currentIndex,
+      slug,
+      relatedCount,
+      excludedFromRelated
+    );
+
+    function seqNavItem(post, variant) {
+      if (!post) {
+        return `<span class="post-nav-item ${variant} post-nav-spacer" aria-hidden="true"></span>`;
+      }
+      const label = variant === 'next' ? 'Следующий пост →' : '← Предыдущий пост';
+      return `
+        <a href="${post.slug}.html" class="post-nav-item ${variant}">
+          <div class="post-nav-label">${escapeHtml(label)}</div>
+          <div class="post-nav-title">${escapeHtml(truncText(post.title, 120))}</div>
+        </a>`;
+    }
+
+    const seqHtml = `<div class="post-seq-nav">${seqNavItem(older1, 'prev')}${seqNavItem(older2, 'next')}</div>`;
+
+    const relatedHtml = related.length
+      ? `<p class="post-related-heading">Ещё из блога</p><div class="post-related-grid">${related
+          .map(p => {
+            const tags = tagSlugMap.get(p.slug) || [];
+            const tagClass = tags.map(t => `post-tag-${t}`).join(' ');
+            const primaryTag = pickPrimaryTag(tags);
+            const hash = primaryTag ? `<div class="blog-card-hash">${escapeHtml(tagLabel(primaryTag))}</div>` : '';
+            return `
         <a href="${p.slug}.html" class="blog-card post-related-card ${tagClass}">
           <div class="blog-card-date">${escapeHtml(formatDateRu(p.date))}</div>
           <div class="blog-card-title">${escapeHtml(truncText(p.title, 95))}</div>
           <div class="blog-card-desc">${escapeHtml(truncText(p.description, 180))}</div>
           ${hash}
-        </a>
-      `;
-      }).join('')
-    }</div>`;
+        </a>`;
+          })
+          .join('')}</div>`
+      : '';
+
+    nav.classList.add('post-nav-related');
+    nav.innerHTML = `${seqHtml}${relatedHtml}`;
+  }
+
+  function injectFAQSchemaFromEmbeddedJson() {
+    const el = document.getElementById('post-faq-data');
+    if (!el || document.querySelector('script[data-post-faq-schema="1"]')) return;
+    let items;
+    try {
+      items = JSON.parse(el.textContent.trim());
+    } catch (e) {
+      return;
+    }
+    if (!Array.isArray(items) || !items.length) return;
+    const mainEntity = items
+      .filter(x => x && String(x.question || '').trim() && String(x.answer || '').trim())
+      .map(x => ({
+        '@type': 'Question',
+        name: String(x.question).trim(),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: String(x.answer).trim(),
+        },
+      }));
+    if (!mainEntity.length) return;
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-post-faq-schema', '1');
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity,
+    });
+    document.head.appendChild(script);
+  }
+
+  function ensureRSSAlternateLink() {
+    if (document.querySelector('link[rel="alternate"][type="application/rss+xml"]')) return;
+    const link = document.createElement('link');
+    link.rel = 'alternate';
+    link.type = 'application/rss+xml';
+    link.title = 'Блог Сергея Прусса';
+    link.href = 'https://sergeypruss.ru/feed.xml';
+    document.head.appendChild(link);
   }
 
   function hydratePostListCards(posts, tagSlugMap) {
@@ -618,6 +698,8 @@
   }
 
   ensureSharedStylesheet();
+  injectFAQSchemaFromEmbeddedJson();
+  ensureRSSAlternateLink();
   await load('#site-header', 'header.html?v=5');
   await load('#site-footer', 'footer.html');
   await loadTagNav();
