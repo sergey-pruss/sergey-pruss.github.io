@@ -3,7 +3,10 @@
 Генератор постов и страниц блога.
 Запускать после изменений в posts.js или добавления новых постов.
 """
-import re, os, json
+import re, os
+from datetime import datetime, timezone
+from email.utils import format_datetime
+from xml.sax.saxutils import escape as xml_escape
 
 def analytics_head(script_prefix: str) -> str:
     """script_prefix: '' с корня сайта, '../' из /blog/ и /posts/. См. scripts/analytics.js."""
@@ -16,6 +19,29 @@ PER_PAGE = 42
 MONTHS_RU = {'January':'января','February':'февраля','March':'марта','April':'апреля',
              'May':'мая','June':'июня','July':'июля','August':'августа',
              'September':'сентября','October':'октября','November':'ноября','December':'декабря'}
+
+MONTHS_EN = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
+             'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
+
+FEED_ITEM_LIMIT = 100
+BASE_URL = 'https://sergeypruss.ru'
+
+def entry_iso_date(date_str):
+    """Дата поста из posts.js → YYYY-MM-DD."""
+    m = re.match(r'(\d+) (\w+) (\d+)', date_str)
+    if m:
+        return f"{m.group(3)}-{MONTHS_EN.get(m.group(2),'01')}-{m.group(1).zfill(2)}"
+    return datetime.now().strftime('%Y-%m-%d')
+
+def unescape_js_backtick(s):
+    return (s or '').replace(chr(92) + '`', '`')
+
+def xml_esc_feed(s):
+    return xml_escape(unescape_js_backtick(s))
+
+def rfc822_from_iso(iso_date_str):
+    y, mo, d = map(int, iso_date_str.split('-'))
+    return format_datetime(datetime(y, mo, d, 12, 0, tzinfo=timezone.utc), usegmt=True)
 
 def ru_date(d):
     for en, ru in MONTHS_RU.items(): d = d.replace(en, ru)
@@ -123,6 +149,7 @@ BLOG_HEAD = '''<!DOCTYPE html>
 <meta name="description" content="Заметки о культуре, управлении и бизнесе от Сергея Прусса">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{canonical_url}">
+<link rel="alternate" type="application/rss+xml" title="Блог Сергея Прусса" href="{base_url}/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical_url}">
 <meta property="og:title" content="{title_tag}">
@@ -200,7 +227,8 @@ def build_blog_pages():
             metrika=analytics_head(prefix),
             styles_prefix=prefix,
             canonical_url=canonical_url,
-            pagination_links=build_pagination_links(cur)
+            pagination_links=build_pagination_links(cur),
+            base_url=BASE_URL,
         )
         return f'''{head}
 <body>
@@ -244,21 +272,9 @@ def build_blog_pages():
 
 def build_sitemap():
     """Генерирует sitemap.xml из текущего posts.js"""
-    from datetime import datetime
-
     entries = get_entries()
-    BASE = 'https://sergeypruss.ru'
     today = datetime.now().strftime('%Y-%m-%d')
-
-    MONTHS_EN = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
-                 'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
-
-    def iso_date(d):
-        import re
-        m = re.match(r'(\d+) (\w+) (\d+)', d)
-        if m:
-            return f"{m.group(3)}-{MONTHS_EN.get(m.group(2),'01')}-{m.group(1).zfill(2)}"
-        return today
+    BASE = BASE_URL
 
     total = len(entries)
     total_pages = (total + PER_PAGE - 1) // PER_PAGE
@@ -266,14 +282,14 @@ def build_sitemap():
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 
-    for url, lastmod, priority in [('', today, '1.0'), ('blog.html', today, '0.9')]:
+    for url, lastmod, priority in [('', today, '1.0'), ('blog.html', today, '0.9'), ('feed.xml', today, '0.5')]:
         lines.append(f'  <url>\n    <loc>{BASE}/{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <priority>{priority}</priority>\n  </url>')
 
     for i in range(2, total_pages + 1):
         lines.append(f'  <url>\n    <loc>{BASE}/blog/page-{i}.html</loc>\n    <lastmod>{today}</lastmod>\n    <priority>0.7</priority>\n  </url>')
 
     for slug, date, *_ in entries:
-        lines.append(f'  <url>\n    <loc>{BASE}/posts/{slug}.html</loc>\n    <lastmod>{iso_date(date)}</lastmod>\n    <priority>0.8</priority>\n  </url>')
+        lines.append(f'  <url>\n    <loc>{BASE}/posts/{slug}.html</loc>\n    <lastmod>{entry_iso_date(date)}</lastmod>\n    <priority>0.8</priority>\n  </url>')
 
     lines.append('</urlset>')
     with open('sitemap.xml', 'w') as f:
@@ -282,7 +298,54 @@ def build_sitemap():
     print(f"sitemap.xml: {total + 1 + total_pages} URLs")
 
 
+def build_feed():
+    """RSS 2.0 по текущему posts.js — свежие записи первыми."""
+    entries = get_entries()
+    last_build = format_datetime(datetime.now(timezone.utc), usegmt=True)
+    slice_e = entries[:FEED_ITEM_LIMIT]
+
+    items_xml = []
+    for slug, date_str, title, desc in slice_e:
+        iso = entry_iso_date(date_str)
+        link = f'{BASE_URL}/posts/{slug}.html'
+        pub = rfc822_from_iso(iso)
+        title_x = xml_esc_feed(title)
+        desc_x = xml_esc_feed(desc)
+        items_xml.append(
+            f'''    <item>
+      <title>{title_x}</title>
+      <link>{link}</link>
+      <guid isPermaLink="true">{link}</guid>
+      <pubDate>{pub}</pubDate>
+      <description>{desc_x}</description>
+    </item>'''
+        )
+
+    channel_desc = xml_esc_feed(
+        'Заметки о культуре, управлении и бизнесе от Сергея Прусса — новые публикации блога.'
+    )
+
+    xml_out = f'''<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Блог Сергея Прусса</title>
+    <link>{BASE_URL}/blog.html</link>
+    <description>{channel_desc}</description>
+    <language>ru-RU</language>
+    <lastBuildDate>{last_build}</lastBuildDate>
+    <atom:link href="{BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+{chr(10).join(items_xml)}
+  </channel>
+</rss>
+'''
+    with open('feed.xml', 'w', encoding='utf-8') as f:
+        f.write(xml_out)
+
+    print(f'feed.xml: {len(slice_e)} items (limit {FEED_ITEM_LIMIT})')
+
+
 if __name__ == '__main__':
     build_blog_pages()
     build_sitemap()
+    build_feed()
     print("Done. Run: python3 typograph.py")
