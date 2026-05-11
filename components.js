@@ -7,6 +7,7 @@
   <a class="tag-chip" href="tag-knigi.html">#книги</a>
   <a class="tag-chip" href="tag-liderstvo.html">#лидерство</a>
   <a class="tag-chip" href="tag-tsennosti.html">#ценности</a>
+  <a class="tag-chip" href="tag-keysy.html">#кейсы</a>
 </div>`;
 
   function injectHTML(container, html) {
@@ -125,7 +126,7 @@
   }
 
   async function loadTagSlugMap() {
-    const tags = ['knigi', 'liderstvo', 'tsennosti'];
+    const tags = ['knigi', 'liderstvo', 'tsennosti', 'keysy'];
     const map = new Map();
     const toSlugs = html => {
       const out = new Set();
@@ -150,7 +151,7 @@
   }
 
   function pickPrimaryTag(tags) {
-    const order = ['knigi', 'liderstvo', 'tsennosti'];
+    const order = ['knigi', 'liderstvo', 'tsennosti', 'keysy'];
     for (const t of order) {
       if ((tags || []).includes(t)) return t;
     }
@@ -161,6 +162,7 @@
     if (tag === 'knigi') return '#книги';
     if (tag === 'liderstvo') return '#лидерство';
     if (tag === 'tsennosti') return '#ценности';
+    if (tag === 'keysy') return '#кейсы';
     return '';
   }
 
