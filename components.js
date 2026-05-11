@@ -380,6 +380,7 @@
           .join('')}</div>`
       : '';
 
+    document.getElementById('post-related-static')?.remove();
     nav.classList.add('post-nav-related');
     nav.innerHTML = `${seqHtml}${relatedHtml}`;
   }
