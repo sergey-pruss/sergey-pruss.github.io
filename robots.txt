@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /index.html
 Disallow: /tags.html
 
 Sitemap: https://sergeypruss.ru/sitemap.xml

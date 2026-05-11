@@ -119,6 +119,7 @@ POST_HEAD = '''<!DOCTYPE html>
 <meta name="author" content="Сергей Прусс">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://sergeypruss.ru/posts/{slug}.html">
+<link rel="alternate" type="application/rss+xml" title="Блог Сергея Прусса" href="https://sergeypruss.ru/feed.xml">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sergeypruss.ru/posts/{slug}.html">
 <meta property="og:title" content="{title_esc} — Сергей Прусс">
@@ -167,7 +168,7 @@ BLOG_HEAD = '''<!DOCTYPE html>
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": "Блог Сергея Прусса",
-  "url": "https://sergeypruss.ru/blog.html",
+  "url": "https://sergeypruss.ru/blog",
   "description": "Заметки о культуре, управлении и бизнесе от Сергея Прусса",
   "publisher": {{
     "@type": "Person",
@@ -177,8 +178,8 @@ BLOG_HEAD = '''<!DOCTYPE html>
 }}
 </script>
 {metrika}
-<link rel="stylesheet" href="{styles_prefix}styles/site.css?v=2">
-<link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=2">
+<link rel="stylesheet" href="{styles_prefix}styles/site.css?v=9">
+<link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=4">
 </head>'''
 
 
