@@ -432,12 +432,16 @@
 .tag-chip[href$="tag-knigi.html"]:hover,.tag-chip[href$="tag-knigi.html"].active{color:#a9bcff;border-color:#8ca6ff}
 .tag-chip[href$="tag-liderstvo.html"]:hover,.tag-chip[href$="tag-liderstvo.html"].active{color:#e3a48f;border-color:#d58a70}
 .tag-chip[href$="tag-tsennosti.html"]:hover,.tag-chip[href$="tag-tsennosti.html"].active{color:#97d7b7;border-color:#7fc8a3}
+.tag-chip[href$="tag-keysy.html"]{color:#e0b86a;border-color:rgba(224,184,106,.5)}
+.tag-chip[href$="tag-keysy.html"]:hover,.tag-chip[href$="tag-keysy.html"].active{color:#eac882;border-color:#e0b86a}
 body.tag-theme-knigi .post-list .post-card,.post-list .post-card.post-tag-knigi,.post-nav.post-nav-related .blog-card.post-tag-knigi{border-color:rgba(140,166,255,.45)}
 body.tag-theme-knigi .post-list .post-card:hover,.post-list .post-card.post-tag-knigi:hover,.post-nav.post-nav-related .blog-card.post-tag-knigi:hover{border-color:#8ca6ff}
 body.tag-theme-liderstvo .post-list .post-card,.post-list .post-card.post-tag-liderstvo,.post-nav.post-nav-related .blog-card.post-tag-liderstvo{border-color:rgba(213,138,112,.5)}
 body.tag-theme-liderstvo .post-list .post-card:hover,.post-list .post-card.post-tag-liderstvo:hover,.post-nav.post-nav-related .blog-card.post-tag-liderstvo:hover{border-color:#d58a70}
 body.tag-theme-tsennosti .post-list .post-card,.post-list .post-card.post-tag-tsennosti,.post-nav.post-nav-related .blog-card.post-tag-tsennosti{border-color:rgba(127,200,163,.5)}
 body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-tag-tsennosti:hover,.post-nav.post-nav-related .blog-card.post-tag-tsennosti:hover{border-color:#7fc8a3}
+body.tag-theme-keysy .post-list .post-card,.post-list .post-card.post-tag-keysy,.post-nav.post-nav-related .blog-card.post-tag-keysy{border-color:rgba(224,184,106,.45)}
+body.tag-theme-keysy .post-list .post-card:hover,.post-list .post-card.post-tag-keysy:hover,.post-nav.post-nav-related .blog-card.post-tag-keysy:hover{border-color:#e0b86a}
 
 @media (max-width: 900px){
   .post-list{grid-template-columns:1fr 1fr}

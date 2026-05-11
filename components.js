@@ -743,10 +743,11 @@
 
   // Highlight active nav link
   const page = location.pathname.split('/').pop() || 'index.html';
-  const isTagPage = /^tag-(knigi|liderstvo|tsennosti)\.html$/.test(page);
+  const isTagPage = /^tag-(knigi|liderstvo|tsennosti|keysy)\.html$/.test(page);
   if (page === 'tag-knigi.html') document.body.classList.add('tag-theme-knigi');
   if (page === 'tag-liderstvo.html') document.body.classList.add('tag-theme-liderstvo');
   if (page === 'tag-tsennosti.html') document.body.classList.add('tag-theme-tsennosti');
+  if (page === 'tag-keysy.html') document.body.classList.add('tag-theme-keysy');
   const isPostPage = /\/posts\/[^/]+\.html$/.test(location.pathname);
   const isBlogPaginationPage = /\/blog\/page-\d+\.html$/.test(location.pathname);
   document.querySelectorAll('nav a.nav-link').forEach(a => {
