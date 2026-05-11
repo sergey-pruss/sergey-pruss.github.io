@@ -434,6 +434,8 @@
 .tag-chip[href$="tag-tsennosti.html"]:hover,.tag-chip[href$="tag-tsennosti.html"].active{color:#97d7b7;border-color:#7fc8a3}
 .tag-chip[href$="tag-keysy.html"]{color:#e0b86a;border-color:rgba(224,184,106,.5)}
 .tag-chip[href$="tag-keysy.html"]:hover,.tag-chip[href$="tag-keysy.html"].active{color:#eac882;border-color:#e0b86a}
+.tag-chip[href$="tag-podkast.html"]{color:#b894e8;border-color:rgba(184,148,232,.5)}
+.tag-chip[href$="tag-podkast.html"]:hover,.tag-chip[href$="tag-podkast.html"].active{color:#c9aaee;border-color:#b894e8}
 body.tag-theme-knigi .post-list .post-card,.post-list .post-card.post-tag-knigi,.post-nav.post-nav-related .blog-card.post-tag-knigi{border-color:rgba(140,166,255,.45)}
 body.tag-theme-knigi .post-list .post-card:hover,.post-list .post-card.post-tag-knigi:hover,.post-nav.post-nav-related .blog-card.post-tag-knigi:hover{border-color:#8ca6ff}
 body.tag-theme-liderstvo .post-list .post-card,.post-list .post-card.post-tag-liderstvo,.post-nav.post-nav-related .blog-card.post-tag-liderstvo{border-color:rgba(213,138,112,.5)}
@@ -442,6 +444,8 @@ body.tag-theme-tsennosti .post-list .post-card,.post-list .post-card.post-tag-ts
 body.tag-theme-tsennosti .post-list .post-card:hover,.post-list .post-card.post-tag-tsennosti:hover,.post-nav.post-nav-related .blog-card.post-tag-tsennosti:hover{border-color:#7fc8a3}
 body.tag-theme-keysy .post-list .post-card,.post-list .post-card.post-tag-keysy,.post-nav.post-nav-related .blog-card.post-tag-keysy{border-color:rgba(224,184,106,.45)}
 body.tag-theme-keysy .post-list .post-card:hover,.post-list .post-card.post-tag-keysy:hover,.post-nav.post-nav-related .blog-card.post-tag-keysy:hover{border-color:#e0b86a}
+body.tag-theme-podkast .post-list .post-card,.post-list .post-card.post-tag-podkast,.post-nav.post-nav-related .blog-card.post-tag-podkast{border-color:rgba(184,148,232,.45)}
+body.tag-theme-podkast .post-list .post-card:hover,.post-list .post-card.post-tag-podkast:hover,.post-nav.post-nav-related .blog-card.post-tag-podkast:hover{border-color:#b894e8}
 
 @media (max-width: 900px){
   .post-list{grid-template-columns:1fr 1fr}

@@ -8,6 +8,7 @@
   <a class="tag-chip" href="tag-liderstvo.html">#лидерство</a>
   <a class="tag-chip" href="tag-tsennosti.html">#ценности</a>
   <a class="tag-chip" href="tag-keysy.html">#кейсы</a>
+  <a class="tag-chip" href="tag-podkast.html">#подкаст</a>
 </div>`;
 
   function injectHTML(container, html) {
@@ -126,7 +127,7 @@
   }
 
   async function loadTagSlugMap() {
-    const tags = ['knigi', 'liderstvo', 'tsennosti', 'keysy'];
+    const tags = ['knigi', 'liderstvo', 'tsennosti', 'keysy', 'podkast'];
     const map = new Map();
     const toSlugs = html => {
       const out = new Set();
@@ -151,7 +152,7 @@
   }
 
   function pickPrimaryTag(tags) {
-    const order = ['knigi', 'liderstvo', 'tsennosti', 'keysy'];
+    const order = ['knigi', 'liderstvo', 'tsennosti', 'keysy', 'podkast'];
     for (const t of order) {
       if ((tags || []).includes(t)) return t;
     }
@@ -163,6 +164,7 @@
     if (tag === 'liderstvo') return '#лидерство';
     if (tag === 'tsennosti') return '#ценности';
     if (tag === 'keysy') return '#кейсы';
+    if (tag === 'podkast') return '#подкаст';
     return '';
   }
 
@@ -743,11 +745,12 @@
 
   // Highlight active nav link
   const page = location.pathname.split('/').pop() || 'index.html';
-  const isTagPage = /^tag-(knigi|liderstvo|tsennosti|keysy)\.html$/.test(page);
+  const isTagPage = /^tag-(knigi|liderstvo|tsennosti|keysy|podkast)\.html$/.test(page);
   if (page === 'tag-knigi.html') document.body.classList.add('tag-theme-knigi');
   if (page === 'tag-liderstvo.html') document.body.classList.add('tag-theme-liderstvo');
   if (page === 'tag-tsennosti.html') document.body.classList.add('tag-theme-tsennosti');
   if (page === 'tag-keysy.html') document.body.classList.add('tag-theme-keysy');
+  if (page === 'tag-podkast.html') document.body.classList.add('tag-theme-podkast');
   const isPostPage = /\/posts\/[^/]+\.html$/.test(location.pathname);
   const isBlogPaginationPage = /\/blog\/page-\d+\.html$/.test(location.pathname);
   document.querySelectorAll('nav a.nav-link').forEach(a => {
