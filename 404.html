@@ -13,16 +13,36 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
+html, body { height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.e404-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--wrap-max, 720px);
+  margin: 0 auto;
+  padding: 60px 24px;
+  width: 100%;
+}
+
 .e404-num {
   font-family: 'Museo Sans', sans-serif;
   font-weight: 700;
-  font-size: clamp(5rem, 15vw, 10rem);
+  font-size: clamp(7rem, 22vw, 16rem);
   line-height: 1;
   letter-spacing: -.04em;
   color: var(--ink);
   position: relative;
   display: inline-block;
   animation: glitch 6s infinite;
+  margin-bottom: 12px;
 }
 .e404-num::before,
 .e404-num::after {
@@ -40,6 +60,7 @@
   clip-path: polygon(0 64%, 100% 64%, 100% 100%, 0 100%);
   animation: glitch-b 6s infinite;
 }
+
 @keyframes glitch {
   0%,90%,100% { transform: none }
   91% { transform: skewX(-3deg) }
@@ -48,36 +69,85 @@
 }
 @keyframes glitch-a {
   0%,90%,100% { transform: none; opacity: 0 }
-  91% { transform: translate(-4px, -2px); opacity: 1 }
+  91% { transform: translate(-4px,-2px); opacity: 1 }
   92% { transform: translate(4px, 2px); opacity: 1 }
   93% { opacity: 0 }
 }
 @keyframes glitch-b {
   0%,90%,100% { transform: none; opacity: 0 }
   91% { transform: translate(4px, 2px); opacity: 1 }
-  92% { transform: translate(-4px, -2px); opacity: 1 }
+  92% { transform: translate(-4px,-2px); opacity: 1 }
   93% { opacity: 0 }
+}
+
+.e404-label {
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+}
+
+.e404-title {
+  font-family: 'Museo Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.e404-sub {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.72;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.e404-sub em {
+  color: var(--ink);
+  font-style: normal;
+}
+
+.e404-home {
+  display: block;
+  margin-top: auto;
+  padding: 40px 24px;
+  max-width: var(--wrap-max, 720px);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.e404-home a {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.e404-home a:hover {
+  color: var(--ink);
+  border-color: var(--line);
 }
 </style>
 </head>
 <body>
 
-<div id="site-header"></div>
-
-<div class="wrap">
-  <div class="post-header">
-    <p class="post-date">Страница не найдена</p>
-    <div class="e404-num">404</div>
-  </div>
-
-  <div class="post-body">
-    <p>Эта страница ушла в операционку и не вернулась. Хорошие лидеры знают, куда идти дальше.</p>
-    <p><a href="/blog.html">Читать блог</a> · <a href="/">На главную</a></p>
-  </div>
+<div class="e404-wrap">
+  <div class="e404-num">404</div>
+  <p class="e404-label">Страница не найдена</p>
+  <p class="e404-title">Эта страница ушла в операционку<br>и не вернулась.</p>
+  <p class="e404-sub">Пока вы здесь — может, почитаете блог?<br>Там про культуру, лидерство и то, как строить <em>сильные команды</em>.</p>
+  <a href="/blog.html" class="btn">Читать блог <span class="btn-arrow" aria-hidden="true">→</span></a>
 </div>
 
-<div id="site-footer"></div>
+<div class="e404-home">
+  <a href="/">← Сергей Прусс — на главную</a>
+</div>
 
-<script src="components.js"></script>
 </body>
 </html>
