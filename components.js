@@ -360,7 +360,7 @@
       return `
         <a href="${post.slug}.html" class="post-nav-item ${variant}">
           <div class="post-nav-label">${escapeHtml(label)}</div>
-          <div class="post-nav-title">${escapeHtml(truncText(post.title, 120))}</div>
+          <div class="post-nav-title">${escapeHtml(truncText(post.title, 60))}</div>
         </a>`;
     }
 
