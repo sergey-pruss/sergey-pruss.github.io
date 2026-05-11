@@ -362,7 +362,7 @@
 .post-title{font-family:'Museo Sans',sans-serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;line-height:1.2}
 .post-body{padding-bottom:0}
 .post-tag{display:inline-block;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;transition:color .2s,border-color .2s}
-.post-tag:hover{color:var(--accent);border-color:var(--accent)}
+.post-tag:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
 .post-author{display:flex;align-items:center;gap:12px;margin-top:38px}
 .post-author-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:center top;border:1px solid var(--line);flex-shrink:0}
 .post-author-name{font-size:1.03rem;line-height:1.2;color:var(--ink);font-weight:500;margin-bottom:2px}
