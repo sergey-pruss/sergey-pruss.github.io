@@ -251,7 +251,7 @@ def build_blog_pages():
             cards(entries[:PER_PAGE]),
             pag_root(1),
             '',
-            'https://sergeypruss.ru/blog.html',
+            'https://sergeypruss.ru/blog',
             1
         ))
 
@@ -282,7 +282,7 @@ def build_sitemap():
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 
-    for url, lastmod, priority in [('', today, '1.0'), ('blog.html', today, '0.9'), ('feed.xml', today, '0.5')]:
+    for url, lastmod, priority in [('', today, '1.0'), ('blog', today, '0.9'), ('feed.xml', today, '0.5')]:
         lines.append(f'  <url>\n    <loc>{BASE}/{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <priority>{priority}</priority>\n  </url>')
 
     for i in range(2, total_pages + 1):
@@ -329,7 +329,7 @@ def build_feed():
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Блог Сергея Прусса</title>
-    <link>{BASE_URL}/blog.html</link>
+    <link>{BASE_URL}/blog</link>
     <description>{channel_desc}</description>
     <language>ru-RU</language>
     <lastBuildDate>{last_build}</lastBuildDate>
