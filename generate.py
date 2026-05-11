@@ -178,7 +178,7 @@ BLOG_HEAD = '''<!DOCTYPE html>
 }}
 </script>
 {metrika}
-<link rel="stylesheet" href="{styles_prefix}styles/site.css?v=11">
+<link rel="stylesheet" href="{styles_prefix}styles/site.css?v=12">
 <link rel="stylesheet" href="{styles_prefix}styles/site-components.css?v=4">
 </head>'''
 
