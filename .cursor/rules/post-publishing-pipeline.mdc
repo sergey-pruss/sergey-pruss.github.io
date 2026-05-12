@@ -7,8 +7,10 @@ alwaysApply: true
 
 - Treat `posts.js` as the source of truth for blog cards and order.
 - When adding a new post, update `posts.js` first (`slug`, `date`, `title`, `description`).
-- Regenerate pages with `python3 generate.py` after content updates.
-- Run `python3 typograph.py` after generation to normalize typography.
+- Regenerate pages with `python3 scripts/generate.py` after content updates.
+- Run `python3 scripts/typograph.py` after generation to normalize typography.
 - Keep `sitemap.xml` updated through the generator, do not edit it manually.
 - For HTML post files, preserve existing structural blocks (`post-header`, `post-body`, `post-nav`).
-- Before commit, verify no accidental deletions in `posts/`, `blog/`, or tag pages.
+- Before commit, verify no accidental deletions in `posts/`, `blog/`, `tags/`, or `_partials/`.
+- Tag pages live in `tags/` (e.g. `tags/knigi.html`), partials in `_partials/`.
+- Blog entry point is `blog/index.html` (URL: `/blog/`). `blog.html` in root is a redirect stub — do not edit.

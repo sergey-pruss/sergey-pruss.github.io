@@ -5,6 +5,8 @@
 """
 import re, os
 from datetime import datetime, timezone
+
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from email.utils import format_datetime
 from xml.sax.saxutils import escape as xml_escape
 
@@ -189,19 +191,21 @@ def build_blog_pages():
     total_pages = (total + PER_PAGE - 1) // PER_PAGE
 
     def pag_root(cur):
+        # blog/index.html is inside blog/, all pagination links are relative within blog/
         parts = ['<div class="pagination">']
-        if cur > 1: parts.append(f'<a href="{"blog.html" if cur==2 else f"blog/page-{cur-1}.html"}" class="page-btn">← Назад</a>')
+        if cur > 1: parts.append(f'<a href="{"index.html" if cur==2 else f"page-{cur-1}.html"}" class="page-btn">← Назад</a>')
         for i in range(1, total_pages+1):
-            parts.append(f'<a href="{"blog.html" if i==1 else f"blog/page-{i}.html"}" class="page-btn{"  active" if i==cur else ""}">{i}</a>')
-        if cur < total_pages: parts.append(f'<a href="blog/page-{cur+1}.html" class="page-btn">Вперёд →</a>')
+            parts.append(f'<a href="{"index.html" if i==1 else f"page-{i}.html"}" class="page-btn{"  active" if i==cur else ""}">{i}</a>')
+        if cur < total_pages: parts.append(f'<a href="page-{cur+1}.html" class="page-btn">Вперёд →</a>')
         parts.append('</div>'); return '\n'.join(parts)
 
     def pag_sub(cur):
+        # blog/page-N.html is inside blog/, all pagination links are relative within blog/
         parts = ['<div class="pagination">']
-        if cur > 1: parts.append(f'<a href="{"../blog.html" if cur==2 else f"../blog/page-{cur-1}.html"}" class="page-btn">← Назад</a>')
+        if cur > 1: parts.append(f'<a href="{"index.html" if cur==2 else f"page-{cur-1}.html"}" class="page-btn">← Назад</a>')
         for i in range(1, total_pages+1):
-            parts.append(f'<a href="{"../blog.html" if i==1 else f"../blog/page-{i}.html"}" class="page-btn{"  active" if i==cur else ""}">{i}</a>')
-        if cur < total_pages: parts.append(f'<a href="../blog/page-{cur+1}.html" class="page-btn">Вперёд →</a>')
+            parts.append(f'<a href="{"index.html" if i==1 else f"page-{i}.html"}" class="page-btn{"  active" if i==cur else ""}">{i}</a>')
+        if cur < total_pages: parts.append(f'<a href="page-{cur+1}.html" class="page-btn">Вперёд →</a>')
         parts.append('</div>'); return '\n'.join(parts)
 
     def cards(page_e, prefix=''):
@@ -215,7 +219,7 @@ def build_blog_pages():
         prev_link = ''
         next_link = ''
         if cur > 1:
-            prev_url = 'https://sergeypruss.ru/blog.html' if cur == 2 else f'https://sergeypruss.ru/blog/page-{cur-1}.html'
+            prev_url = 'https://sergeypruss.ru/blog/' if cur == 2 else f'https://sergeypruss.ru/blog/page-{cur-1}.html'
             prev_link = f'<link rel="prev" href="{prev_url}">'
         if cur < total_pages:
             next_url = f'https://sergeypruss.ru/blog/page-{cur+1}.html'
@@ -246,17 +250,17 @@ def build_blog_pages():
 <script src="{prefix}components.js"></script>
 </body></html>'''
 
-    with open('blog.html','w') as f:
+    os.makedirs('blog', exist_ok=True)
+    with open('blog/index.html','w') as f:
         f.write(page(
             'Блог — Сергей Прусс',
-            cards(entries[:PER_PAGE]),
+            cards(entries[:PER_PAGE], '../'),
             pag_root(1),
-            '',
-            'https://sergeypruss.ru/blog',
+            '../',
+            'https://sergeypruss.ru/blog/',
             1
         ))
 
-    os.makedirs('blog', exist_ok=True)
     for p in range(2, total_pages+1):
         with open(f'blog/page-{p}.html','w') as f:
             f.write(page(
@@ -283,7 +287,7 @@ def build_sitemap():
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 
-    for url, lastmod, priority in [('', today, '1.0'), ('blog', today, '0.9'), ('feed.xml', today, '0.5')]:
+    for url, lastmod, priority in [('', today, '1.0'), ('blog/', today, '0.9'), ('feed.xml', today, '0.5')]:
         lines.append(f'  <url>\n    <loc>{BASE}/{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <priority>{priority}</priority>\n  </url>')
 
     for i in range(2, total_pages + 1):

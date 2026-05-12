@@ -135,6 +135,26 @@ body {
   color: var(--ink);
   border-color: var(--line);
 }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 34px;
+  background: #e8e4de;
+  color: #141210;
+  text-decoration: none;
+  font-family: 'Museo Sans', sans-serif;
+  font-size: .98rem;
+  font-weight: 300;
+  letter-spacing: .03em;
+  border-radius: 4px;
+  transition: background .2s, transform .15s;
+}
+.btn:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
 </style>
 </head>
 <body>
@@ -144,7 +164,7 @@ body {
   <p class="e404-label">Страница не найдена</p>
   <p class="e404-title">Эта страница ушла в операционку<br>и не вернулась.</p>
   <p class="e404-sub">Пока вы здесь — может, почитаете блог?<br>Там про культуру, лидерство и то, как строить <em>сильные команды</em>.</p>
-  <a href="/blog.html" class="btn">Читать блог <span class="btn-arrow" aria-hidden="true">→</span></a>
+  <a href="/blog/" class="btn">Читать блог <span class="btn-arrow" aria-hidden="true">→</span></a>
 </div>
 
 <div class="e404-home">
