@@ -1,6 +1,5 @@
 (async function() {
-  const depth = location.pathname.split('/').filter(Boolean).length;
-  const prefix = depth >= 2 ? '../' : '';
+  const prefix = /^\/(blog|posts|tags)\//.test(location.pathname) ? '../' : '';
 
   /** Синхронно с _partials/tags-nav.html — подставляется, если fetch недоступен или файл не задеплоен */
   const TAG_NAV_HTML = `<div class="tag-nav">
