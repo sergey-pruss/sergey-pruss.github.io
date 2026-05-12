@@ -5,7 +5,7 @@
     <link>https://sergeypruss.ru/blog</link>
     <description>Заметки о культуре, управлении и бизнесе от Сергея Прусса — новые публикации блога.</description>
     <language>ru-RU</language>
-    <lastBuildDate>Tue, 12 May 2026 06:44:40 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 08:24:31 GMT</lastBuildDate>
     <atom:link href="https://sergeypruss.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Чек-лист как определить свои ценности и встроить их в работу команды</title>
@@ -125,13 +125,6 @@
       <guid isPermaLink="true">https://sergeypruss.ru/posts/gibkost.html</guid>
       <pubDate>Fri, 13 Feb 2026 12:00:00 GMT</pubDate>
       <description>Зачастую для руководителей пойти навстречу считается слабостью, делать уступки – тоже.</description>
-    </item>
-    <item>
-      <title>Мы обсудили важность сильных профессионалов в команде, вредное влияние на культуру неподходящих людей и ответственность за это руководителя. Перед тем как продолжить, хочу закончить давно начатую серию про важные качества лидера. Доводить дела до конца — тоже очень важное качество :)</title>
-      <link>https://sergeypruss.ru/posts/my-obsudili-vazhnost-silnykh-professionalov-v.html</link>
-      <guid isPermaLink="true">https://sergeypruss.ru/posts/my-obsudili-vazhnost-silnykh-professionalov-v.html</guid>
-      <pubDate>Wed, 11 Feb 2026 12:00:00 GMT</pubDate>
-      <description>Мы обсудили важность сильных профессионалов в команде, вредное влияние на культуру неподходящих люде</description>
     </item>
     <item>
       <title>Многим агентствам интересно делать только большие крутые сайты, а для нас важно не только создавать их, но и развивать и поддерживать. Мы любим это делать, и все клиенты, с которыми мы работаем на поддержке, с нами давно.</title>
@@ -706,6 +699,13 @@
       <guid isPermaLink="true">https://sergeypruss.ru/posts/bezopasnost.html</guid>
       <pubDate>Thu, 04 Aug 2022 12:00:00 GMT</pubDate>
       <description>В примере с «Тинькофф» мы увидели, что отсутствие безопасности может обесценивать крутые преимуществ…</description>
+    </item>
+    <item>
+      <title>Давно являюсь поклонником «Тинькофф», не раз упоминал в своих заметках, какие они крутые в дизайне и простоте. Но за последнее время они успели разочаровать меня.</title>
+      <link>https://sergeypruss.ru/posts/davno-yavlyayus-poklonnikom-tinkoff-ne-raz-up.html</link>
+      <guid isPermaLink="true">https://sergeypruss.ru/posts/davno-yavlyayus-poklonnikom-tinkoff-ne-raz-up.html</guid>
+      <pubDate>Thu, 28 Jul 2022 12:00:00 GMT</pubDate>
+      <description>Каждую покупку у них можно оформить в рассрочку, и эта услуга платная.</description>
     </item>
   </channel>
 </rss>
