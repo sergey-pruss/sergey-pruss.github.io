@@ -5,7 +5,7 @@
     <link>https://sergeypruss.ru/blog</link>
     <description>Заметки о культуре, управлении и бизнесе от Сергея Прусса — новые публикации блога.</description>
     <language>ru-RU</language>
-    <lastBuildDate>Tue, 12 May 2026 06:30:51 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 06:31:15 GMT</lastBuildDate>
     <atom:link href="https://sergeypruss.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Чек-лист как определить свои ценности и встроить их в работу команды</title>
@@ -666,13 +666,6 @@
       <description>Речь о стратегии, которая нацелена на создание постоянных клиентов.</description>
     </item>
     <item>
-      <title>Второй выпуск нашего подкаста «Мышеловки» с автором очень крутой книги о «Вкусвилл» Евгением Щепиным.</title>
-      <link>https://sergeypruss.ru/posts/vtoroy-vypusk-nashego-podkasta-myshelovki-s-a.html</link>
-      <guid isPermaLink="true">https://sergeypruss.ru/posts/vtoroy-vypusk-nashego-podkasta-myshelovki-s-a.html</guid>
-      <pubDate>Fri, 30 Jun 2023 12:00:00 GMT</pubDate>
-      <description>Второй выпуск нашего подкаста «Мышеловки» с автором очень крутой книги о «Вкусвилл» Евгением Щепиным</description>
-    </item>
-    <item>
       <title>«Не KPI что ли главное, а человек? Как такое может быть?»</title>
       <link>https://sergeypruss.ru/posts/ne-kpi-chto-li-glavnoe-a-chelovek-kak-takoe-m.html</link>
       <guid isPermaLink="true">https://sergeypruss.ru/posts/ne-kpi-chto-li-glavnoe-a-chelovek-kak-takoe-m.html</guid>
@@ -706,6 +699,13 @@
       <guid isPermaLink="true">https://sergeypruss.ru/posts/nokia-i-drugikh-sony-ericsson-motorola-otsuts.html</guid>
       <pubDate>Tue, 21 Mar 2023 12:00:00 GMT</pubDate>
       <description>Скорость развития инноваций у Apple была настолько высокой, что у Nokia просто не было шансов ее дог…</description>
+    </item>
+    <item>
+      <title>Скорость</title>
+      <link>https://sergeypruss.ru/posts/skorost.html</link>
+      <guid isPermaLink="true">https://sergeypruss.ru/posts/skorost.html</guid>
+      <pubDate>Tue, 07 Mar 2023 12:00:00 GMT</pubDate>
+      <description>Незадолго до пандемии уже было видно, как мир начал двигаться быстрее.</description>
     </item>
   </channel>
 </rss>
