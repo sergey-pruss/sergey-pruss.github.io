@@ -5,7 +5,7 @@
     <link>https://sergeypruss.ru/blog</link>
     <description>Заметки о культуре, управлении и бизнесе от Сергея Прусса — новые публикации блога.</description>
     <language>ru-RU</language>
-    <lastBuildDate>Tue, 12 May 2026 06:31:15 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 06:44:40 GMT</lastBuildDate>
     <atom:link href="https://sergeypruss.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Чек-лист как определить свои ценности и встроить их в работу команды</title>
@@ -365,13 +365,6 @@
       <description>Питер Друкер ввёл в обиход эту фразу, потому что видел, как даже самые сильные стратегии рушатся, ес…</description>
     </item>
     <item>
-      <title>Управляющая команда</title>
-      <link>https://sergeypruss.ru/posts/upravlyayuschaya-komanda.html</link>
-      <guid isPermaLink="true">https://sergeypruss.ru/posts/upravlyayuschaya-komanda.html</guid>
-      <pubDate>Tue, 11 Mar 2025 12:00:00 GMT</pubDate>
-      <description>За последний год наше агентство значительно изменилось.</description>
-    </item>
-    <item>
       <title>Недавно записали «Мышеловку» с Максимом Спиридоновым. В этот же день, у него на YouTube вышло интервью с Дмитрием Зацепиным — человеком, который построил успешную самоуправляемую компанию в нефтегазе(!).</title>
       <link>https://sergeypruss.ru/posts/nedavno-zapisali-myshelovku-s-maksimom-spirid.html</link>
       <guid isPermaLink="true">https://sergeypruss.ru/posts/nedavno-zapisali-myshelovku-s-maksimom-spirid.html</guid>
@@ -468,13 +461,6 @@
       <guid isPermaLink="true">https://sergeypruss.ru/posts/tselvideniemissiya.html</guid>
       <pubDate>Tue, 16 Jul 2024 12:00:00 GMT</pubDate>
       <description>Большинство компаний могут предложить сотрудникам только деньги, и многие люди идут туда, пока их ми</description>
-    </item>
-    <item>
-      <title>Эффективное управление</title>
-      <link>https://sergeypruss.ru/posts/effektivnoe-upravlenie.html</link>
-      <guid isPermaLink="true">https://sergeypruss.ru/posts/effektivnoe-upravlenie.html</guid>
-      <pubDate>Fri, 12 Jul 2024 12:00:00 GMT</pubDate>
-      <description>Я много говорю о том, кто такой хороший лидер, как строить сильные команды и почему руководителю важ…</description>
     </item>
     <item>
       <title>Потенциал команды: сила в единстве или в личности?</title>
@@ -706,6 +692,20 @@
       <guid isPermaLink="true">https://sergeypruss.ru/posts/skorost.html</guid>
       <pubDate>Tue, 07 Mar 2023 12:00:00 GMT</pubDate>
       <description>Незадолго до пандемии уже было видно, как мир начал двигаться быстрее.</description>
+    </item>
+    <item>
+      <title>Я решил стать пользователем каршеринга и продал машину. Скачал приложения «Ситидрайв» и «Яндекс.Драйв». Яндекс аккредитовал меня сразу, а Ситидрайв делал это две недели. Но за это время я уже успел привыкнуть к Яндекс.Драйву.</title>
+      <link>https://sergeypruss.ru/posts/ya-reshil-stat-polzovatelem-karsheringa-i-pro.html</link>
+      <guid isPermaLink="true">https://sergeypruss.ru/posts/ya-reshil-stat-polzovatelem-karsheringa-i-pro.html</guid>
+      <pubDate>Wed, 10 Aug 2022 12:00:00 GMT</pubDate>
+      <description>Один раз я заказал маленькую пиццу в «Додо Пицца», но они привезли ее на пять минут позже, чем обеща…</description>
+    </item>
+    <item>
+      <title>Безопасность</title>
+      <link>https://sergeypruss.ru/posts/bezopasnost.html</link>
+      <guid isPermaLink="true">https://sergeypruss.ru/posts/bezopasnost.html</guid>
+      <pubDate>Thu, 04 Aug 2022 12:00:00 GMT</pubDate>
+      <description>В примере с «Тинькофф» мы увидели, что отсутствие безопасности может обесценивать крутые преимуществ…</description>
     </item>
   </channel>
 </rss>
