@@ -203,6 +203,7 @@
   .cta-price { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 22px; }
   .cta-price span { color: var(--ink); }
   .btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 34px; background: var(--ink); color: var(--bg); text-decoration: none; font-family: 'Museo Sans', sans-serif; font-size: .98rem; font-weight: 300; letter-spacing: .03em; transition: background .2s, transform .15s; border-radius: var(--ui-radius); }
+  .btn:visited { color: var(--bg); }
   .btn:hover { background: var(--accent); transform: translateY(-1px); cursor: pointer; }
 
   .floating-contact-btn {
