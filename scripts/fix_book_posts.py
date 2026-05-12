@@ -8,7 +8,7 @@ import os
 import re
 import subprocess
 
-BASE = os.path.dirname(os.path.abspath(__file__))
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POSTS = os.path.join(BASE, "posts")
 
 # Минимальная длина левой части заголовка после разреза

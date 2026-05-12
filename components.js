@@ -2,13 +2,13 @@
   const depth = location.pathname.split('/').filter(Boolean).length;
   const prefix = depth >= 2 ? '../' : '';
 
-  /** Синхронно с tags.html — подставляется, если fetch недоступен или файл не задеплоен */
+  /** Синхронно с _partials/tags-nav.html — подставляется, если fetch недоступен или файл не задеплоен */
   const TAG_NAV_HTML = `<div class="tag-nav">
-  <a class="tag-chip" href="tag-knigi.html">#книги</a>
-  <a class="tag-chip" href="tag-liderstvo.html">#лидерство</a>
-  <a class="tag-chip" href="tag-tsennosti.html">#ценности</a>
-  <a class="tag-chip" href="tag-keysy.html">#кейсы</a>
-  <a class="tag-chip" href="tag-podkast.html">#подкаст</a>
+  <a class="tag-chip" href="tags/knigi.html">#книги</a>
+  <a class="tag-chip" href="tags/liderstvo.html">#лидерство</a>
+  <a class="tag-chip" href="tags/tsennosti.html">#ценности</a>
+  <a class="tag-chip" href="tags/keysy.html">#кейсы</a>
+  <a class="tag-chip" href="tags/podkast.html">#подкаст</a>
 </div>`;
 
   function injectHTML(container, html) {
@@ -49,7 +49,7 @@
     if (!el) return;
     let html = TAG_NAV_HTML;
     try {
-      const r = await fetch(prefix + 'tags.html');
+      const r = await fetch(prefix + '_partials/tags-nav.html');
       if (r.ok) {
         const t = (await r.text()).trim();
         if (t) html = t;
@@ -93,7 +93,7 @@
   async function loadAuthorBlockTemplate() {
     if (authorBlockTemplateCache !== null) return authorBlockTemplateCache;
     try {
-      const r = await fetch(prefix + 'author-block.html');
+      const r = await fetch(prefix + '_partials/author-block.html');
       if (!r.ok) {
         authorBlockTemplateCache = '';
         return authorBlockTemplateCache;
@@ -138,7 +138,7 @@
     };
     await Promise.all(tags.map(async tag => {
       try {
-        const r = await fetch(`${prefix}tag-${tag}.html`);
+        const r = await fetch(`${prefix}tags/${tag}.html`);
         if (!r.ok) return;
         const html = await r.text();
         toSlugs(html).forEach(slug => {
@@ -596,7 +596,7 @@
     const dateText = dateEl.textContent.trim();
     const link = document.createElement('a');
     link.className = 'post-date-link';
-    link.href = `${prefix}blog.html`;
+    link.href = `${prefix}blog/`;
     link.textContent = '← Все посты';
     const value = document.createElement('span');
     value.className = 'post-date-value';
@@ -643,7 +643,7 @@
     }
 
     const isBookPost = Boolean(
-      body.querySelector('.post-tag[href*="tag-knigi.html"], .post-tag[href$="tag-knigi.html"]')
+      body.querySelector('.post-tag[href*="tags/knigi.html"], .post-tag[href$="tags/knigi.html"]')
     );
     if (isBookPost || isAuthorAfterContentPost()) {
       const nav = document.querySelector('.post-nav');
@@ -662,7 +662,7 @@
     const body = document.querySelector('.post-body');
     if (!body) return;
     const isBookPost = Boolean(
-      body.querySelector('.post-tag[href*="tag-knigi.html"], .post-tag[href$="tag-knigi.html"]')
+      body.querySelector('.post-tag[href*="tags/knigi.html"], .post-tag[href$="tags/knigi.html"]')
     );
     if (isBookPost || isAuthorAfterContentPost()) {
       const row = body.querySelector('.post-meta-row');
@@ -705,8 +705,8 @@
   ensureSharedStylesheet();
   injectFAQSchemaFromEmbeddedJson();
   ensureRSSAlternateLink();
-  await load('#site-header', 'header.html?v=5');
-  await load('#site-footer', 'footer.html');
+  await load('#site-header', '_partials/header.html?v=5');
+  await load('#site-footer', '_partials/footer.html');
   await loadTagNav();
   const postsData = await loadPostsData();
   const tagSlugMap = await loadTagSlugMap();
@@ -734,31 +734,28 @@
     }
   });
 
-  const pageFile = location.pathname.split('/').pop() || 'index.html';
-  if (/^tag-[^/]+\.html$/.test(pageFile)) {
+  // Tag pages are now at /tags/slug.html
+  const tagSlug = (location.pathname.match(/\/tags\/([^/]+)\.html$/) || [])[1] || null;
+  const isTagPage = tagSlug !== null;
+  if (isTagPage) {
     document.querySelectorAll('.tag-nav .tag-chip').forEach(a => {
-      const chipHref = (a.getAttribute('href') || '').replace(/^\.\.\//, '');
-      const chipFile = chipHref.split('/').pop();
-      if (chipFile === pageFile) a.classList.add('active');
+      const chipSlug = (a.getAttribute('href') || '').replace(/^(\.\.\/)*tags\//, '').replace('.html', '');
+      if (chipSlug === tagSlug) a.classList.add('active');
     });
+    document.body.classList.add(`tag-theme-${tagSlug}`);
   }
 
   // Highlight active nav link
   const page = location.pathname.split('/').pop() || 'index.html';
-  const isTagPage = /^tag-(knigi|liderstvo|tsennosti|keysy|podkast)\.html$/.test(page);
-  if (page === 'tag-knigi.html') document.body.classList.add('tag-theme-knigi');
-  if (page === 'tag-liderstvo.html') document.body.classList.add('tag-theme-liderstvo');
-  if (page === 'tag-tsennosti.html') document.body.classList.add('tag-theme-tsennosti');
-  if (page === 'tag-keysy.html') document.body.classList.add('tag-theme-keysy');
-  if (page === 'tag-podkast.html') document.body.classList.add('tag-theme-podkast');
   const isPostPage = /\/posts\/[^/]+\.html$/.test(location.pathname);
+  const isBlogIndexPage = /\/blog\/(index\.html)?$/.test(location.pathname);
   const isBlogPaginationPage = /\/blog\/page-\d+\.html$/.test(location.pathname);
   document.querySelectorAll('nav a.nav-link').forEach(a => {
     const href = (a.getAttribute('href') || '').replace('../', '');
     if (
       href === page ||
       (page === '' && href === 'index.html') ||
-      ((isTagPage || isPostPage || isBlogPaginationPage) && href === 'blog.html')
+      ((isTagPage || isPostPage || isBlogPaginationPage || isBlogIndexPage) && (href === 'blog/' || href === 'blog/index.html'))
     ) {
       a.style.color = 'var(--accent)';
       a.style.borderBottomColor = 'var(--accent)';

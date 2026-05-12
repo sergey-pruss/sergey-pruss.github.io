@@ -2,52 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sergeypruss.ru/</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sergeypruss.ru/blog</loc>
-    <lastmod>2026-05-01</lastmod>
+    <loc>https://sergeypruss.ru/blog/</loc>
+    <lastmod>2026-05-12</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sergeypruss.ru/tag-knigi.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/tag-liderstvo.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/tag-podkast.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/tag-keysy.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/tag-tsennosti.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.6</priority>
+    <loc>https://sergeypruss.ru/feed.xml</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sergeypruss.ru/blog/page-2.html</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sergeypruss.ru/blog/page-3.html</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sergeypruss.ru/blog/page-4.html</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -133,6 +113,11 @@
   <url>
     <loc>https://sergeypruss.ru/posts/gibkost.html</loc>
     <lastmod>2026-02-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergeypruss.ru/posts/my-obsudili-vazhnost-silnykh-professionalov-v.html</loc>
+    <lastmod>2026-02-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -300,7 +285,11 @@
     <lastmod>2025-03-13</lastmod>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://sergeypruss.ru/posts/upravlyayuschaya-komanda.html</loc>
+    <lastmod>2025-03-11</lastmod>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://sergeypruss.ru/posts/nedavno-zapisali-myshelovku-s-maksimom-spirid.html</loc>
     <lastmod>2025-03-03</lastmod>
@@ -417,6 +406,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sergeypruss.ru/posts/esli-vy-khotite-postroit-korabl.html</loc>
+    <lastmod>2024-05-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sergeypruss.ru/posts/dolgosrochnaya-rabota-s-klientom-nevozmozhna-.html</loc>
     <lastmod>2024-05-06</lastmod>
     <priority>0.8</priority>
@@ -447,6 +441,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sergeypruss.ru/posts/ili-vy-organizatsiya-upravlyaemaya-odnim-chel.html</loc>
+    <lastmod>2024-03-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sergeypruss.ru/posts/lider-i-plemya.html</loc>
     <lastmod>2024-03-14</lastmod>
     <priority>0.8</priority>
@@ -467,6 +466,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sergeypruss.ru/posts/stal-vesti-instagram-delyus-svoey-zhiznyu-opy.html</loc>
+    <lastmod>2024-01-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sergeypruss.ru/posts/uzhe-gotov-post-pro-to-chto-predprinimaet-nas.html</loc>
     <lastmod>2023-12-14</lastmod>
     <priority>0.8</priority>
@@ -482,6 +486,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sergeypruss.ru/posts/zabyl-rasskazat-o-novom-vypuske-podkasta-mysh.html</loc>
+    <lastmod>2023-08-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sergeypruss.ru/posts/mnogie-kompanii-fokusiruyutsya-na-denezhnom-p.html</loc>
     <lastmod>2023-08-29</lastmod>
     <priority>0.8</priority>
@@ -489,6 +498,11 @@
   <url>
     <loc>https://sergeypruss.ru/posts/vy-navernoe-zametili-chto-v-poslednikh-zametk.html</loc>
     <lastmod>2023-07-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergeypruss.ru/posts/vtoroy-vypusk-nashego-podkasta-myshelovki-s-a.html</loc>
+    <lastmod>2023-06-30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -564,6 +578,11 @@
   <url>
     <loc>https://sergeypruss.ru/posts/rekomenduyu-interesnyy-podkast-dve-nasti-pro-.html</loc>
     <lastmod>2022-05-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergeypruss.ru/posts/rasskazal-pro-kulturu-serenity-v-podkaste-mek.html</loc>
+    <lastmod>2022-04-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -752,6 +771,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sergeypruss.ru/posts/esli-prodolzhaete-dumat-nad-formulirovaniem-s.html</loc>
+    <lastmod>2021-04-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sergeypruss.ru/posts/my-pogovorili-o-tom-kak-opredelyat-pravilnykh.html</loc>
     <lastmod>2021-04-01</lastmod>
     <priority>0.8</priority>
@@ -790,45 +814,5 @@
     <loc>https://sergeypruss.ru/posts/osnovnoy-instrument-dlya-razvitiya-komandy-et.html</loc>
     <lastmod>2021-02-08</lastmod>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/vtoroy-vypusk-nashego-podkasta-myshelovki-s-a.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/esli-vy-khotite-postroit-korabl.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/ili-vy-organizatsiya-upravlyaemaya-odnim-chel.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/rasskazal-pro-kulturu-serenity-v-podkaste-mek.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/stal-vesti-instagram-delyus-svoey-zhiznyu-opy.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/zabyl-rasskazat-o-novom-vypuske-podkasta-mysh.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/esli-prodolzhaete-dumat-nad-formulirovaniem-s.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://sergeypruss.ru/posts/my-obsudili-vazhnost-silnykh-professionalov-v.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <priority>0.5</priority>
   </url>
 </urlset>

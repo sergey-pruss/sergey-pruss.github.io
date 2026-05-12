@@ -5,6 +5,8 @@
 """
 import re, os, sys
 
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 NBSP = '\u00a0'
 
 def typograph_text(text):
