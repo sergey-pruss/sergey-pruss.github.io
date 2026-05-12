@@ -3,3 +3,5 @@
 .env
 .cursor/mcp.json
 .mcp.json
+# MCP-секреты (ключи GSC и т.п.) — не коммитить
+secrets/
