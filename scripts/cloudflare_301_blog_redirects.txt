@@ -1,0 +1,10 @@
+Настоящие HTTP 301 с GitHub Pages из репозитория не отдаются: нужен прокси (чаще всего Cloudflare перед Pages).
+
+Если зона sergeypruss.ru в Cloudflare, добавьте Single Redirects или Bulk Redirects (статус 301, «Preserve query string» — по желанию):
+
+  /blog        → https://sergeypruss.ru/blog/
+  /blog.html   → https://sergeypruss.ru/blog/
+
+После включения правил проверьте в curl: curl -sI https://sergeypruss.ru/blog | grep -i location
+
+Ожидается: HTTP/2 301 и Location: https://sergeypruss.ru/blog/

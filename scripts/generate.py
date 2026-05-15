@@ -170,7 +170,7 @@ BLOG_HEAD = '''<!DOCTYPE html>
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": "Блог Сергея Прусса",
-  "url": "https://sergeypruss.ru/blog",
+  "url": "https://sergeypruss.ru/blog/",
   "description": "Заметки о культуре, управлении и бизнесе от Сергея Прусса",
   "publisher": {{
     "@type": "Person",
@@ -334,7 +334,7 @@ def build_feed():
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Блог Сергея Прусса</title>
-    <link>{BASE_URL}/blog</link>
+    <link>{BASE_URL}/blog/</link>
     <description>{channel_desc}</description>
     <language>ru-RU</language>
     <lastBuildDate>{last_build}</lastBuildDate>

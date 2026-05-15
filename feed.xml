@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Блог Сергея Прусса</title>
-    <link>https://sergeypruss.ru/blog</link>
+    <link>https://sergeypruss.ru/blog/</link>
     <description>Заметки о культуре, управлении и бизнесе от Сергея Прусса — новые публикации блога.</description>
     <language>ru-RU</language>
-    <lastBuildDate>Tue, 12 May 2026 08:24:31 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2026 13:29:57 GMT</lastBuildDate>
     <atom:link href="https://sergeypruss.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Чек-лист как определить свои ценности и встроить их в работу команды</title>
